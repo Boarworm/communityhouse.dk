@@ -1,0 +1,23 @@
+1.0.0:
+    - First version of Magic Forms
+    - create_records_table.php
+1.0.1:
+    - Fix invisible recaptcha issue with inline validation
+    - Improve success and error message in component by providing a text inspector type instead of string
+1.0.2:
+    - Don't load filepond scripts if file upload is disabled
+1.0.3:
+    - Fix compatibility with october CMS 3.6
+1.0.4:
+    - Sender email not mandatory anymore in autoresponse notification. If not specied, global email configuration will be used.
+2.0.0:
+    - Make it possible to inject filepond partial using ajax.
+    - There are breaking changes in filepond partial to make it possible, you probably have to update your partial if you overrided it in your theme.
+2.0.1:
+    - Let filepond also work without turbo
+2.0.2:
+    - Add an advanced option in the component to save submitted data in session, session name will have the following pattern "{{ component.alias }}-form"
+2.0.3:
+    - Fix variable typo of 2.0.2 update
+2.0.4:
+    - Add migration console commande from Martin.forms, thanks to @tomaszstrojny

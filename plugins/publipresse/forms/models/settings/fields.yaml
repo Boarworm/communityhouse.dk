@@ -1,0 +1,45 @@
+tabs:
+    fields:
+
+        _recaptcha_help:
+            type: hint
+            mode: info
+            label: How to configure
+            tab: reCAPTCHA
+            comment: |
+                * Go to https://www.google.com/recaptcha/admin
+                * Register a new site, set Label and Domains
+                * Copy/paste "Site key" & "Secret key"
+
+        recaptcha_site_key:
+            label: Site key
+            span: left
+            tab: reCAPTCHA
+
+        recaptcha_secret_key:
+            label: Secret key
+            span: right
+            tab: reCAPTCHA
+
+        _gdpr_help:
+            type: hint
+            mode: info
+            label: Information
+            tab: Gdpr
+            comment: New GDPR law in Europe, you can't keep records undefinitely, need to clear them after a certain period of time depending on your needs
+
+        gdpr_enable:
+            label: Enable Gdpr
+            type: switch
+            default: false
+            tab: Gdpr
+
+        gdpr_days:
+            label: Keep records for a maximum of X days
+            span: left
+            default: 120
+            tab: Gdpr
+            trigger:
+                action: show
+                field: gdpr_enable
+                condition: checked
