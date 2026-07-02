@@ -1,0 +1,33 @@
+uuid: testimonials-testimonials
+handle: Testimonials\Testimonial
+type: structure
+name: Testimonials
+multisite: true
+
+structure:
+    maxDepth: 1
+
+primaryNavigation:
+    label: Testimonials
+    icon: icon-comments-o
+    order: 260
+
+customMessages:
+    buttonCreate: Create Testimonial
+
+fields:
+    headline:
+        label: Headline
+        translatable: true
+    text:
+        label: Text
+        type: textarea
+        size: small
+        translatable: true
+    company:
+        label: Company
+        span: auto
+    video_url:
+        label: YouTube Embed URL
+        comment: "Open your video on YouTube → click Share → Embed → copy the 'src' URL (e.g. https://www.youtube.com/embed/VIDEO_ID)"
+        span: auto

@@ -1,0 +1,82 @@
+{% set extremePagesLimit = data.extremePagesLimit|default(1) %}
+{% set nearbyPagesLimit = data.nearbyPagesLimit|default(1) %}
+{% set showPrevNext = data.showPrevNext|default(true) %}
+{% set showFirstLast = data.showFirstLast|default(false) %}
+
+{% set classItem = '' %}
+{% set classItemLink = 'text-white p-0 w-8 h-8 no-underline text-center cursor-pointer box-border flex items-center justify-center transition bg-primary hover:bg-secondary md:w-10 md:h-10' %}
+{% set classActive = 'bg-secondary cursor-not-allowed' %}
+{% set classDisabled = '!bg-gray-300 cursor-not-allowed' %}
+{% set classPrevNext = 'text-white p-0 w-8 h-8 no-underline text-center cursor-pointer box-border flex items-center justify-center transition bg-primary hover:bg-secondary md:w-10 md:h-10' %}
+{% set classFirstLast = 'text-2xl text-white p-0 w-8 h-8 no-underline text-center cursor-pointer box-border flex items-center justify-center transition bg-primary hover:bg-secondary md:w-10 md:h-10' %}
+{% set classDots = 'text-primary p-0 w-8 h-8 no-underline text-center box-border flex items-center justify-center md:w-10 md:h-10' %}
+
+{% if paginator.currentPage > paginator.lastPage %}{% do abort(404) %}{% endif %}
+{% if input('page') == 1 %}{% do redirect(paginator.path) %}{% endif %}
+
+{% if paginator.hasPages %}
+    <ul data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="flex justify-center {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+        {#- - Previous Page Link - -#}
+        {% if paginator.onFirstPage %}
+            <li class="{{ classItem }}" aria-disabled="true" aria-label="{{ 'system::lang.pagination.previous'|trans }}">
+                <span class="{{ [classItemLink, classFirstLast, classDisabled]|join(' ') }}" aria-hidden="true">
+                    {% partial "blocks/icon-svg/icon-svg" data = {
+                        cssClasses: "w-4 h-4 fill-white",
+                        name: "chevron-left"
+                    } %}
+                </span>
+            </li>
+        {% else %}
+            <li class="{{ classItem }}">
+                <a class="{{ [classItemLink, classFirstLast]|join(' ') }}" href="{{ paginator.path }}" rel="prev" aria-label="{{ 'system::lang.pagination.previous'|trans }}">
+                    {% partial "blocks/icon-svg/icon-svg" data = {
+                        cssClasses: "w-4 h-4 fill-white",
+                        name: "chevron-left"
+                    } %}
+                </a>
+            </li>
+        {% endif %}
+
+        {#- - Pagination Elements - -#}
+        {% for element in elements %}
+            {% if element is iterable %}
+                {#- - Array Of Links - -#}
+                {% for page, url in element %}
+                    {% if page == paginator.currentPage %}
+                        <li class="{{ classItem }}" aria-current="page">
+                            <span class="{{ [classItemLink, classActive]|join(' ') }}">{{ page }}</span></li>
+                    {% else %}
+                        <li class="{{ classItem }}">
+                            <a class="{{ classItemLink }}" href="{{ page == 1 ? paginator.path : url }}">{{ page }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                {#- - "Three Dots" Separator - -#}
+                <li class="{{ classDots }}" aria-disabled="true"><span class="{{ classItemLink }}">{{ element }}</span>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        {#- - Next Page Link - -#}
+        {% if paginator.hasMorePages %}
+            <li class="{{ classItem }}">
+                <a class="{{ [classItemLink, classFirstLast]|join(' ') }}" href="{{ paginator.nextPageUrl }}" rel="next" aria-label="{{ 'system::lang.pagination.next'|trans }}">
+                    {% partial "blocks/icon-svg/icon-svg" data = {
+                        cssClasses: "w-4 h-4 fill-white",
+                        name: "chevron-right"
+                    } %}
+                </a>
+            </li>
+        {% else %}
+            <li class="{{ classItem }}" aria-disabled="true" aria-label="{{ 'system::lang.pagination.next'|trans }}">
+                <span class="{{ [classItemLink, classFirstLast, classDisabled]|join(' ') }}" aria-hidden="true">
+                    {% partial "blocks/icon-svg/icon-svg" data = {
+                        cssClasses: "w-4 h-4 fill-white",
+                        name: "chevron-right"
+                    } %}
+                </span>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

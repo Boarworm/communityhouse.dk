@@ -1,0 +1,52 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} relative overflow-hidden flex flex-col py-10 xl:py-20" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}>
+    {% partial "blocks/image/image" data = {
+        cssClasses: "absolute w-full h-full top-0 left-0 "~data.bg_image.cssClasses,
+        imgCssClasses: "object-cover h-full w-full "~data.bg_image.imgCssClasses,
+        src: data.bg_image.src|default("assets/images/placeholder.jpg"|theme),
+        resize: data.bg_image.resize,
+        attributes: data.bg_image.attributes,
+        imgAttributes: data.bg_image.imgAttributes
+    } %}
+    <div class="container-narrow md:grid md:grid-cols-2 md:gap-6 md:items-center lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] xl:gap-20">
+        <div class="relative">
+            {% if data.headline %}
+                {% partial "blocks/headline/headline" data = {
+                    cssClasses: "",
+                    tag: "h2",
+                    text: data.headline,
+                    color: "light",
+                    size: "h2",
+                    variant: "",
+                    attributes: {}
+                } %}
+            {% endif %}
+            {% if data.text %}
+                <div class="prose prose-invert text-white mt-6">{{ data.text|raw }}</div>
+            {% endif %}
+            {% if data.button.body %}
+                {% partial "blocks/button/button" data = {
+                    cssClasses: "mt-6 "~data.button.cssClasses,
+                    tag: data.button.tag,
+                    body: data.button.body,
+                    variant: data.button.variant,
+                    color: data.button.color,
+                    size: data.button.size,
+                    attributes: data.button.attributes
+                } %}
+            {% endif %}
+        </div>
+        <div class="relative hidden md:flex p-6 pr-3 pb-0 xl:p-10 xl:pr-5">
+            <div class="relative w-full bg-primary-light">
+                <div class="w-full h-full absolute border-2 border-white -right-3 -top-3 xl:-right-5 xl:-top-5"></div>
+                {% partial "blocks/image/image" data = {
+                    cssClasses: "w-full h-auto relative -left-6 -top-6 xl:-left-10 xl:-top-10 "~data.image.cssClasses,
+                    imgCssClasses: "w-full h-full "~data.image.imgCssClasses,
+                    src: data.image.src|default("assets/images/placeholder.jpg"|theme),
+                    resize: data.image.resize,
+                    attributes: data.image.attributes,
+                    imgAttributes: data.image.imgAttributes
+                } %}
+            </div>
+        </div>
+    </div>
+</div>

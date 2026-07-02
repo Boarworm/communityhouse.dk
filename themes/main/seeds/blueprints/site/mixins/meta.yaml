@@ -1,0 +1,21 @@
+uuid: site_mixins_meta
+handle: Site\Mixins\Meta
+type: mixin
+name: SEO
+
+fields:
+    meta_title:
+        tab: SEO
+        label: Title
+        type: text
+        column: invisible
+        span: full
+        translatable: true
+    meta_description:
+        tab: SEO
+        label: Description
+        type: textarea
+        size: tiny
+        column: invisible
+        span: full
+        translatable: true

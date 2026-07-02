@@ -1,0 +1,10 @@
+[
+	{
+		"id": 1,
+        "is_enabled": 1,
+        "slug": "404",
+		"title": "Error 404",
+		"meta_title": "Error 404 - Page Not Found",
+		"meta_description": "Error 404 - Page Not Found."
+	}
+]

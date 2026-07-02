@@ -1,0 +1,58 @@
+uuid: builder_blocks_headline
+handle: Builder\Blocks\Headline
+type: mixin
+name: Headline
+fields:
+    text:
+        tab: Content
+        label: Text
+        type: text
+        span: auto
+        translatable: true
+    color:
+        tab: Content
+        label: Color
+        type: dropdown
+        span: auto
+        options:
+            dark: Dark
+            light: Light
+            primary: Primary
+            secondary: Secondary
+        default: secondary
+    tag:
+        tab: Content
+        label: Tag
+        type: dropdown
+        span: auto
+        options:
+            h1: h1
+            h2: h2
+            h3: h3
+            h4: h4
+            h5: h5
+            h6: h6
+        default: h2
+    size:
+        tab: Content
+        label: Size
+        type: dropdown
+        span: auto
+        options:
+            h1: h1
+            h2: h2
+            h3: h3
+            h4: h4
+            h5: h5
+            h6: h6
+        default: h2
+    block_name:
+        label: Name
+        tab: Block properties
+        commentAbove: "Block name for organization purposes"
+        type: text
+        span: auto
+        default: Headline
+    _advanced_content:
+        type: mixin
+        source: Builder\Mixins\BlockAdvanced

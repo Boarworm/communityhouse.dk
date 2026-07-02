@@ -1,0 +1,34 @@
+uuid: menu_header
+handle: Menu\Header
+type: structure
+name: Header
+drafts: false
+multisite: true
+pagefinder: false
+
+primaryNavigation:
+    label: Menus
+    icon: icon-bars
+    order: 220
+
+navigation:
+    icon: icon-bars
+    parent: Menu\Header
+    order: 20
+
+structure:
+    maxDepth: 10
+    showSorting: false
+
+customMessages:
+    buttonCreate: Add item
+
+fields:
+    _item:
+        type: mixin
+        source: Menu\Mixins\Item
+
+columns:
+    title: true
+    url: URL
+    external: External

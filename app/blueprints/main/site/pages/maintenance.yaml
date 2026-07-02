@@ -1,0 +1,22 @@
+uuid: site_pages_maintenance
+handle: Site\Pages\Maintenance
+type: single
+name: Maintenance
+multisite: true
+
+navigation:
+    parent: Site\Pages\Home
+    order: 210
+
+fields:
+    title:
+        placeholder: Title
+    text:
+        tab: Content
+        label: Text
+        type: richeditor
+        span: full
+        translatable: true
+    _meta:
+        type: mixin
+        source: Site\Mixins\Meta

@@ -1,0 +1,16 @@
+uuid: site_pages_blog
+handle: Site\Pages\Blog
+type: single
+name: Blog
+multisite: true
+
+navigation:
+    parent: Site\Pages\Home
+    order: 30
+
+fields:
+    title:
+        placeholder: Title
+    _meta:
+        type: mixin
+        source: Site\Mixins\Meta

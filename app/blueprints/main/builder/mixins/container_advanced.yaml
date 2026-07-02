@@ -1,0 +1,120 @@
+uuid: builder_mixins_container_advanced
+handle: Builder\Mixins\ContainerAdvanced
+type: mixin
+name: Container Advanced Fields
+
+fields:
+    container_name:
+        label: Name
+        tab: Container properties
+        commentAbove: "Block name for organization purposes"
+        type: text
+        span: full
+        default: Container
+    container_style:
+        tab: Container properties
+        label: Container style
+        commentAbove: See Docs tab for details
+        type: dropdown
+        span: auto
+        options:
+            normal: Normal
+            narrow: Narrow
+            fluid: Fluid
+            none: None (full width)
+        default: none
+    gap_y:
+        tab: Container properties
+        label: Vertical indent
+        commentAbove: Vertical indentation between container blocks
+        type: dropdown
+        span: auto
+        options:
+            none: ...
+            small: Small
+            medium: Medium
+            large: Large
+        default: small
+    css_classes:
+        tab: Container properties
+        label: CSS Classes
+        commentAbove: Custom CSS classes (usually used to add custom styles)
+        span: auto
+    html_anchor:
+        label: ID/Anchor
+        tab: Container properties
+        commentAbove: Unique container identifier (usually used as an anchor link)
+        type: text
+        validation: alpha_dash
+        span: auto
+    margins:
+        tab: Container properties
+        label: Margin
+        commentAbove: The outer space above and below the container.
+        type: datatable
+        adding: true
+        deleting: false
+        toolbar: false
+        span: auto
+        columns:
+            top:
+                title: Top
+                type: dropdown
+                options:
+                    none: ...
+                    small: Small
+                    medium: Medium
+                    large: Large
+            bottom:
+                title: Bottom
+                type: dropdown
+                options:
+                    none: ...
+                    small: Small
+                    medium: Medium
+                    large: Large
+        recordsPerPage: false
+        searching: false
+    paddings:
+        tab: Container properties
+        label: Padding
+        commentAbove: The inner space on top and bottom of the container.
+        type: datatable
+        adding: true
+        deleting: false
+        toolbar: false
+        span: auto
+        columns:
+            top:
+                title: Top
+                type: dropdown
+                options:
+                    none: ...
+                    small: Small
+                    medium: Medium
+                    large: Large
+            bottom:
+                title: Bottom
+                type: dropdown
+                options:
+                    none: ...
+                    small: Small
+                    medium: Medium
+                    large: Large
+        recordsPerPage: false
+        searching: false
+    bg_color:
+        tab: Container properties
+        label: Background color
+        type: dropdown
+        span: auto
+        options:
+            "": Transparent
+            "bg-primary": Primary
+    bg_image:
+        tab: Container properties
+        label: Background image
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        span: auto

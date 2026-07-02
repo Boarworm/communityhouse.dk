@@ -1,0 +1,33 @@
+/* field-select-nice.css */
+@reference "../../../assets/src/css/app.css";
+
+[data-block="field-select-nice"] .nice-select {
+    @apply bg-transparent border-none pl-2 pr-6 h-auto;
+}
+
+[data-block="field-select-nice"] .nice-select .current {
+    @apply text-secondary font-bold w-[60px];
+}
+
+[data-block="field-select-nice"] .nice-select .list {
+    @apply bg-primary-light;
+}
+
+[data-block="field-select-nice"] .nice-select-dropdown {
+    @apply !-left-2 !w-[65px];
+}
+
+[data-block="field-select-nice"] .nice-select .option {
+    @apply font-bold px-4;
+}
+
+[data-block="field-select-nice"] .nice-select .option:hover {
+    @apply bg-white text-primary;
+}
+
+[data-block="field-select-nice"] .nice-select .option.selected {
+    @apply text-secondary;
+}
+[data-block="field-select-nice"] .nice-select .option.selected.focus {
+    @apply bg-transparent;
+}

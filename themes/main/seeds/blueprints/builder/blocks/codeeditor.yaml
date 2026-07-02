@@ -1,0 +1,21 @@
+uuid: builder_blocks_codeeditor
+handle: Builder\Blocks\Codeeditor
+type: mixin
+name: Codeeditor
+fields:
+    text:
+        label: false
+        type: codeeditor
+        span: full
+        tab: Content
+        translatable: true
+    block_name:
+        label: Name
+        tab: Block properties
+        commentAbove: "Block name for organization purposes"
+        type: text
+        span: auto
+        default: Code
+    advanced_content:
+        type: mixin
+        source: Builder\Mixins\BlockAdvanced

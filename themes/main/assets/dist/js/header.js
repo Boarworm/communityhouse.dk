@@ -1,0 +1,2 @@
+function l(e){let t=0;const o=document.querySelector('[data-block-layout="menu-mobile"]'),c=document.querySelector('[data-block="burger"] input[type="checkbox"]');window.addEventListener("scroll",n);function n(){document.body.getBoundingClientRect().top>t?e.classList.remove("!-top-32"):e.classList.add("!-top-32"),o.classList.remove("!left-0"),c.checked=!1,t=document.body.getBoundingClientRect().top}}export{l as default};
+//# sourceMappingURL=header.js.map

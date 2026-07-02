@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "title": "General",
+        "slug": "general",
+        "is_enabled": 1,
+        "description": "",
+        "meta_title": "General Articles",
+        "meta_description": "General articles"
+    }
+]

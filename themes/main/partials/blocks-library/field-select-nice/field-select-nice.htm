@@ -1,0 +1,12 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}>
+	<label>
+		<select class="absolute" {% for key, value in data.inputAttributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}>
+			{% if data.emptyOption %}
+				<option value="{{ data.emptyOption|keys|first }}" {% if data.defaultValue == data.emptyOption|keys|first %} selected="selected" {% endif %}>{{ data.emptyOption|first }}</option>
+			{% endif %}
+			{% for value, name in data.options %}
+				<option value="{{ value }}" {% if data.defaultValue == value %} selected="selected" {% endif %}>{{ name }}</option>
+			{% endfor %}
+		</select>
+	</label>
+</div>

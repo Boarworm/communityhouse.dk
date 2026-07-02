@@ -1,0 +1,74 @@
+{% set config = {
+	"container": {
+		"narrow": "container-narrow",
+		"normal": "container",
+		"fluid": "container max-w-full",
+		"none": "",
+	},
+	"gap_y": {
+		"none": "",
+		"small": "gap-y-4",
+		"medium": "gap-y-12",
+		"large": "gap-y-20",
+	},
+	"margins": {
+		"top": {
+			"none": "",
+			"small": "mt-4",
+			"medium": "mt-12",
+			"large": "mt-20",
+		},
+		"bottom": {
+			"none": "",
+			"small": "mb-4",
+			"medium": "mb-12",
+			"large": "mb-20",
+		}
+	},
+	"paddings": {
+		"top": {
+			"none": "",
+			"small": "pt-6",
+			"medium": "pt-12",
+			"large": "pt-20",
+		},
+		"bottom": {
+			"none": "",
+			"small": "pb-6",
+			"medium": "pb-12",
+			"large": "pb-20",
+		}
+	}
+} %}
+
+{% set classes = {
+	"base": "grid grid-cols-1",
+	"paddings": config['paddings']['top'][builder.paddings.0['top']] ~ ' ' ~ config['paddings']['bottom'][builder.paddings.0['bottom']],
+	"gap_y": config['gap_y'][builder.gap_y]
+} %}
+{% set builderClasses = [ classes['base'], classes['paddings'], classes['gap_y'] ]|join(' ') %}
+
+<div data-block-layout="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ builderClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	{% for container in builder.containers %}
+		{% set classes = {
+			"base": "relative " ~ container.css_classes,
+			"column": "",
+			"margins": config['margins']['top'][container.margins[0]['top']] ~ ' ' ~ config['margins']['bottom'][container.margins[0]['bottom']],
+			"paddings": config['paddings']['top'][container.paddings[0]['top']] ~ ' ' ~ config['paddings']['bottom'][container.paddings[0]['bottom']],
+			"style": config['container'][container.container_style],
+			"bg_color": container.bg_color,
+		} %}
+
+		{% set bgImageClasses = "absolute z-0 top-0 left-0 w-full h-full object-cover" %}
+		{% set containerClasses = [classes['base'], classes['margins'], classes['paddings'], classes['bg_color'], classes['style'] ]|join(' ')|trim %}
+		{% set gridClasses = ["grid grid-cols-1 gap-x-6 items-start justify-items-center xl:gap-x-12 "~config['gap_y'][container.gap_y]]|join(' ')|trim %}
+
+		<div data-block-layout="page-builder__container" {{ container.html_anchor ? "id=\"#{container.html_anchor}\""|raw }} class="{{ [containerClasses, gridClasses]|join(' ')|trim }}">
+			{% if container.bg_image %}
+				<img src="{{ container.bg_image.path }}" alt="{{ container.bg_image.description ?: "Background" }}" class="{{ bgImageClasses }}">
+			{% endif %}
+			{% partial "layout/builder/blocks" config=config blocks=container.blocks %}
+		</div>
+
+	{% endfor %}
+</div>

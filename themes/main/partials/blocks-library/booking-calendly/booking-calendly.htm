@@ -1,0 +1,25 @@
+{#
+    Calendly Inline Widget
+    ----------------------
+    Embeds a Calendly booking widget inline on the page.
+    Loads the Calendly external script lazily on first render.
+
+    Usage:
+        {% partial "blocks/booking-calendly/booking-calendly" data = {
+            cssClasses: "",
+            url: "https://calendly.com/your-account/meeting-name"
+        } %}
+
+    To add from library:
+        ./add-partial.sh booking-calendly
+
+    JS: booking-calendly.js — add to dynamic-imports.js:
+        document.querySelectorAll('[data-block="booking-calendly"]').forEach($el => {
+            initInView($el).then(() => {
+                import('../../../partials/blocks/booking-calendly/booking-calendly').then(({ default: init }) => init($el));
+            });
+        });
+#}
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    <div class="calendly-inline-widget h-[1050px] min-w-[280px] lg:h-[510px]" data-url="{{ data.url }}"></div>
+</div>

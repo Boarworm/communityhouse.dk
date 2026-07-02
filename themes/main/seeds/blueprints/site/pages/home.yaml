@@ -1,0 +1,22 @@
+uuid: site_pages_home
+handle: Site\Pages\Home
+type: single
+name: Home
+multisite: true
+
+primaryNavigation:
+    label: CMS Pages
+    icon: icon-files-o
+    order: 210
+
+navigation:
+    parent: Site\Pages\Home
+    order: 10
+
+fields:
+    title:
+        placeholder: Title
+
+    _meta:
+        type: mixin
+        source: Site\Mixins\Meta

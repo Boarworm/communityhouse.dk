@@ -1,0 +1,83 @@
+url = "/blog/:slug"
+layout = "default"
+title = "Blog details"
+
+[section post]
+handle = "Blog\Post"
+identifier = "slug"
+value = "{{ :slug }}"
+
+[section pageBlog]
+handle = "Site\Pages\Blog"
+identifier = ""
+value = ""
+==
+{% if post is empty %}{% do abort(404) %}{% endif %}
+
+{% put meta %}
+{% partial "layout/meta/meta" data = {
+	title: post.meta_title|default(post.title),
+	description: post.meta_description|default(post.title~"."),
+	og_image_1200_630: post.image ?: "",
+	og_image_1200_1200: post.image ?: ""
+} %}
+{% endput %}
+
+<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="container">
+	<div class="pt-7">
+		{% partial "blocks/breadcrumbs/breadcrumbs" data = {
+			cssClasses: "mb-4",
+			breadcrumbs: [
+				{name: 'Blog'|_, url: 'blog'|page},
+				{name: post.title, url: ''}
+			]
+		} %}
+		{% partial "blocks/headline/headline" data = {
+			cssClasses: "mb-7 lg:mb-10",
+			tag: "h1",
+			color: "dark",
+			size: "h1",
+			variant: "",
+			text: post.title,
+			attributes: {}
+		} %}
+
+		{% if post.image %}
+			<div class="relative mb-7">
+				{% partial "blocks/image/image" data = {
+					cssClasses: "rounded-sm overflow-hidden",
+					imgCssClasses: "w-full h-auto",
+					src: post.image,
+					resize: {
+						width:'780',
+						height:'452',
+						mode:'fit',
+						extension:'',
+						quality:''
+					},
+					imgAttributes: {
+						alt : post.title
+					}
+				} %}
+				<div class="absolute rounded-sm bg-white py-1.5 px-2.5 left-5 bottom-5 text-default-darker">{{ post.published_at_date|date('d M Y') }}</div>
+			</div>
+		{% endif %}
+
+		<div class="mb-7">
+			{% partial "layout/builder/builder" builder=post %}
+		</div>
+
+		<hr class="hidden h-px text-secondary my-12 lg:block">
+
+		<div class="mb-12 lg:mb-24">
+			<div class="mb-5 flex justify-between items-end">
+				<div class="font-bold text-2xl">{{ "More articles"|_ }}</div>
+				<a href="{{ 'blog'|page }}" class="text-xs font-bold text-secondary hover:text-secondary-dark">{{ "All Articles"|_ }} →</a>
+			</div>
+			{% partial "blocks/post-carousel-latest/post-carousel-latest" data = {
+				cssClasses: "",
+				limit: 6
+			} %}
+		</div>
+	</div>
+</div>

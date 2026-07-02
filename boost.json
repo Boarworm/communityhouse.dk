@@ -1,0 +1,19 @@
+{
+    "cloud": false,
+    "guidelines": true,
+    "mcp": true,
+    "nightwatch": false,
+    "packages": [
+        "october/boost"
+    ],
+    "sail": false,
+    "skills": [
+        "laravel-best-practices",
+        "octobercms-ajax-framework",
+        "octobercms-backend-controllers",
+        "octobercms-model-development",
+        "octobercms-plugin-development",
+        "octobercms-tailor-development",
+        "octobercms-theme-development"
+    ]
+}

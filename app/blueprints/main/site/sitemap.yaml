@@ -1,0 +1,52 @@
+uuid: site_sitemap
+handle: Site\Sitemap
+type: entry
+name: Sitemap
+drafts: false
+pagefinder: false
+
+customMessages:
+    buttonCreate: New Sitemap
+
+navigation:
+    icon: icon-sitemap
+    parent: Site\Config
+    order: 20
+
+fields:
+    slug:
+        label: Code
+        column:
+            label: Code
+            invisible: false
+        validation:
+            - required
+    items:
+        label: Menu Item
+        type: nesteditems
+        span: adaptive
+        maxDepth: 0
+        customMessages:
+            buttonCreate: Add Item
+            titleCreateForm: Create Item
+            titleUpdateForm: Edit Item
+        form:
+            fields:
+                title:
+                    label: Title
+                    tab: Reference
+                    default: New Menu Item
+                    span: full
+                    type: text
+                    validation:
+                        - required
+                
+                reference:
+                    label: Reference
+                    type: pagefinder
+                    tab: Reference
+            tabs:
+                fields:
+                    _sitemap_menu_item:
+                        type: mixin
+                        source: Site\Mixins\SitemapItem

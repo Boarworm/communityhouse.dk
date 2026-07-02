@@ -1,0 +1,40 @@
+[collection menuMobile]
+handle = "Menu\Mobile"
+==
+{% set level = 1 %}
+{% set maxLevel = data.maxLevel|default(10) %}
+{% macro menu(items, level, maxLevel) %}
+	{% import _self as menu %}
+	{% set classUlLevel1 = 'grid grid-cols-1 gap-3' %}
+	{% set classLiLevel1 = '' %}
+	{% set classALevel1 = 'block text-lg font-bold text-neutral-darker transition hover:text-primary' %}
+	{% set classUlLevel2 = '' %}
+	{% set classLiLevel2 = '' %}
+	{% set classALevel2 = '' %}
+	{% set classActive = '' %}
+	{% if items|length and maxLevel >= level %}
+		<ul class="{{ _context['classUlLevel'~level] }}" role="menubar">
+			{% for item in items %}
+				{% if item.is_enabled %}
+					<li class="{{ _context['classLiLevel'~level] }}" role="menuitem">
+						<a class="{{ _context['classALevel'~level] }} {{ (item.url|link == url_current() and menuLevel < 2) ? classActive }}" href="{{ item.url ? item.url|link : '#' }}" {{ item.external ? "target=\"_blank\"" }}>
+							{{ item.title }}
+							{% if item.children|length %}
+								{% partial "blocks/icon-svg/icon-svg" data = {
+									cssClasses: "js-header-menu-arrow w-2 h-2 fill-default absolute bottom-1 inset-x-0 m-auto",
+									name: "chevron-down"
+								} %}
+							{% endif %}
+						</a>
+						{{ menu.menu(item.children, level + 1, maxLevel) }}
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endmacro %}
+{% import _self as menu %}
+
+<nav data-block-layout="{{ (_self|split('/')|last|split('.')|first) }}" class="bg-gray-100 transition-all p-4 w-full max-w h-full z-50 transition duration-500 fixed z-20 overflow-y-auto -left-full sm:max-w-[400px] {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	{{ menu.menu(menuMobile, level, maxLevel) }}
+</nav>

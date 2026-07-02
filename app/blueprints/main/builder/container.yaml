@@ -1,0 +1,74 @@
+uuid: builder_containers
+handle: Builder\Container
+type: mixin
+name: Container
+fields:
+    blocks:
+        tab: Blocks
+        type: repeater
+        span: full
+        displayMode: builder
+        itemsExpanded: true
+        prompt: Add Block
+        titleFrom: block_name
+        translatable: true
+        groups:
+            codeeditor:
+                name: Code
+                icon: ph ph-code
+                useTabs: true
+                fields:
+                    _codeeditor:
+                        type: mixin
+                        source: Builder\Blocks\Codeeditor
+            richeditor:
+                name: Text
+                icon: ph ph-text-align-center
+                useTabs: true
+                fields:
+                    _richeditor:
+                        type: mixin
+                        source: Builder\Blocks\Richeditor
+            image:
+                name: Image
+                icon: ph ph-image-square
+                useTabs: true
+                fields:
+                    _image:
+                        type: mixin
+                        source: Builder\Blocks\Image
+            youtube_embed:
+                name: YouTube Embed
+                icon: ph ph-video
+                useTabs: true
+                fields:
+                    _youtube_embed:
+                        type: mixin
+                        source: Builder\Blocks\YoutubeEmbed
+            headline:
+                name: Headline
+                icon: ph ph-text-h
+                useTabs: true
+                fields:
+                    _headline:
+                        type: mixin
+                        source: Builder\Blocks\Headline
+            gallery_grid:
+                name: Gallery grid
+                icon: ph ph-images
+                useTabs: true
+                fields:
+                    _gallery_grid:
+                        type: mixin
+                        source: Builder\Blocks\GalleryGrid
+            faq:
+                name: FAQ
+                icon: ph ph-question
+                useTabs: true
+                fields:
+                    _faq:
+                        type: mixin
+                        source: Builder\Blocks\Faq
+    advanced_content:
+        type: mixin
+        source: Builder\Mixins\ContainerAdvanced

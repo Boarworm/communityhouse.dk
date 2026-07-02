@@ -1,0 +1,51 @@
+{% set slide1 = 'sm:!absolute sm:!top-0 sm:!left-0 sm:!w-3/5 sm:!h-full sm:!border-4 sm:!border-white' %}
+{% set slide2 = 'sm:!absolute sm:!top-0 sm:!right-[20%] sm:!w-1/5 sm:!h-1/2 sm:!border-4 sm:!border-white' %}
+{% set slide3 = 'sm:!absolute sm:!top-0 sm:!right-0 sm:!w-1/5 sm:!h-1/2 sm:!border-4 sm:!border-white' %}
+{% set slide4 = 'sm:!absolute sm:!top-1/2 sm:!right-[20%] sm:!w-1/5 sm:!h-1/2 sm:!border-4 sm:!border-white' %}
+{% set slide5 = 'sm:!absolute sm:!top-1/2 sm:!right-0 sm:!w-1/5 sm:!h-1/2 sm:!border-4 sm:!border-white' %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="swiper relative {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    <div class="swiper-wrapper">
+        {% if data.video %}
+            <div class="swiper-slide sm:!absolute sm:!top-0 sm:!left-0 sm:!w-3/5 sm:!h-full sm:!border-4 sm:!border-white">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{ data.video }}" class="aspect-square" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        {% endif %}
+        {% for image in data.images %}
+            <div class="swiper-slide {{ _context['slide'~(data.video ? loop.index+1 : loop.index)] }} {{ loop.index > (data.video ? 4 : 5) ? 'sm:!hidden' }}">
+                <a href="{{ image.path }}" data-fancybox="gallery"
+                   data-pswp-width="1920"
+                   data-pswp-height="1306"
+                   class="block overflow-hidden group h-full w-full">
+                    {% partial "blocks/image/image" data = {
+                        cssClasses: "block overflow-hidden group h-full w-full",
+                        imgCssClasses: "block h-full w-full object-cover object-center transition group-hover:opacity-75",
+                        src: image,
+                        resize: {
+                            'width':'800',
+                            'height':'500',
+                            'mode':'crop',
+                            'extension':'',
+                            'quality':''
+                        },
+                        imgAttributes: {
+                            alt: image.alt
+                        }
+                    } %}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="swiper-button-prev absolute w-8 h-8 z-10 inset-y-0 cursor-pointer transition group m-auto left-0 sm:hidden sm:w-14 sm:h-8">
+        {% partial "blocks/icon-svg/icon-svg" data = {
+            cssClasses: "w-full h-full transition fill-white hover:fill-primary drop-shadow-md",
+            name: "chevron-left-sharp"
+        } %}
+    </div>
+    <div class="swiper-button-next absolute w-8 h-8 z-10 inset-y-0 cursor-pointer transition group m-auto right-0 sm:hidden sm:w-14 sm:h-8">
+        {% partial "blocks/icon-svg/icon-svg" data = {
+            cssClasses: "w-full h-full transition fill-white hover:fill-primary drop-shadow-md",
+            name: "chevron-right-sharp"
+        } %}
+    </div>
+</div>

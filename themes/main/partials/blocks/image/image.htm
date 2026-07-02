@@ -1,0 +1,19 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    {% set isLazy = data.lazy is not defined or data.lazy %}
+    <picture>
+        <source {% if isLazy %}data-srcset{% else %}srcset{% endif %}="{{ data.src|resize(data.resize.width, data.resize.height, {mode:data.resize.mode|default('crop'), quality:data.resize.quality|default(80), 'extension':'webp'}) }}" type="image/webp">
+        <img 
+            class="{% if isLazy %}lazyload {% endif %}max-h-full {{ data.imgCssClasses }}" 
+            {% if data.resize.width and data.resize.width != 'auto' %}width="{{ data.resize.width }}"{% endif %}
+            {% if data.resize.height and data.resize.height != 'auto' %}height="{{ data.resize.height }}"{% endif %}
+            {% if isLazy %}
+                data-src="{{ data.src|resize(data.resize.width, data.resize.height, {mode:data.resize.mode|default('crop'), quality:data.resize.quality|default(80)}) }}" 
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 {{ data.resize.width|default(1) }} {{ data.resize.height|default(1) }}'%3E%3C/svg%3E"
+            {% else %}
+                src="{{ data.src|resize(data.resize.width, data.resize.height, {mode:data.resize.mode|default('crop'), quality:data.resize.quality|default(80)}) }}"
+            {% endif %}
+            {% for key, value in data.imgAttributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}
+        >
+    </picture>
+</div>
+

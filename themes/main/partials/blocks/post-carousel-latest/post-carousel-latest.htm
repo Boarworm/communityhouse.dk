@@ -1,0 +1,41 @@
+[collection posts]
+handle = "Blog\Post"
+sortColumn = "created_at"
+sortDirection = "asc"
+==
+{% set posts = posts.where('slug', '!=', post.slug|default('')).take(data.limit).get() %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    {% partial "blocks/carousel/carousel" body data = {
+        cssClasses: "",
+        navigation: posts.length > 1 ? true : false,
+        pagination: true,
+        attributes: {
+            "data-js": "post-carousel-latest"
+        },
+    } %}
+        {% for item in posts %}
+			{% partial "blocks/post-card/post-card" data = {
+				cssClasses: "swiper-slide !h-auto",
+				title: item.title,
+				date: item.published_at_date|date('d M Y'),
+				url: "blog-details"|page({ slug: item.slug }),
+				excerpt: item.excerpt,
+				image: {
+					imgCssClasses: "w-full",
+					src: item.image ?: "assets/images/placeholder.jpg"|theme,
+					imgAttributes: {
+						alt: item.title
+					},
+					resize: {
+						width: "565",
+						height: "318",
+						mode: "crop",
+						extension: "",
+						quality: ""
+					}
+				}
+			} %}
+        {% endfor %}
+    {% endpartial %}
+</div>

@@ -1,0 +1,49 @@
+uuid: builder_settings
+handle: Builder\Mixins\Settings
+type: mixin
+name: Builder settings
+
+fields:
+    paddings:
+        tab: Builder settings
+        label: Padding
+        commentAbove: The inner space on top and bottom of page content (usually between the header and footer).
+        type: datatable
+        adding: true
+        deleting: false
+        toolbar: false
+        span: auto
+        columns:
+            top:
+                title: Top
+                type: dropdown
+                options:
+                    none: ...
+                    small: Small
+                    medium: Medium
+                    large: Large
+            bottom:
+                title: Bottom
+                type: dropdown
+                options:
+                    none: ...
+                    small: Small
+                    medium: Medium
+                    large: Large
+        recordsPerPage: false
+        searching: false
+        default: [{"top":"small","bottom":"medium"}]
+    gap_y:
+        tab: Builder settings
+        label: Vertical indent
+        commentAbove: Vertical indentation between containers
+        type: dropdown
+        span: auto
+        options:
+            none: ...
+            small: Small
+            medium: Medium
+            large: Large
+        default: medium
+        scope: false
+        column: false

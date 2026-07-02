@@ -1,0 +1,46 @@
+{#
+    Card Testimonial
+    ----------------
+    Single testimonial card with optional video, headline, text, name and company.
+    Used by testimonial-carousel (also in partials-library).
+
+    Usage:
+        {% partial "blocks/testimonial-card/testimonial-card" data = {
+            cssClasses: "swiper-slide !h-auto",
+            name: "John Smith",
+            headline: "Great experience!",
+            text: "The service was excellent...",
+            company: "Example Ltd",
+            videoUrl: "",
+            attributes: {}
+        } %}
+
+    To add from library:
+        ./add-partial.sh testimonial-card
+
+    No JS required.
+#}
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} flex flex-col p-5 pb-12 bg-white rounded-sm sm:p-7" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    {% if data.videoUrl %}
+        {% partial "blocks/youtube-embed/youtube-embed" data = {
+            cssClasses: "mb-5",
+            videoUrl: data.videoUrl,
+            title: data.headline,
+            attributes: {}
+        } %}
+    {% endif %}
+    {% if data.headline %}
+        <div class="font-bold text-default-darker text-xl leading-[1.1] mb-2.5 lg:text-2xl">{{ data.headline }}</div>
+    {% endif %}
+    {% if data.text %}
+        <div class="font-medium text-default-darker text-sm leading-[1.4] mb-2.5 sm:mb-5 lg:text-base">{{ data.text }}</div>
+    {% endif %}
+    <div class="flex flex-col gap-1 bg-default-lightest rounded-sm py-3 px-5 justify-self-start">
+        {% if data.name %}
+            <div class="font-bold text-primary text-xl leading-[1.1]">{{ data.name }}</div>
+        {% endif %}
+        {% if data.company %}
+            <div class="font-medium text-primary text-sm leading-[1.4]">{{ data.company }}</div>
+        {% endif %}
+    </div>
+</div>

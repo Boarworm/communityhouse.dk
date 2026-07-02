@@ -1,0 +1,36 @@
+uuid: builder_blocks_faq
+handle: Builder\Blocks\Faq
+type: mixin
+name: FAQ
+fields:
+    items:
+        type: repeater
+        span: full
+        tab: Content
+        prompt: Add item
+        titleFrom: title
+        translatable: true
+        form:
+            fields:
+                title:
+                    label: Title
+                    type: text
+                    span: full
+                    translatable: true
+                text:
+                    label: Text
+                    type: richeditor
+                    span: full
+                    size: small
+                    translatable: true
+    block_name:
+        label: Name
+        tab: Block properties
+        commentAbove: "Block name for organization purposes"
+        type: text
+        span: auto
+        default: FAQ
+    advanced_content:
+        type: mixin
+        source: Builder\Mixins\BlockAdvanced
+

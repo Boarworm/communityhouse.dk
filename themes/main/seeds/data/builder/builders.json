@@ -1,0 +1,161 @@
+[
+    {
+        "id": 1,
+        "title": "Privacy Policy",
+        "slug": "privacy-policy",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "privacy-policy",
+        "parent_id": null,
+        "containers": [
+            {
+                "container_style": "none",
+                "css_classes": "",
+                "html_anchor": "",
+                "container_name": "",
+                "gap_y": "medium",
+                "margins": [
+                    []
+                ],
+                "paddings": [
+                    {
+                        "top": "",
+                        "bottom": ""
+                    }
+                ],
+                "bg_color": "",
+                "site_id": null,
+                "content_group": "container",
+                "parent_id": null,
+                "sort_order": 1,
+                "created_at": "2026-01-01 00:00:00",
+                "updated_at": "2026-01-01 00:00:00",
+                "blocks": [
+                    {
+                        "text": "<p>we is committed to protecting your privacy. This privacy policy explains how we collect, use, and protect your personal data.<\/p><h2>Information We Collect<\/h2><p>We may collect personal data such as your name, email address, phone number, and company details when you contact us or use our services.<\/p><h2>How We Use Your Information<\/h2><p>We use your information to provide our services, respond to inquiries, and improve our website. We do not sell or share your personal data with third parties except where required by law.<\/p><h2>Data Security<\/h2><p>We implement appropriate technical and organizational measures to protect your personal data from unauthorized access, alteration, or destruction.<\/p><h2>Your Rights<\/h2><p>You have the right to access, correct, or delete your personal data. Please contact us if you wish to exercise these rights.<\/p><h2>Contact<\/h2><p>If you have any questions about this privacy policy, please contact us at info@example.com.<\/p>",
+                        "block_name": "Text",
+                        "is_enabled": "1",
+                        "css_classes": "",
+                        "html_anchor": "",
+                        "margins": [
+                            []
+                        ],
+                        "site_id": null,
+                        "content_group": "richeditor",
+                        "parent_id": null,
+                        "sort_order": 2,
+                        "created_at": "2026-01-01 00:00:00",
+                        "updated_at": "2026-01-01 00:00:00"
+                    }
+                ],
+                "bg_image": null
+            }
+        ],
+        "meta_title": "Privacy Policy",
+        "meta_description": "Learn how we collect, use, and protect your personal data. Read our full privacy policy.",
+        "paddings": null,
+        "docs": null
+    },
+    {
+        "id": 2,
+        "title": "Terms & Conditions",
+        "slug": "terms-and-conditions",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "terms-and-conditions",
+        "parent_id": null,
+        "containers": [
+            {
+                "container_style": "none",
+                "css_classes": "",
+                "html_anchor": "",
+                "container_name": "",
+                "gap_y": "medium",
+                "margins": [[]],
+                "paddings": [{"top": "", "bottom": ""}],
+                "bg_color": "",
+                "site_id": null,
+                "content_group": "container",
+                "parent_id": null,
+                "sort_order": 1,
+                "created_at": "2026-01-01 00:00:00",
+                "updated_at": "2026-01-01 00:00:00",
+                "blocks": [
+                    {
+                        "text": "<p>By accessing and using this website, you accept and agree to be bound by these Terms and Conditions.<\/p><h2>Use of the Website<\/h2><p>You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of others.<\/p><h2>Intellectual Property<\/h2><p>All content on this website, including text, graphics, logos, and images, is the property of this website and is protected by applicable intellectual property laws.<\/p><h2>Limitation of Liability<\/h2><p>we shall not be liable for any indirect, incidental, or consequential damages arising from your use of this website.<\/p><h2>Changes to Terms<\/h2><p>We reserve the right to update these Terms and Conditions at any time. Continued use of the website constitutes acceptance of the updated terms.<\/p><h2>Contact<\/h2><p>For any questions regarding these terms, please contact us at info@example.com.<\/p>",
+                        "block_name": "Text",
+                        "is_enabled": "1",
+                        "css_classes": "",
+                        "html_anchor": "",
+                        "margins": [[]],
+                        "site_id": null,
+                        "content_group": "richeditor",
+                        "parent_id": null,
+                        "sort_order": 1,
+                        "created_at": "2026-01-01 00:00:00",
+                        "updated_at": "2026-01-01 00:00:00"
+                    }
+                ],
+                "bg_image": null
+            }
+        ],
+        "meta_title": "Terms & Conditions",
+        "meta_description": "Read the terms and conditions governing your use of this website.",
+        "paddings": null,
+        "docs": null
+    },
+    {
+        "id": 3,
+        "title": "Cookie Policy",
+        "slug": "cookie-policy",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "cookie-policy",
+        "parent_id": null,
+        "containers": [
+            {
+                "container_style": "none",
+                "css_classes": "",
+                "html_anchor": "",
+                "container_name": "",
+                "gap_y": "medium",
+                "margins": [[]],
+                "paddings": [{"top": "", "bottom": ""}],
+                "bg_color": "",
+                "site_id": null,
+                "content_group": "container",
+                "parent_id": null,
+                "sort_order": 1,
+                "created_at": "2026-01-01 00:00:00",
+                "updated_at": "2026-01-01 00:00:00",
+                "blocks": [
+                    {
+                        "text": "<p>This website uses cookies to improve your browsing experience and analyze site traffic.<\/p><h2>What Are Cookies?<\/h2><p>Cookies are small text files stored on your device when you visit a website. They help the site remember your preferences and understand how you use it.<\/p><h2>How We Use Cookies<\/h2><p>We use cookies for essential site functionality, analytics, and to improve your experience. We do not use cookies to collect personally identifiable information without your consent.<\/p><h2>Managing Cookies<\/h2><p>You can control and delete cookies through your browser settings. Note that disabling cookies may affect the functionality of this website.<\/p><h2>Contact<\/h2><p>If you have questions about our use of cookies, please contact us at info@example.com.<\/p>",
+                        "block_name": "Text",
+                        "is_enabled": "1",
+                        "css_classes": "",
+                        "html_anchor": "",
+                        "margins": [[]],
+                        "site_id": null,
+                        "content_group": "richeditor",
+                        "parent_id": null,
+                        "sort_order": 1,
+                        "created_at": "2026-01-01 00:00:00",
+                        "updated_at": "2026-01-01 00:00:00"
+                    }
+                ],
+                "bg_image": null
+            }
+        ],
+        "meta_title": "Cookie Policy",
+        "meta_description": "Learn how we use cookies on this website.",
+        "paddings": null,
+        "docs": null
+    }
+]

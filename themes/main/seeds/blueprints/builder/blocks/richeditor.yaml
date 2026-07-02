@@ -1,0 +1,21 @@
+uuid: builder_blocks_richeditor
+handle: Builder\Blocks\Richeditor
+type: mixin
+name: Richeditor
+fields:
+    text:
+        label: false
+        type: richeditor
+        span: full
+        tab: Content
+        translatable: true
+    block_name:
+        label: Name
+        tab: Block properties
+        commentAbove: "Block name for organization purposes"
+        type: text
+        span: auto
+        default: Text
+    advanced_content:
+        type: mixin
+        source: Builder\Mixins\BlockAdvanced

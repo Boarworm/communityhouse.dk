@@ -1,0 +1,42 @@
+/* language-picker.css */
+@reference "../../../assets/src/css/app.css";
+
+[data-block="language-picker"] .hidden-select {
+    @apply absolute;
+}
+[data-block="language-picker"] .nice-select {
+    @apply bg-transparent border-none pl-2 pr-5 h-auto leading-[32px];
+}
+[data-block="language-picker"] .nice-select::after {
+    @apply right-2;
+}
+[data-block="language-picker"] .nice-select .current {
+    @apply text-secondary font-bold flex items-center;
+}
+
+[data-block="language-picker"] .nice-select .list {
+    @apply bg-primary-light;
+}
+
+[data-block="language-picker"] .nice-select-dropdown {
+    @apply w-full bg-transparent;
+}
+
+[data-block="language-picker"] .nice-select .option {
+    @apply font-bold px-2 flex items-center leading-[32px] text-white;
+}
+
+[data-block="language-picker"] .nice-select .option img {
+    @apply w-5 h-auto inline-block mr-2;
+}
+
+[data-block="language-picker"] .nice-select .option:hover {
+    @apply bg-white text-primary;
+}
+
+[data-block="language-picker"] .nice-select .option.selected {
+    @apply text-secondary;
+}
+[data-block="language-picker"] .nice-select .option.selected.focus {
+    @apply bg-transparent;
+}

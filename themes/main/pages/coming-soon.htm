@@ -1,0 +1,43 @@
+url = "/coming-soon"
+layout = "empty"
+title = "Coming soon"
+is_hidden = 1
+
+[section page]
+handle = "Site\Pages\ComingSoon"
+identifier = ""
+value = ""
+==
+{% put meta %}
+{% partial "layout/meta/meta" data = {
+	title: page.meta_title|default(page.title),
+	description: page.meta_description|default(page.title~"."),
+	og_image_1200_630: "",
+	og_image_1200_1200: ""
+} %}
+{% endput %}
+
+<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="bg-primary-light h-screen p-12 flex flex-col items-center justify-center">
+	{% partial "blocks/image/image" data = {
+		cssClasses: "mb-8",
+		imgCssClasses: "",
+		src: page.image|default("assets/images/placeholder.jpg"|theme),
+		resize: {
+			width: "179",
+			height: "auto",
+			mode: "crop",
+			extension: "",
+			quality: ""
+		},
+		attributes: ""
+	} %}
+	{% partial "blocks/headline/headline" data = {
+		cssClasses: "text-secondary text-center",
+		tag: "h1",
+		color: "",
+		size: "h1",
+		variant: "",
+		text: page.title,
+		attributes: {}
+	} %}
+</div>

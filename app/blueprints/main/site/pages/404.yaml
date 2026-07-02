@@ -1,0 +1,16 @@
+uuid: site_pages_not_found
+handle: Site\Pages\NotFound
+type: single
+name: 404 - not found
+multisite: true
+
+navigation:
+    parent: Site\Pages\Home
+    order: 200
+
+fields:
+    title:
+        placeholder: Title
+    _meta:
+        type: mixin
+        source: Site\Mixins\Meta

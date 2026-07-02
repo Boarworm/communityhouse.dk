@@ -1,0 +1,17 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} group !flex flex-col rounded-sm overflow-hidden border-b border-secondary bg-primary-dark" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    <a class="relative block overflow-hidden" href="{{ data.url }}">
+        {% partial "blocks/image/image" data = {
+            cssClasses: "w-full h-auto transition duration-2000 group-hover:scale-125",
+            imgCssClasses: data.image.imgCssClasses~" w-full h-auto",
+            src: data.image.src|default("assets/images/placeholder.jpg"|theme),
+            resize: data.image.resize,
+            attributes: data.image.attributes,
+            imgAttributes: data.image.imgAttributes
+        } %}
+        <div class="absolute rounded-sm bg-white py-1.5 px-2.5 left-5 bottom-5 text-default-darker">{{ data.date }}</div>	
+    </a>
+    <div class="flex flex-col items-start py-5 px-3 grow">
+        <a href="{{ data.url }}" class="font-bold text-white text-2xl mb-6 grow transition hover:text-secondary">{{ data.title }}</a>
+        <a href="{{ data.url }}" class="text-xs font-bold text-secondary transition hover:text-secondary-dark">{{ "Read Article"|_ }} →</a>
+    </div>
+</div>

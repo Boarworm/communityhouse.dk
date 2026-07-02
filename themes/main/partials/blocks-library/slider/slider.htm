@@ -1,0 +1,22 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="swiper w-full group/slider overflow-hidden {{ data.cssClasses }}" data-swiper='{{ swiper|raw }}' {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    <div class="swiper-wrapper h-full">
+        {{ body|raw }}
+    </div>
+    {% if data.navigation %}
+        <div class="swiper-button-prev h-10 w-10 p-2 bg-neutral-lightest/70 rounded-r absolute z-10 m-auto inset-y-0 left-0 cursor-pointer transition hover:bg-lightest/ group">
+            {% partial "blocks/icon-svg/icon-svg" data = {
+                cssClasses: "w-full h-full fill-white transition-all group-hover:-ml-1",
+                name: "chevron-left"
+            } %}
+        </div>
+        <div class="swiper-button-next h-10 w-10 p-2 bg-neutral-lightest/70 rounded-l absolute z-10 m-auto inset-y-0 right-0 cursor-pointer transition hover:bg-lightest/ group">
+            {% partial "blocks/icon-svg/icon-svg" data = {
+                cssClasses: "w-full h-full fill-white transition-all group-hover:ml-1",
+                name: "chevron-right"
+            } %}
+        </div>
+    {% endif %}
+    {% if data.pagination %}
+        <div class="swiper-pagination flex justify-center pt-6"></div>
+    {% endif %}
+</div>

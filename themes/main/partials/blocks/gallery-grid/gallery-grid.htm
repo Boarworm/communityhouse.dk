@@ -1,0 +1,21 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="grid grid-cols-2 gap-2 xs:grid-cols-4 lg:grid-cols-6 {{ data.cssClasses }}">
+	{% for item in data.images %}
+		<a href="{{ item.path }}" data-fancybox="gallery" class="overflow-hidden group {{ loop.index > 12 ? "hidden" }}">
+			{% partial "blocks/image/image" data = {
+				cssClasses:"w-full h-full transition group-hover:opacity-80",
+				imgCssClasses:"w-full h-full object-cover",
+				src:item|media,
+				resize:{
+					width:"400",
+					height:"400",
+					mode:"crop",
+					extension:"",
+					quality:""
+				},
+				imgAttributes:{
+					alt: data.description ?: "Photo "~(loop.index0)
+				}
+			} %}
+		</a>
+	{% endfor %}
+</div>

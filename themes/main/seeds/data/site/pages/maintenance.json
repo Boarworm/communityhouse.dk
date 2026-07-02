@@ -1,0 +1,11 @@
+[
+	{
+		"id": 1,
+		"is_enabled": 1,
+		"slug": "maintenance",
+		"title": "Under Maintenance",
+		"meta_title": "Under Maintenance",
+		"meta_description": "Our website is currently undergoing scheduled maintenance. We'll be back shortly. Thank you for your patience.",
+		"text": "<p>We apologize for the inconvenience. Our website is currently undergoing maintenance and will be back shortly.</p>\n<p>Thank you for your patience.</p>"
+	}
+]

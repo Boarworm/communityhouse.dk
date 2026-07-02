@@ -1,0 +1,58 @@
+uuid: builder_blocks_image
+handle: Builder\Blocks\Image
+type: mixin
+name: Image
+fields:
+    src:
+        tab: Content
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        span: auto
+    alignment:
+        tab: Content
+        label: Alignment
+        type: dropdown
+        options:
+            justify-start: Left
+            justify-center: Center
+            justify-end: Right
+        span: auto
+    resize:
+        tab: Content
+        label: Resize options
+        type: datatable
+        adding: true
+        deleting: false
+        toolbar: false
+        span: full
+        columns:
+            width:
+                title: Width (px)
+                type: string
+                validation:
+                    integer: ""
+            height:
+                title: Height (px)
+                type: string
+                validation:
+                    integer: ""
+            mode:
+                title: Mode
+                type: dropdown
+                options:
+                    auto: Auto
+                    crop: Crop
+                default: auto
+        recordsPerPage: false
+        searching: false
+    block_name:
+        label: Name
+        tab: Block properties
+        commentAbove: "Block name for organization purposes"
+        type: text
+        span: auto
+        default: Image
+    advanced_content:
+        type: mixin
+        source: Builder\Mixins\BlockAdvanced

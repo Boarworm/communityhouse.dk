@@ -1,0 +1,99 @@
+{% for block in blocks %}
+
+	{% set name = block.content_group %}
+	{% set isEnabled = block.is_enabled %}
+
+	{% set classes = {
+		"base": "w-full relative "~block.css_classes,
+		"margins": config['margins']['top'][block.margins.0['top']] ~ ' ' ~ config['margins']['bottom'][block.margins.0['bottom']],
+		"col_span": config['col_span'][block.col_span]
+	} %}
+	{% set blockClasses = [ classes['base'], classes['margins'], classes['col_span'] ]|join(' ') %}
+
+	{% if name == 'codeeditor' and isEnabled %}
+		{% partial "blocks/codeeditor/codeeditor" data = {
+			cssClasses: blockClasses,
+			text: block.text,
+			attributes: {
+				"id":block.html_anchor
+			}
+		} %}
+	{% endif %}
+
+	{% if name == 'richeditor' and isEnabled %}
+		{% partial "blocks/richeditor/richeditor" data = {
+			cssClasses: blockClasses,
+			text: block.text,
+			attributes: {
+				"id":block.html_anchor
+			}
+		} %}
+	{% endif %}
+
+	{% if name == 'image' and isEnabled %}
+		{% partial "blocks/image/image" data = {
+			cssClasses: blockClasses~' flex '~block.alignment,
+			src: block.src,
+			resize: {
+				width: block.resize.0.width,
+				height: block.resize.0.height,
+				mode: block.resize.0.mode,
+				extension:"",
+				quality: ""
+			},
+			attributes: {
+				id: block.html_anchor,
+			},
+			imgAttributes: {
+				alt: block.src.description ?: "",
+				title: block.src.title ?: ""
+			}
+		} %}
+	{% endif %}
+
+	{% if name == 'youtube_embed' and isEnabled %}
+		{% partial "blocks/youtube-embed/youtube-embed" data = {
+			cssClasses: blockClasses,
+			videoUrl: block.video_url,
+			title: block.title,
+			attributes: {
+				id: block.html_anchor
+			}
+		} %}
+	{% endif %}
+
+	{% if name == 'headline' and isEnabled %}
+		{% partial "blocks/headline/headline" data = {
+			cssClasses: blockClasses,
+			tag: block.tag,
+			color: block.color,
+			size: block.size,
+			variant: block.variant,
+			text: block.text,
+			attributes: {
+				"id":block.html_anchor
+			}
+		} %}
+	{% endif %}
+
+	{% if name == 'gallery_grid' and isEnabled %}
+		{% partial "blocks/gallery-grid/gallery-grid" data = {
+			cssClasses: blockClasses,
+			images: block.images,
+			attributes: {
+				"id":block.html_anchor
+			}
+		} %}
+	{% endif %}
+
+	{% if name == 'faq' and isEnabled %}
+		{% partial "blocks/faq/faq" data = {
+			cssClasses: blockClasses,
+			items: block.items,
+			attributes: {
+				"id":block.html_anchor
+			}
+		} %}
+	{% endif %}
+
+{% endfor %}

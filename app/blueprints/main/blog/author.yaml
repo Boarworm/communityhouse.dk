@@ -1,0 +1,28 @@
+uuid: blog-authors
+handle: Blog\Author
+type: entry
+name: Authors
+drafts: false
+multisite: sync
+
+navigation:
+    parent: Blog\Post
+    icon: octo-icon-user
+    order: 200
+
+customMessages:
+    buttonCreate: Create Author
+
+fields:
+    avatar:
+        label: Avatar
+        type: mediafinder
+        mode: image
+    role:
+        label: Role
+        type: text
+        translatable: true
+    about:
+        label: About
+        type: textarea
+        translatable: true

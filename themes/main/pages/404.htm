@@ -1,0 +1,40 @@
+url = "/404"
+layout = "default"
+title = "Error 404 - page not found"
+
+[section page]
+handle = "Site\Pages\NotFound"
+identifier = ""
+value = ""
+==
+{% put meta %}
+{% partial "layout/meta/meta" data = {
+	title: page.meta_title|default(page.title),
+	description: page.meta_description|default(page.title~"."),
+	og_image_1200_630: "",
+	og_image_1200_1200: ""
+} %}
+{% endput %}
+
+<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="container pt-6 pb-12">
+	{% partial "blocks/headline/headline" data = {
+		cssClasses: "mb-6",
+		tag: "h1",
+		color: "dark",
+		size: "h1",
+		variant: "",
+		text: page.title,
+		attributes: {}
+	} %}
+
+	<a href="{{ "home"|page }}" class="mb-10 max-w-[500px] block">
+		<img class="w-full h-auto" src="{{ 'assets/images/404.svg'|theme }}" alt="{{ page.title }}" title="{{ page.title }}">
+	</a>
+	<div class="prose">
+		<p>
+			{{ "Sorry, the page you were looking for does not exist or is not available."|_ }}<br>
+			{{ "Back to"|_ }} <a class="!text-secondary hover:text-underline" href="{{ "home"|page }}">{{ "home page"|_ }}</a>
+		</p>
+	</div>
+
+</div>

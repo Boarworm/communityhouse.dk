@@ -1,0 +1,162 @@
+uuid: site_config
+handle: Site\Config
+type: global
+name: Config
+multisite: sync
+
+primaryNavigation:
+    label: Site
+    icon: icon-globe
+    order: 900
+
+navigation:
+    icon: icon-cog
+    parent: Site\Config
+    order: 5
+
+fields:
+    site_name:
+        tab: General
+        label: Site name
+        span: full
+        translatable: false
+    logo_light:
+        tab: General
+        label: Light logo
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        span: auto
+        fileTypes: svg, png, jpg, jpeg
+        thumbOptions:
+            mode: auto
+        translatable: false
+    logo_dark:
+        tab: General
+        label: Dark logo
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        span: auto
+        fileTypes: svg, png, jpg, jpeg
+        thumbOptions:
+            mode: auto
+        translatable: false
+    favicons:
+        tab: General
+        label: Favicons
+        commentAbove: Create favicons on https://realfavicongenerator.net, paste code here and upload files into child theme assets folder
+        span: full
+        type: codeeditor
+        translatable: false
+    year_from:
+        label: Year from
+        tab: Footer
+        span: auto
+        translatable: false
+    copyright:
+        tab: Footer
+        label: Copyright
+        span: auto
+        translatable: true
+    footer_text:
+        tab: Footer
+        label: Text
+        type: richeditor
+        span: full
+        translatable: true
+
+    phones:
+        tab: Contact
+        label: Phones
+        span: full
+        type: repeater
+        prompt: Add phone
+        translatable: true
+        form:
+            fields:
+                phone:
+                    label: Number (including country code)
+                    span: auto
+                phone_extension:
+                    label: Extension
+                    span: auto
+                description:
+                    label: Description
+                    span: auto
+                    translatable: true
+    emails:
+        tab: Contact
+        label: Emails
+        span: full
+        type: repeater
+        prompt: Add email
+        translatable: true
+        form:
+            fields:
+                email:
+                    label: Email
+                    span: auto
+                description:
+                    label: Description
+                    span: auto
+                    translatable: true
+    whatsapp:
+        tab: Contact
+        label: WhatsApp
+        span: full
+        type: repeater
+        prompt: Add WhatsApp
+        maxItems: 1
+        translatable: true
+        form:
+            fields:
+                phone:
+                    label: Number (including country code)
+                    span: auto
+                title:
+                    label: Title
+                    span: auto
+                    translatable: true
+                description:
+                    label: Description
+                    span: auto
+                    translatable: true
+
+    _social_links:
+        type: mixin
+        source: Site\Mixins\SocialLinks
+
+    enable_code_placeholders:
+        tab: Template placeholders
+        label: Enable code placeholders
+        type: switch
+        default: true
+    code_head_start:
+        tab: Template placeholders
+        label: Code after <head>
+        type: codeeditor
+        size: huge
+        span: full
+        translatable: false
+    code_head_end:
+        tab: Template placeholders
+        label: Code before </head>
+        type: codeeditor
+        size: huge
+        span: full
+        translatable: false
+    code_body_start:
+        tab: Template placeholders
+        label: Code after <body>
+        type: codeeditor
+        size: huge
+        span: full
+        translatable: false
+    code_body_end:
+        tab: Template placeholders
+        label: Code before </body>
+        type: codeeditor
+        size: huge
+        span: full
+        translatable: false

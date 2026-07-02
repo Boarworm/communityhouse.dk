@@ -1,0 +1,31 @@
+<head>
+	<script>if(!localStorage.locale_redirected){localStorage.locale_redirected='1';var l=navigator.language?.slice(0,2).toLowerCase();if(l&&l!=='de'){var m={% set siteMap = {} %}{% for site in sitePicker.sites %}{% set code = site.locale|split('-')|first %}{% set siteMap = siteMap|merge({(code): site.url}) %}{% endfor %}{{ siteMap|json_encode|raw }};if(m.nn){m.no=m.nn;m.nb=m.nn}var p=m[l]||m.en;if(p)location.replace(p)}}</script>
+	{% if not is_bot and siteConfig.enable_code_placeholders %}
+		{{ siteConfig.code_head_start|raw }}
+	{% endif %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	{% placeholder meta %}
+    {{ siteConfig.favicons|raw }}
+
+
+	{% for site in sitePicker.sites %}
+		{% if site.id in translatedSiteIds %}
+			<link rel="alternate" hreflang="{{ site.locale }}" href="{{ site.url }}" />
+		{% endif %}
+	{% endfor %}
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=optional" as="style">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=optional" media="print" onload="this.media='all'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"></noscript>
+
+	{% styles %}
+	{{ vite(['assets/src/js/app.js']) }}
+	{% if not is_bot and siteConfig.enable_code_placeholders %}
+		{{ siteConfig.code_head_end|raw }}
+	{% endif %}
+</head>

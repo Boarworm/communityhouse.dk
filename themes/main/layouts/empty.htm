@@ -1,0 +1,37 @@
+description = "Empty layout"
+
+[sitePicker]
+
+[global siteConfig]
+handle = "Site\Config"
+==
+<?php
+function onStart()
+{
+    foreach ($this->page->components as $component) {
+        if ($component instanceof \Tailor\Components\SectionComponent) {
+            $record = $component->getPrimaryRecord();
+            if ($record && $record->exists) {
+                $this['translatedSiteIds'] = $record->newOtherSiteQuery()->pluck('site_id')->toArray();
+                break;
+            }
+        }
+    }
+}
+?>
+==
+<!DOCTYPE html>
+<html dir="ltr" lang="{{ this.site.locale }}">
+{% partial "layout/head/head" %}
+<body data-layout="{{ (_self|split('/')|last|split('.')|first) }}" class="flex flex-col min-h-screen text-neutral-darker font-light text-sm sm:text-base">
+{{ siteConfig.enable_code_placeholders ? siteConfig.code_body_start|raw }}
+
+<div class="text-neutral-darker flex flex-col grow shrink-0 basis-auto">
+    {% page %}
+</div>
+
+{{ vite(['assets/src/js/app.js'], { 'defer': true }) }}
+{% scripts %}
+{{ siteConfig.enable_code_placeholders ? siteConfig.code_body_end|raw }}
+</body>
+</html>

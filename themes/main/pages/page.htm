@@ -1,0 +1,43 @@
+url = "/:slug*"
+layout = "default"
+title = "Page"
+
+[section builder]
+handle = "Builder"
+identifier = "fullslug"
+value = "{{ :slug }}"
+isDefault = 1
+==
+{% if builder is empty %}{% do abort(404) %}{% endif %}
+
+{% put meta %}
+{% partial "layout/meta/meta" data = {
+    title: builder.meta_title ?: builder.title,
+    description: builder.meta_description ?: builder.title,
+    og_image_1200_630: "",
+    og_image_1200_1200: ""
+} %}
+{% endput %}
+
+<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="container">
+    <div class="pt-7">
+        {% partial "blocks/breadcrumbs/breadcrumbs" data = {
+            cssClasses: "mb-4",
+            breadcrumbs: [
+                {name: builder.title, url: ''}
+            ]
+        } %}
+        {% partial "blocks/headline/headline" data = {
+            cssClasses: "mb-7 flex items-end lg:mb-10",
+            tag: "h1",
+            color: "dark",
+            size: "h1",
+            variant: "",
+            text: builder.title,
+            attributes: {}
+        } %}
+        <div class="mb-12 lg:mb-24">
+            {% partial "layout/builder/builder" builder=builder %}
+        </div>
+    </div>
+</div>

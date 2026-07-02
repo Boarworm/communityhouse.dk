@@ -1,0 +1,29 @@
+uuid: menu_mobile
+handle: Menu\Mobile
+type: structure
+name: Mobile
+drafts: false
+multisite: true
+pagefinder: false
+
+navigation:
+    icon: icon-bars
+    parent: Menu\Header
+    order: 50
+
+structure:
+    maxDepth: 10
+    showSorting: false
+
+customMessages:
+    buttonCreate: Add item
+
+fields:
+    _item:
+        type: mixin
+        source: Menu\Mixins\Item
+
+columns:
+    title: true
+    url: URL
+    external: External

@@ -1,0 +1,22 @@
+uuid: site_pages_comingsoon
+handle: Site\Pages\ComingSoon
+type: single
+name: Coming soon
+multisite: true
+
+navigation:
+    parent: Site\Pages\Home
+    order: 210
+
+fields:
+    image:
+        label: Image
+        tab: Media
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    title:
+        placeholder: Title
+    _meta:
+        type: mixin
+        source: Site\Mixins\Meta

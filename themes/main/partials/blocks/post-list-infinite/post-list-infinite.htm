@@ -1,0 +1,65 @@
+[collection posts]
+handle = "Blog\Post"
+sortColumn = "created_at"
+sortDirection = "asc"
+==
+{% if data.filterByCategoryId %}
+	{% set posts = posts.whereRelation('category', 'id', data.filterByCategoryId) %}
+{% endif %}
+
+{% set posts = posts.paginate(data.limit) %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	{% if posts is not empty %}
+		<div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+			{% for item in posts %}
+				{% partial "blocks/post-card/post-card" data = {
+					cssClasses: "",
+					title: item.title,
+					date: item.published_at_date|date('d M Y'),
+					url: "blog-details"|page({slug: item.slug}),
+					excerpt: item.excerpt,
+					image: {
+						imgCssClasses: "",
+						src: item.image,
+						resize: {
+							width: "435",
+							height: "245",
+							mode: "crop",
+							extension: "",
+							quality: ""
+						},
+						attributes: {
+							alt: item.title
+						}
+					}
+				} %}
+			{% endfor %}
+		</div>
+
+		{% if posts.hasMorePages %}
+			<div class="flex justify-center">
+				{% partial "blocks/button/button" data = {
+					cssClasses: "uppercase mt-7",
+					tag: "button",
+					body: "Load More"|_,
+					variant: "",
+					color: "secondary",
+					size: "xl",
+					attributes: {
+						"type": "button",
+						"data-request":"onAjax",
+						"data-request-update": "{ _self: '@' }",
+						"data-request-success": "this.remove()",
+						"data-request-data": "{ page: "~(posts.currentPage + 1)~" }",
+						"data-attach-loading": "data-attach-loading"
+					}
+				} %}
+			</div>
+		{% endif %}
+	{% else %}
+		<div class="prose">
+			<p>{{ "Sorry, there are currently no posts available."|_ }}</p>
+		</div>
+	{% endif %}
+</div>

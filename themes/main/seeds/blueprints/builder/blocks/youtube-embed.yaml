@@ -1,0 +1,28 @@
+uuid: builder_blocks_youtube_embed
+handle: Builder\Blocks\YoutubeEmbed
+type: mixin
+name: YouTube Embed
+fields:
+  video_url:
+    tab: Content
+    label: YouTube Embed URL
+    type: text
+    span: auto
+    comment: "Open your video on YouTube → click Share → Embed → copy the 'src' URL (e.g. https://www.youtube.com/embed/VIDEO_ID)"
+  title:
+    tab: Content
+    label: Video Title
+    comment: "For accessibility (screen readers)"
+    type: text
+    span: auto
+    translatable: true
+  block_name:
+    label: Name
+    tab: Block properties
+    commentAbove: "Block name for organization purposes"
+    type: text
+    span: auto
+    default: YouTube Video
+  _advanced_content:
+    type: mixin
+    source: Builder\Mixins\BlockAdvanced

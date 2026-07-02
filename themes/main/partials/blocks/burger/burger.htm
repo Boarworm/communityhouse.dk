@@ -1,0 +1,84 @@
+{% set variants = {
+	"default": {
+		"baseBlockClasses": 'relative w-full h-full flex items-center justify-center',
+		"baseCheckboxClasses": 'cursor-pointer peer absolute z-10 w-full h-full opacity-0',
+		"baseLine1Classes": 'absolute transform transition duration-500 ease-in-out peer-checked:rotate-45 -translate-y-3 peer-checked:translate-y-0',
+		"baseLine2Classes": 'absolute transform transition duration-500 ease-in-out peer-checked:opacity-0',
+		"baseLine3Classes": 'absolute transform transition duration-500 ease-in-out peer-checked:-rotate-45 translate-y-3 peer-checked:translate-y-0',
+		"colors": {
+			'dark': {
+				"colorLine1Classes": "bg-neutral",
+				"colorLine2Classes": "bg-neutral",
+				"colorLine3Classes": "bg-neutral",
+			},
+			'light': {
+				"colorLine1Classes": "bg-white",
+				"colorLine2Classes": "bg-white",
+				"colorLine3Classes": "bg-white",
+			},
+			'primary': {
+				"colorLine1Classes": "bg-primary",
+				"colorLine2Classes": "bg-primary",
+				"colorLine3Classes": "bg-primary",
+			},
+			'secondary': {
+				"colorLine1Classes": "bg-secondary",
+				"colorLine2Classes": "bg-secondary",
+				"colorLine3Classes": "bg-secondary",
+			},
+			'tertiary': {
+				"colorLine1Classes": "bg-tertiary",
+				"colorLine2Classes": "bg-tertiary",
+				"colorLine3Classes": "bg-tertiary",
+			}
+		},
+		"sizes": {
+			'md': {
+				"sizeBlockClasses": "",
+				"sizeLine1Classes": "h-0.5 w-full",
+				"sizeLine2Classes": "h-0.5 w-full",
+				"sizeLine3Classes": "h-0.5 w-full",
+			}
+		}
+	}
+} %}
+
+{% set blockClasses = [
+	data.cssClasses,
+	variants[data.variant|default("default")].baseBlockClasses,
+	variants[data.variant|default("default")].colors[data.color|default("dark")].colorBlockClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeBlockClasses,
+]|join(" ") %}
+
+{% set checkboxClasses = [
+	variants[data.variant|default("default")].baseCheckboxClasses,
+	variants[data.variant|default("default")].colors[data.color|default("dark")].colorCheckboxClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeCheckboxClasses,
+]|join(" ") %}
+
+{% set line1Classes = [
+	variants[data.variant|default("default")].baseLine1Classes,
+	variants[data.variant|default("default")].colors[data.color|default("dark")].colorLine1Classes,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeLine1Classes,
+]|join(" ") %}
+
+{% set line2Classes = [
+	variants[data.variant|default("default")].baseLine2Classes,
+	variants[data.variant|default("default")].colors[data.color|default("dark")].colorLine2Classes,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeLine2Classes,
+]|join(" ") %}
+
+{% set line3Classes = [
+	variants[data.variant|default("default")].baseLine3Classes,
+	variants[data.variant|default("default")].colors[data.color|default("dark")].colorLine3Classes,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeLine3Classes,
+]|join(" ") %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ blockClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	<div class="h-full w-full flex items-center justify-center">
+		<input type="checkbox" aria-label="hamburger" class="{{ checkboxClasses }}" {{ data.active ? "checked" }}>
+		<div aria-hidden="true" class="{{ line1Classes }}"></div>
+		<div aria-hidden="true" class="{{ line2Classes }}"></div>
+		<div aria-hidden="true" class="{{ line3Classes }}"></div>
+	</div>
+</div>

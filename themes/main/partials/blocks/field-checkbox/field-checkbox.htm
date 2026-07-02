@@ -1,0 +1,103 @@
+{% set variants = {
+	"default": {
+		"baseBlockClasses": "relative",
+		"baseLabelClasses": "cursor-pointer pl-2.5",
+		"baseInputWrapperClasses": "flex",
+		"baseCheckboxWrapperClasses": "relative shrink-0 cursor-pointer",
+		"baseFakeInputClasses": "absolute inset-0 border-b rounded-sm transition",
+		"baseInputClasses": "peer absolute inset-0 opacity-0 w-full h-full",
+		"baseCheckmarkClasses": "absolute inset-0 m-auto w-[60%] h-auto opacity-0 transition peer-checked:opacity-100",
+		"baseValidationClasses": "absolute z-10 shadow-lg bg-white bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22%23f97316%22%3E%3Cpath%20d%3D%22M15.35%2012.81%209%202.08a1.22%201.22%200%200%200-2%200L.65%2012.81a1.14%201.14%200%200%200%201%201.69h12.66a1.14%201.14%200%200%200%201.04-1.69zm-13.66.55L8%202.64l6.31%2010.72z%22%2F%3E%3Cpath%20d%3D%22M7.32%205.45h1.25V10H7.32z%22%2F%3E%3Cellipse%20cx%3D%227.95%22%20cy%3D%2211.9%22%20rx%3D%22.67%22%20ry%3D%22.7%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[center_left_0.5rem] bg-size-[18px] pl-9 pr-3 py-2 text-gray-500 border border-gray-500 rounded-md text-xs mt-3 visible empty:hidden block first-letter:uppercase top-full left-0 after:content-[''] after:absolute after:-top-1.5 after:left-3 after:w-3 after:h-3 after:bg-white after:border-t after:border-l after:border-gray-500 after:rotate-45",
+		"colors": {
+			"dark": {
+				"colorLabelClasses": "text-default-darker",
+				"colorFakeInputClasses": "bg-default-lightest border-primary"
+			},
+			"light": {
+				"colorLabelClasses": "text-white",
+				"colorFakeInputClasses": "bg-white border-white"
+			}
+		},
+		"sizes": {
+			"xs": {
+				"sizeCheckboxWrapperClasses": "w-5 h-5",
+				"sizeLabelClasses": "text-xs"
+			},
+			"sm": {
+				"sizeCheckboxWrapperClasses": "w-5 h-5",
+				"sizeLabelClasses": "text-sm"
+			},
+			"md": {
+				"sizeCheckboxWrapperClasses": "w-5 h-5",
+				"sizeLabelClasses": "text-base"
+			},
+			"lg": {
+				"sizeCheckboxWrapperClasses": "w-5 h-5",
+				"sizeLabelClasses": "text-lg"
+			},
+			"xl": {
+				"sizeCheckboxWrapperClasses": "w-5 h-5",
+				"sizeLabelClasses": "text-xl"
+			}
+		}
+	}
+} %}
+
+{% set blockClasses = [
+	data.cssClasses,
+	variants[data.variant|default("default")].baseBlockClasses,
+	variants[data.variant|default("default")].colors[data.color|default("light")].colorBlockClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeBlockClasses,
+]|join(" ") %}
+
+{% set labelClasses = [
+	variants[data.variant|default("default")].baseLabelClasses,
+	variants[data.variant|default("default")].colors[data.color|default("light")].colorLabelClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeLabelClasses,
+]|join(" ") %}
+
+{% set inputWrapperClasses = [
+	variants[data.variant|default("default")].baseInputWrapperClasses,
+	variants[data.variant|default("default")].colors[data.color|default("light")].colorInputWrapperClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeInputWrapperClasses,
+]|join(" ") %}
+
+{% set checkboxWrapperClasses = [
+	variants[data.variant|default("default")].baseCheckboxWrapperClasses,
+	variants[data.variant|default("default")].colors[data.color|default("light")].colorCheckboxWrapperClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeCheckboxWrapperClasses,
+]|join(" ") %}
+
+{% set fakeInputClasses = [
+	variants[data.variant|default("default")].baseFakeInputClasses,
+	variants[data.variant|default("default")].colors[data.color|default("light")].colorFakeInputClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeFakeInputClasses,
+]|join(" ") %}
+
+{% set inputClasses = [
+	variants[data.variant|default("default")].baseInputClasses,
+]|join(" ") %}
+
+{% set checkmarkClasses = [
+	variants[data.variant|default("default")].baseCheckmarkClasses,
+]|join(" ") %}
+
+{% set validationClasses = [
+	variants[data.variant|default("default")].baseValidationClasses,
+	variants[data.variant|default("default")].colors[data.color|default("light")].colorValidationClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeValidationClasses,
+]|join(" ") %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ blockClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	<label for="{{ data.inputAttributes.id }}" class="{{ inputWrapperClasses }}">
+		<span class="{{ checkboxWrapperClasses }}">
+			<input type="checkbox" {% for key, value in data.inputAttributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %} class="{{ inputClasses }}">
+			<span class="{{ fakeInputClasses }}"></span>
+			<svg class="{{ checkmarkClasses }}" viewBox="0 0 12 9" xmlns="http://www.w3.org/2000/svg"><path d="M4.495 9c-.278 0-.545-.117-.738-.324L.287 4.971a1.08 1.08 0 0 1 .027-1.494 1.005 1.005 0 0 1 1.45.027L4.497 6.42l5.74-6.097a1.005 1.005 0 0 1 1.45-.027 1.08 1.08 0 0 1 .026 1.495L5.234 8.677c-.194.206-.46.323-.739.323Z"/></svg>
+		</span>
+		{% if data.label %}
+			<span class="{{ labelClasses }}">{{ data.label|raw }}</span>
+		{% endif %}
+	</label>
+	<div data-validate-for="{{ data.inputAttributes.name }}" class="{{ validationClasses }}"></div>
+</div>

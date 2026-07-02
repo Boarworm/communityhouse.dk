@@ -1,0 +1,100 @@
+{% set variants = {
+	"default": {
+		"baseBlockClasses": "relative",
+		"baseLabelClasses": "inline-block font-bold mb-2.5",
+		"baseSelectClasses": "block appearance-none leading-normal w-full cursor-pointer border-b rounded-sm transition focus:ring-1 focus:ring-opacity-40 focus:outline-none disabled:bg-slate-200 disabled:cursor-not-allowed disabled:opacity-70",
+		"baseBodyClasses": "flex items-center relative",
+		"baseArrowClasses": "absolute right-2 z-10 w-2 h-2",
+		"baseValidationClasses": "absolute z-10 shadow-lg bg-white bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22%23f97316%22%3E%3Cpath%20d%3D%22M15.35%2012.81%209%202.08a1.22%201.22%200%200%200-2%200L.65%2012.81a1.14%201.14%200%200%200%201%201.69h12.66a1.14%201.14%200%200%200%201.04-1.69zm-13.66.55L8%202.64l6.31%2010.72z%22%2F%3E%3Cpath%20d%3D%22M7.32%205.45h1.25V10H7.32z%22%2F%3E%3Cellipse%20cx%3D%227.95%22%20cy%3D%2211.9%22%20rx%3D%22.67%22%20ry%3D%22.7%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[center_left_0.5rem] bg-size-[18px] pl-9 pr-3 py-2 text-gray-500 border border-gray-500 rounded-md text-xs mt-3 visible empty:hidden block first-letter:uppercase top-full left-0 after:content-[''] after:absolute after:-top-1.5 after:left-3 after:w-3 after:h-3 after:bg-white after:border-t after:border-l after:border-gray-500 after:rotate-45",
+		"colors": {
+			"dark": {
+				"colorLabelClasses": "text-default-darker",
+				"colorSelectClasses": "text-default-darker bg-default-lightest border-primary focus:ring-primary/50"
+			},
+			"light": {
+				"colorLabelClasses": "text-white",
+				"colorSelectClasses": "text-white bg-primary-light border-primary-light focus:ring-primary-light/50",
+				"colorArrowClasses": "fill-white"
+			}
+		},
+		"sizes": {
+			"xs": {
+				"sizeLabelClasses": "text-xs",
+				"sizeSelectClasses": "text-xs p-2 pr-6"
+			},
+			"sm": {
+				"sizeLabelClasses": "text-sm",
+				"sizeSelectClasses": "text-sm p-2.5 pr-6"
+			},
+			"md": {
+				"sizeLabelClasses": "text-base",
+				"sizeSelectClasses": "text-base p-2.5 pr-6"
+			},
+			"lg": {
+				"sizeLabelClasses": "text-lg",
+				"sizeSelectClasses": "text-lg p-2.5 pr-6"
+			},
+			"xl": {
+				"sizeLabelClasses": "text-xl",
+				"sizeSelectClasses": "text-xl p-2.5 pr-6"
+			}
+		}
+	}
+} %}
+
+{% set blockClasses = [
+	data.cssClasses,
+	variants[data.variant|default("default")].baseBlockClasses,
+	variants[data.variant|default("default")].colors[data.color|default("light")].colorBlockClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeBlockClasses,
+]|join(" ") %}
+
+{% set labelClasses = [
+	variants[data.variant|default("default")].baseLabelClasses,
+	variants[data.variant|default("default")].colors[data.color|default("light")].colorLabelClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeLabelClasses,
+]|join(" ") %}
+
+{% set selectClasses = [
+	variants[data.variant|default("default")].baseSelectClasses,
+	variants[data.variant|default("default")].colors[data.color|default("light")].colorSelectClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeSelectClasses,
+]|join(" ") %}
+
+{% set bodyClasses = [
+	variants[data.variant|default("default")].baseBodyClasses,
+	variants[data.variant|default("default")].colors[data.color|default("light")].colorBodyClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeBodyClasses,
+]|join(" ") %}
+
+{% set arrowClasses = [
+	variants[data.variant|default("default")].baseArrowClasses,
+	variants[data.variant|default("default")].colors[data.color|default("light")].colorArrowClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeArrowClasses,
+]|join(" ") %}
+
+{% set validationClasses = [
+	variants[data.variant|default("default")].baseValidationClasses,
+	variants[data.variant|default("default")].colors[data.color|default("light")].colorValidationClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeValidationClasses,
+]|join(" ") %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ blockClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	{% if data.label %}
+		<label for="{{ data.inputAttributes.id }}" class="{{ labelClasses }}">{{ data.label }}</label>
+	{% endif %}
+	<div class="{{ bodyClasses }}">
+		<select {% for key, value in data.inputAttributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %} class="{{ selectClasses }}">
+			{% if data.emptyOption %}
+				<option value="{{ data.emptyOption|keys|first }}" {% if data.defaultValue == data.emptyOption|keys|first %} selected="selected" {% endif %}>{{ data.emptyOption|first }}</option>
+			{% endif %}
+			{% for value, name in data.options %}
+				<option value="{{ value }}" {% if data.defaultValue == value %} selected="selected" {% endif %}>{{ name }}</option>
+			{% endfor %}
+		</select>
+		<svg xmlns="http://www.w3.org/2000/svg" class="{{ arrowClasses }}" viewBox="0 0 135.467 67.733">
+			<path d="M67.733 55.033 12.7 0H0l67.733 67.733L135.467 0h-12.7z"/>
+		</svg>
+	</div>
+	<div class="{{ validationClasses }}" data-validate-for="{{ data.inputAttributes.name }}"></div>
+</div>

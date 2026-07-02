@@ -1,0 +1,38 @@
+url = "/"
+layout = "default"
+title = "Home"
+
+[section page]
+handle = "Site\Pages\Home"
+identifier = ""
+value = ""
+
+[collection posts]
+handle = "Blog\Post"
+==
+{% set latestPostsExists = posts.limit(data.limit).exists() %}
+
+{% put meta %}
+{% partial "layout/meta/meta" data = {
+	title: page.meta_title,
+	description: page.meta_description,
+	og_image_1200_630: "",
+	og_image_1200_1200: ""
+} %}
+{% endput %}
+
+
+<div class="container pt-5">
+	{% if latestPostsExists %}
+		<div class="mb-12 lg:mb-24">
+			<div class="mb-5 flex justify-between items-end">
+				<div class="font-bold text-2xl">{{ "Latest articles"|_ }}</div>
+				<a href="{{ 'blog'|page }}" class="text-xs font-bold text-secondary hover:text-secondary-dark">{{ "All Articles"|_ }} →</a>
+			</div>
+			{% partial "blocks/post-carousel-latest/post-carousel-latest" data = {
+				cssClasses: "",
+				limit: 6
+			} %}
+		</div>
+	{% endif %}
+</div>

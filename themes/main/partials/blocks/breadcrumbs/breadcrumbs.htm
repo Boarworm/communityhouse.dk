@@ -1,0 +1,27 @@
+{% set index = 1 %}
+{% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}
+<ol data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="flex items-center overflow-y-auto p-0 list-none {{ data.cssClasses }}" itemscope="" itemtype="https://schema.org/BreadcrumbList" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+        <a href="{{ 'home'|page }}" itemprop="item" class="flex items-center no-underline text-xs text-default transition hover:text-primary">
+            <div itemprop="name">{{ 'Home'|_ }}</div>
+        </a>
+        <meta itemprop="position" content="{{ index }}">
+    </li>
+    <li class="px-1 text-default text-xs">/</li>
+    {% for breadcrumb in data.breadcrumbs %}
+        <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+            {% if loop.last %}
+                <div class="whitespace-nowrap text-xs text-default" itemprop="name">{{ breadcrumb.name~(get('page') ? " - page "|_~get('page')) }}</div>
+            {% else %}
+                <a class="whitespace-nowrap no-underline text-xs text-default transition hover:text-primary" href="{{ breadcrumb.url }}" itemprop="item">
+                    <div itemprop="name">{{ breadcrumb.name }}</div>
+                </a>
+            {% endif %}
+            <meta itemprop="position" content="{{ index }}">
+        </li>
+        {% if not loop.last %}
+            <li class="px-1 text-default text-xs">/</li>
+        {% endif %}
+        {% set index = loop.index + 1 %}
+    {% endfor %}
+</ol>

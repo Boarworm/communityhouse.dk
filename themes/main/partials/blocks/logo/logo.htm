@@ -1,0 +1,32 @@
+{% if data.color == "light" %}
+    {% set logo = siteConfig.logo_light ? siteConfig.logo_light.path : 'assets/images/logo.svg'|theme %}
+    {% set isSvg = siteConfig.logo_light ? siteConfig.logo_light.content_type == "image/svg+xml" : true %}
+{% else %}
+    {% set logo = siteConfig.logo_dark ? siteConfig.logo_dark.path : 'assets/images/logo.svg'|theme %}
+    {% set isSvg = siteConfig.logo_dark ? siteConfig.logo_dark.content_type == "image/svg+xml" : true %}
+{% endif %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}>
+	<a href="{{ 'home'|page }}" class="h-full">
+		{% if isSvg %}
+			<img src="{{ logo }}" alt="{{ siteConfig.site_name }}" title="{{ siteConfig.site_name }}" class="h-full" width="152" height="38">
+		{% else %}
+			{% partial "blocks/image/image" data = {
+				cssClasses: "w-full h-full",
+				imgCssClasses: "h-full",
+				src: logo,
+				resize: {
+					width:'',
+					height: '38',
+					mode:'crop',
+					extension:'',
+					quality:''
+				},
+				imgAttributes: {
+					alt: siteConfig.site_name,
+					title: siteConfig.site_name,
+				}
+			} %}
+		{% endif %}
+	</a>
+</div>

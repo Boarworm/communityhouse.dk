@@ -1,0 +1,10 @@
+[
+    {
+        "id": 1,
+        "title": "Jane Doe",
+        "slug": "jane-doe",
+        "is_enabled": 1,
+        "role": "Editor",
+        "about": "Experienced content specialist with a focus on the topics covered by this site."
+    }
+]

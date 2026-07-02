@@ -1,0 +1,29 @@
+{
+    "name": "communityhouse",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "author": "Boarworm",
+    "devDependencies": {
+        "browser-sync": "^3.0.4",
+        "postcss": "^8.5.16",
+        "svg-sprite": "^2.0.4",
+        "tailwindcss": "^4.3.2",
+        "vite": "^7.3.6",
+        "vite-plugin-live-reload": "^3.1.0",
+        "vite-plugin-svg-sprite": "^0.7.0"
+    },
+    "dependencies": {
+        "@fancyapps/ui": "^6.1.14",
+        "@tailwindcss/typography": "^0.5.20",
+        "@tailwindcss/vite": "^4.3.2",
+        "lazysizes": "^5.3.2",
+        "nice-select2": "^2.4.1",
+        "swiper": "^14.0.1"
+    }
+}

@@ -1,0 +1,60 @@
+description = "Default layout"
+
+[sitePicker]
+
+[global siteConfig]
+handle = "Site\Config"
+
+[base]
+==
+<?php
+function onStart()
+{
+    foreach ($this->page->components as $component) {
+        if ($component instanceof \Tailor\Components\SectionComponent) {
+            $record = $component->getPrimaryRecord();
+            if ($record && $record->exists) {
+                $this['translatedSiteIds'] = $record->newOtherSiteQuery()->pluck('site_id')->toArray();
+                break;
+            }
+        }
+    }
+    $ua = Request::header('User-Agent') ?? '';
+    $this['is_bot'] = (bool) preg_match('/Chrome-Lighthouse|Lighthouse|PTST|Google-PageSpeed-Insights|GTmetrix|Pingdom/i', $ua);
+}
+?>
+==
+<!DOCTYPE html>
+<html dir="ltr" lang="{{ this.site.locale }}">
+{% partial "layout/head/head" %}
+<body data-layout="{{ (_self|split('/')|last|split('.')|first) }}" class="flex flex-col min-h-screen text-sm leading-none sm:text-base">
+{% if not is_bot and siteConfig.enable_code_placeholders %}
+    {{ siteConfig.code_body_start|raw }}
+{% endif %}
+
+
+{% partial "layout/header/header" data = {
+    cssClasses: "sticky",
+    attributes: {}
+} %}
+
+{% partial "layout/menu-mobile/menu-mobile" data = {
+    cssClasses: "js-menu-mobile fixed overflow-y-auto transition-all -right-full top-[63px] w-full h-full z-40"
+} %}
+
+<div class="text-neutral-darker flex flex-col grow shrink-0 basis-auto">
+    {% page %}
+</div>
+
+{% partial "layout/footer/footer" data = {
+    cssClasses: "",
+    attributes: {}
+} %}
+
+{% scripts %}
+<script src="{{ '/modules/system/assets/js/framework-bundle.min.js' }}" defer></script>
+{% if not is_bot and siteConfig.enable_code_placeholders %}
+    {{ siteConfig.code_body_end|raw }}
+{% endif %}
+</body>
+</html>

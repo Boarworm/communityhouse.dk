@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "title": "Home",
+        "slug": "home",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "home",
+        "parent_id": null,
+        "url": "october:\/\/cms-page@link\/home?title=Home+%28home%29",
+        "external": 0
+    },
+    {
+        "id": 2,
+        "title": "Blog",
+        "slug": "blog",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "blog",
+        "parent_id": null,
+        "url": "october:\/\/cms-page@link\/blog?title=Blog+%28blog%29",
+        "external": 0
+    },
+    {
+        "id": 3,
+        "title": "About us",
+        "slug": "about-us",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "about-us",
+        "parent_id": null,
+        "url": "october:\/\/cms-page@link\/about?title=About+us+%28about%29",
+        "external": 0
+    },
+    {
+        "id": 4,
+        "title": "Contact",
+        "slug": "contact",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "contact",
+        "parent_id": null,
+        "url": "october:\/\/cms-page@link\/contact?title=Contact+%28contact%29",
+        "external": 0
+    }
+]

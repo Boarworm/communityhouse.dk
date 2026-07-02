@@ -1,0 +1,43 @@
+uuid: builder
+handle: Builder
+type: structure
+name: Builder
+drafts: false
+multisite: true
+
+primaryNavigation:
+    label: Static Pages
+    icon: icon-files-o
+    order: 200
+
+customMessages:
+    buttonCreate: Create Page
+
+fields:
+    title:
+        placeholder: Title
+    containers:
+        type: repeater
+        label: Builder
+        span: adaptive
+        itemsExpanded: true
+        prompt: Add container
+        translatable: true
+        groups:
+            container:
+                name: Container
+                icon: icon-columns
+                useTabs: true
+                fields:
+                    _container:
+                        type: mixin
+                        source: Builder\Container
+    _meta:
+        type: mixin
+        source: Site\Mixins\Meta
+    _settings:
+        type: mixin
+        source: Builder\Mixins\Settings
+    _docs:
+        type: mixin
+        source: Builder\Mixins\Docs

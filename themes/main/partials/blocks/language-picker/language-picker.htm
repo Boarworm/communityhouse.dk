@@ -1,0 +1,49 @@
+{#
+    Language Picker Component
+    -------------------------
+    Renders a flag + language code dropdown for switching between sites.
+    Only visible when more than one site is configured.
+
+    Usage:
+        {% partial "blocks/language-picker/language-picker" data = {
+            cssClasses: "ml-2 md:ml-4"
+        } %}
+
+    Requirements:
+        - Multiple sites configured in Settings → Sites (each with a locale, e.g. en-GB, da-DK)
+        - [sitePicker] component must be present in the page/layout that includes this partial
+        - language-picker.js handles NiceSelect styling and flag rendering
+        - For translatable entries: set `translatedSiteIds` in the layout's onStart() to restrict
+          visible sites to those that have a translation for the current record
+
+    Flags:
+        Loaded from /modules/system/assets/toolbox/elements/flag/flag-icon/flags/4x3/{countryCode}.svg
+        Language-to-country code mappings can be added in the {% if countryCode == ... %} block below
+#}
+{% if sitePicker.sites|length > 1 %}
+    <div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} bg-primary-light rounded-sm" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+        <label for="language-picker" class="sr-only">{{ 'Select Language'|_ }}</label>
+        <select 
+            name="language-picker" 
+            id="language-picker"
+            onchange="window.location.assign(this.value)"
+            class="bg-transparent border-none text-secondary font-bold cursor-pointer"
+        >
+            {% for site in sitePicker.sites %}
+                {% if translatedSiteIds is empty or site.id in translatedSiteIds %}
+                    {% set countryCode = site.locale|split('-')|last|lower %}
+                    {# Map language codes to country codes for flags #}
+                    {% if countryCode == 'en' %}{% set countryCode = 'gb' %}{% endif %}
+                    {% if countryCode == 'sv' %}{% set countryCode = 'se' %}{% endif %}
+                    {% if countryCode == 'da' %}{% set countryCode = 'dk' %}{% endif %}
+                    {% set flagPath = '/modules/system/assets/toolbox/elements/flag/flag-icon/flags/4x3/' ~ countryCode ~ '.svg' %}
+                    <option 
+                        value="{{ site.url }}" 
+                        data-flag="{{ flagPath }}"
+                        {% if this.site.url == site.url %}selected{% endif %}
+                    >{{ site.code|upper }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+{% endif %}

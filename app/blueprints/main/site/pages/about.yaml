@@ -1,0 +1,16 @@
+uuid: site_pages_about
+handle: Site\Pages\About
+type: single
+name: About us
+multisite: true
+
+navigation:
+    parent: Site\Pages\Home
+    order: 30
+
+fields:
+    title:
+        placeholder: Title
+    _meta:
+        type: mixin
+        source: Site\Mixins\Meta

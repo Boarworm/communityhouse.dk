@@ -1,0 +1,114 @@
+{
+  "_fancybox.css": {
+    "file": "css/fancybox.css",
+    "src": "_fancybox.css"
+  },
+  "_fancybox.js": {
+    "file": "js/fancybox.js",
+    "name": "fancybox",
+    "css": [
+      "css/fancybox.css"
+    ]
+  },
+  "_pagination.css": {
+    "file": "css/pagination.css",
+    "src": "_pagination.css"
+  },
+  "_pagination.js": {
+    "file": "js/pagination.js",
+    "name": "pagination",
+    "css": [
+      "css/pagination.css"
+    ]
+  },
+  "assets/src/icons/interface.svg": {
+    "file": "assets/interface.svg",
+    "src": "assets/src/icons/interface.svg"
+  },
+  "assets/src/icons/social-youtube-colored.svg": {
+    "file": "assets/social-youtube-colored.svg",
+    "src": "assets/src/icons/social-youtube-colored.svg"
+  },
+  "assets/src/js/app.js": {
+    "file": "js/app.js",
+    "name": "app",
+    "src": "assets/src/js/app.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "partials/layout/header/header.js",
+      "partials/layout/menu-mobile/menu-mobile.js",
+      "partials/blocks/post-carousel-latest/post-carousel-latest.js",
+      "partials/blocks/carousel/carousel-advantages.js",
+      "partials/blocks/gallery-grid/gallery-grid.js",
+      "assets/src/js/common/fancybox-image.js",
+      "partials/blocks/youtube-embed/youtube-embed.js",
+      "partials/blocks/language-picker/language-picker.js"
+    ],
+    "css": [
+      "css/app.css"
+    ]
+  },
+  "assets/src/js/common/fancybox-image.js": {
+    "file": "js/fancybox-image.js",
+    "name": "fancybox-image",
+    "src": "assets/src/js/common/fancybox-image.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_fancybox.js"
+    ]
+  },
+  "partials/blocks/carousel/carousel-advantages.js": {
+    "file": "js/carousel-advantages.js",
+    "name": "carousel-advantages",
+    "src": "partials/blocks/carousel/carousel-advantages.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_pagination.js"
+    ]
+  },
+  "partials/blocks/gallery-grid/gallery-grid.js": {
+    "file": "js/gallery-grid.js",
+    "name": "gallery-grid",
+    "src": "partials/blocks/gallery-grid/gallery-grid.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_fancybox.js"
+    ]
+  },
+  "partials/blocks/language-picker/language-picker.js": {
+    "file": "js/language-picker.js",
+    "name": "language-picker",
+    "src": "partials/blocks/language-picker/language-picker.js",
+    "isDynamicEntry": true,
+    "css": [
+      "css/language-picker.css"
+    ]
+  },
+  "partials/blocks/post-carousel-latest/post-carousel-latest.js": {
+    "file": "js/post-carousel-latest.js",
+    "name": "post-carousel-latest",
+    "src": "partials/blocks/post-carousel-latest/post-carousel-latest.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_pagination.js"
+    ]
+  },
+  "partials/blocks/youtube-embed/youtube-embed.js": {
+    "file": "js/youtube-embed.js",
+    "name": "youtube-embed",
+    "src": "partials/blocks/youtube-embed/youtube-embed.js",
+    "isDynamicEntry": true
+  },
+  "partials/layout/header/header.js": {
+    "file": "js/header.js",
+    "name": "header",
+    "src": "partials/layout/header/header.js",
+    "isDynamicEntry": true
+  },
+  "partials/layout/menu-mobile/menu-mobile.js": {
+    "file": "js/menu-mobile.js",
+    "name": "menu-mobile",
+    "src": "partials/layout/menu-mobile/menu-mobile.js",
+    "isDynamicEntry": true
+  }
+}

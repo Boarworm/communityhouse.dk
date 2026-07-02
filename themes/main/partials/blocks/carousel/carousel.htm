@@ -1,0 +1,24 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="swiper w-full relative group/carousel overflow-hidden {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    <div class="swiper-wrapper h-full {{ data.cssClassesWrapper }}">
+        {{ body|raw }}
+    </div>
+    {% if data.navigation %}
+        <div class="flex justify-center absolute gap-2.5 bottom-5 left-0 right-0 z-10 sm:left-auto sm:right-7">
+            <div class="swiper-button-prev p-5 bg-secondary-dark hover:bg-secondary h-15 w-15 rounded-full cursor-pointer transition group/button">
+                {% partial "blocks/icon-svg/icon-svg" data = {
+                    cssClasses: "w-full h-full fill-white transition group-hover/button:fill-primary-dark",
+                    name: "arrow-left"
+                } %}
+            </div>
+            <div class="swiper-button-next p-5 bg-secondary-dark hover:bg-secondary h-15 w-15 rounded-full cursor-pointer transition group/button">
+                {% partial "blocks/icon-svg/icon-svg" data = {
+                    cssClasses: "w-full h-full fill-white transition group-hover/button:fill-primary-dark",
+                    name: "arrow-right"
+                } %}
+            </div>
+        </div>
+    {% endif %}
+    {% if data.pagination %}
+        <div class="swiper-pagination !relative !mt-8"></div>
+    {% endif %}
+</div>

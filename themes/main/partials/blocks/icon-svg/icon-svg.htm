@@ -1,0 +1,3 @@
+<svg data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    <use href="#{{ data.name }}"></use>
+</svg>

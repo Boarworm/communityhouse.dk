@@ -1,0 +1,31 @@
+url = "/maintenance"
+layout = "empty"
+title = "Maintenance"
+is_hidden = 1
+
+[section page]
+handle = "Site\Pages\Maintenance"
+identifier = ""
+value = ""
+==
+{% put meta %}
+{% partial "layout/meta/meta" data = {
+	title: page.meta_title|default(page.title),
+	description: page.meta_description|default(page.title~"."),
+	og_image_1200_630: "",
+	og_image_1200_1200: ""
+} %}
+{% endput %}
+
+<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="bg-primary-light h-screen p-12 flex flex-col items-center justify-center">
+	{% partial "blocks/headline/headline" data = {
+		cssClasses: "text-secondary text-center mb-6",
+		tag: "h1",
+		color: "dark",
+		size: "h1",
+		variant: "",
+		text: page.title,
+		attributes: {}
+	} %}
+	<div class="prose text-sm text-white text-center">{{ page.text|raw }}</div>
+</div>

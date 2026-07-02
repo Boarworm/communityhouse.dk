@@ -1,0 +1,73 @@
+uuid: blog-posts
+handle: Blog\Post
+type: stream
+name: Posts
+drafts: true
+multisite: true
+
+primaryNavigation:
+    label: Blog
+    icon: ph ph-note-pencil
+    order: 270
+
+navigation:
+    icon: octo-icon-pencil
+    order: 100
+
+customMessages:
+    buttonCreate: Create Post
+
+fields:
+    title:
+        placeholder: Title
+    containers:
+        type: repeater
+        label: Builder
+        span: adaptive
+        itemsExpanded: true
+        prompt: Add container
+        titleFrom: container_name
+        translatable: true
+        groups:
+            container:
+                name: Container
+                icon: icon-columns
+                useTabs: true
+                fields:
+                    _container:
+                        type: mixin
+                        source: Builder\Container
+    excerpt:
+        label: Intro Text
+        tab: Manage
+        type: textarea
+        size: small
+        translatable: true
+    author:
+        label: Author
+        tab: Manage
+        commentAbove: "Select the author for this blog post"
+        type: entries
+        maxItems: 1
+        source: Blog\Author
+    categories:
+        label: Categories
+        tab: Manage
+        commentAbove: "Select categories the blog post belongs to"
+        type: entries
+        source: Blog\Category
+    image:
+        label: Image
+        tab: Media
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    _meta:
+        type: mixin
+        source: Site\Mixins\Meta
+    _settings:
+        type: mixin
+        source: Builder\Mixins\Settings
+    _docs:
+        type: mixin
+        source: Builder\Mixins\Docs

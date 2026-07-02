@@ -1,0 +1,10 @@
+{
+    "name": "boarworm/communityhouse",
+    "type": "october-theme",
+    "description": "Main theme.",
+    "require": {
+        "composer/installers": "~1.0",
+        "offline/oc-vite-plugin": "^2.1",
+        "publipresse/forms-plugin": "^2.0"
+    }
+}

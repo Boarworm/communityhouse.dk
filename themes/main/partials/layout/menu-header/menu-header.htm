@@ -1,0 +1,40 @@
+[collection menuHeader]
+handle = "Menu\Header"
+==
+{% set level = 1 %}
+{% set maxLevel = data.maxLevel|default(10) %}
+{% macro menu(items, level, maxLevel) %}
+	{% import _self as menu %}
+	{% set classUlLevel1 = 'flex justify-end' %}
+	{% set classLiLevel1 = 'relative px-3 group' %}
+	{% set classALevel1 = 'text-xl uppercase py-1 border-b-2 border-transparent transition hover:border-primary ' %}
+	{% set classUlLevel2 = 'absolute bg-secondary p-4 rounded-sm hidden group-hover:block min-w-[150px]' %}
+	{% set classLiLevel2 = 'mb-2 last:mb-0' %}
+	{% set classALevel2 = 'text-white transition hover:text-primary' %}
+	{% set classActive = '!border-secondary' %}
+	{% if items|length and maxLevel >= level %}
+		<ul class="{{ _context['classUlLevel'~level] }}" role="menubar">
+			{% for item in items %}
+				{% if item.is_enabled %}
+					<li class="{{ _context['classLiLevel'~level] }}" role="menuitem">
+						<a class="{{ _context['classALevel'~level] }} {{ (item.url|link == url_current() and menuLevel < 2) ? classActive }}" href="{{ item.url ? item.url|link : '#' }}" {{ item.external ? "target=\"_blank\"" }}>
+							{{ item.title }}
+							{% if item.children|length %}
+								{% partial "blocks/icon-svg/icon-svg" data = {
+									cssClasses: "js-header-menu-arrow w-2 h-2 absolute -bottom-2 inset-x-0 m-auto",
+									name: "chevron-down"
+								} %}
+							{% endif %}
+						</a>
+						{{ menu.menu(item.children, level + 1, maxLevel) }}
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endmacro %}
+{% import _self as menu %}
+
+<nav data-block-layout="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	{{ menu.menu(menuHeader, level, maxLevel) }}
+</nav>

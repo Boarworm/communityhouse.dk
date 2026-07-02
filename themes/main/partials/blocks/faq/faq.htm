@@ -1,0 +1,20 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}>
+    {% for item in data.items %}
+        <details class="group bg-default-lightest open:bg-secondary-light rounded-xl shadow-lg mb-4 overflow-hidden transition-colors">
+            <summary class="flex cursor-pointer items-center justify-between p-5 text-lg font-semibold text-primary hover:bg-secondary-light transition-colors">
+                {{ item.title }}
+                <span class="transition-transform group-open:rotate-180 ml-4">
+                    {% partial "blocks/icon-svg/icon-svg" data = {
+                        cssClasses: "w-5 h-5 fill-primary transition-colors group-open:fill-primary",
+                        name: "chevron-down"
+                    } %}
+                </span>
+            </summary>
+            <div class="p-5 text-primary bg-white text-lg">
+                {{ item.text|raw }}
+            </div>
+        </details>
+    {% endfor %}
+</div>
+
+

@@ -1,0 +1,12 @@
+uuid: builder_mixins_docs
+handle: Builder\Mixins\Docs
+type: mixin
+name: Docs
+
+fields:
+    docs:
+        label: false
+        tab: Builder docs
+        type: partial
+        path: ~/app/blueprints/main/builder/partials/docs.htm
+        span: full

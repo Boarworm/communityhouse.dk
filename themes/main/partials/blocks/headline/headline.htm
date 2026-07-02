@@ -1,0 +1,50 @@
+{% set variants = {
+    "default": {
+        "baseBlockClasses": 'font-secondary font-bold leading-none',
+        "colors": {
+            'dark': {
+                "colorBlockClasses": "text-neutral"
+            },
+            'light': {
+                "colorBlockClasses": "text-white"
+            },
+            'primary': {
+                "colorBlockClasses": "text-primary"
+            },
+            'secondary': {
+                "colorBlockClasses": "text-secondary"
+            }
+        },
+        "sizes": {
+            'h1': {
+                "sizeBlockClasses": "text-h1"
+            },
+            'h2': {
+                "sizeBlockClasses": "text-h2"
+            },
+            'h3': {
+                "sizeBlockClasses": "text-h3"
+            },
+            'h4': {
+                "sizeBlockClasses": "text-h4"
+            },
+            'h5': {
+                "sizeBlockClasses": "text-h5"
+            },
+            'h6': {
+                "sizeBlockClasses": "text-h6"
+            }
+        }
+    }
+} %}
+
+{% set blockClasses = [
+    data.cssClasses,
+    variants[data.variant|default("default")].baseBlockClasses,
+    variants[data.variant|default("default")].colors[data.color|default("dark")].colorBlockClasses,
+    variants[data.variant|default("default")].sizes[data.size|default("h2")].sizeBlockClasses,
+]|join(" ") %}
+
+<{{ data.tag|default('div') }} data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ blockClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+{{ data.text }}
+</{{ data.tag|default('div') }}>

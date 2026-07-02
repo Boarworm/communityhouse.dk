@@ -1,0 +1,32 @@
+uuid: site_mixins_social_links
+handle: Site\Mixins\SocialLinks
+type: mixin
+name: Social links
+
+fields:
+    social_links:
+        tab: Social Links
+        type: repeater
+        prompt: Add Link
+        form:
+            fields:
+                code:
+                    label: Platform
+                    span: auto
+                    type: dropdown
+                    options:
+                        social-facebook: Facebook
+                        social-twitter-x: X (Twitter)
+                        social-instagram: Instagram
+                        social-google: Google
+                        social-pinterest: Pinterest
+                        social-youtube: YouTube
+                        social-linkedin: LinkedIn
+                        social-dribble: Dribble
+                        social-tiktok: TikTok
+                        social-foursquare: Foursquare
+                        social-tripadvisor: TripAdvisor
+                url:
+                    label: URL
+                    placeholder: "https://..."
+                    span: auto

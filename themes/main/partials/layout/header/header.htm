@@ -1,0 +1,25 @@
+==
+<header data-block-layout="{{ (_self|split('/')|last|split('.')|first) }}" class="bg-white transition-all duration-1000 ease-in-out top-0 w-full z-40 border-b-2 border-primary-light {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}>
+	<div class="container py-2 flex items-center justify-between">
+		{% partial "blocks/logo/logo" data = {
+			cssClasses: "h-[45px] lg:mr-4 lg:mr-auto lg:h-[60px]",
+			color: ""
+		} %}
+		{% partial "layout/menu-header/menu-header" data = {
+			cssClasses: "hidden md:flex md:ml-auto"
+		} %}
+		{% partial "blocks/language-picker/language-picker" data = {
+			cssClasses: "ml-2 md:ml-4"
+		} %}
+		<div class="js-burger js-menu-mobile-trigger w-10 h-10 md:hidden">
+			{% partial "blocks/burger/burger" data = {
+				cssClasses: "",
+				variant: "",
+				size: "",
+				color: "primary",
+				active: "",
+				attributes: {}
+			} %}
+		</div>
+	</div>
+</header>

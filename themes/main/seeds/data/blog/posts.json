@@ -1,0 +1,176 @@
+[
+	{
+		"id": 1,
+		"title": "Welcome to our blog",
+		"slug": "welcome-to-our-blog",
+		"is_enabled": 1,
+		"published_at": null,
+		"expired_at": null,
+		"content_group": null,
+		"containers": [
+			{
+				"container_name": "Container",
+				"container_style": "none",
+				"gap_y": "small",
+				"css_classes": "",
+				"html_anchor": "",
+				"margins": [
+					[]
+				],
+				"paddings": [
+					[]
+				],
+				"bg_color": "",
+				"site_id": null,
+				"content_group": "container",
+				"parent_id": null,
+				"sort_order": 1,
+				"created_at": "2026-01-01 00:00:00",
+				"updated_at": "2026-01-01 00:00:00",
+				"blocks": [
+					{
+						"text": "<p>This is the first post on our new blog. We'll be sharing updates, insights, and articles here, so check back regularly to see what's new.<\/p>",
+						"block_name": "Text",
+						"is_enabled": "1",
+						"css_classes": "",
+						"html_anchor": "",
+						"margins": [
+							[]
+						],
+						"site_id": null,
+						"content_group": "richeditor",
+						"parent_id": null,
+						"sort_order": 1,
+						"created_at": "2026-01-01 00:00:00",
+						"updated_at": "2026-01-01 00:00:00"
+					}
+				],
+				"bg_image": null
+			}
+		],
+		"excerpt": "We're excited to launch our blog. Here's a quick look at what you can expect to find here going forward.",
+		"author": 1,
+		"categories": [
+			1
+		],
+		"image": null,
+		"meta_title": "Welcome to our blog",
+		"meta_description": "Welcome to our blog"
+	},
+	{
+		"id": 2,
+		"title": "Getting started: a quick overview",
+		"slug": "getting-started-a-quick-overview",
+		"is_enabled": 1,
+		"published_at": null,
+		"expired_at": null,
+		"content_group": null,
+		"containers": [
+			{
+				"container_name": "Container",
+				"container_style": "none",
+				"gap_y": "small",
+				"css_classes": "",
+				"html_anchor": "",
+				"margins": [
+					[]
+				],
+				"paddings": [
+					[]
+				],
+				"bg_color": "",
+				"site_id": null,
+				"content_group": "container",
+				"parent_id": null,
+				"sort_order": 1,
+				"created_at": "2026-01-01 00:00:00",
+				"updated_at": "2026-01-01 00:00:00",
+				"blocks": [
+					{
+						"text": "<p>Not sure where to begin? This overview walks through the basics and points you toward the resources that will help you the most.<\/p>",
+						"block_name": "Text",
+						"is_enabled": "1",
+						"css_classes": "",
+						"html_anchor": "",
+						"margins": [
+							[]
+						],
+						"site_id": null,
+						"content_group": "richeditor",
+						"parent_id": null,
+						"sort_order": 1,
+						"created_at": "2026-01-01 00:00:00",
+						"updated_at": "2026-01-01 00:00:00"
+					}
+				],
+				"bg_image": null
+			}
+		],
+		"excerpt": "New here? This quick overview covers the basics and points you toward what to explore next.",
+		"author": 1,
+		"categories": [
+			1
+		],
+		"image": null,
+		"meta_title": "Getting started: a quick overview",
+		"meta_description": "Getting started: a quick overview"
+	},
+	{
+		"id": 3,
+		"title": "Five tips to get the most out of our services",
+		"slug": "five-tips-to-get-the-most-out-of-our-services",
+		"is_enabled": 1,
+		"published_at": null,
+		"expired_at": null,
+		"content_group": null,
+		"containers": [
+			{
+				"container_name": "Container",
+				"container_style": "none",
+				"gap_y": "small",
+				"css_classes": "",
+				"html_anchor": "",
+				"margins": [
+					[]
+				],
+				"paddings": [
+					[]
+				],
+				"bg_color": "",
+				"site_id": null,
+				"content_group": "container",
+				"parent_id": null,
+				"sort_order": 1,
+				"created_at": "2026-01-01 00:00:00",
+				"updated_at": "2026-01-01 00:00:00",
+				"blocks": [
+					{
+						"text": "<p>A few simple practices can make a big difference. Here are five tips to help you get the most value out of working with us.<\/p>",
+						"block_name": "Text",
+						"is_enabled": "1",
+						"css_classes": "",
+						"html_anchor": "",
+						"margins": [
+							[]
+						],
+						"site_id": null,
+						"content_group": "richeditor",
+						"parent_id": null,
+						"sort_order": 1,
+						"created_at": "2026-01-01 00:00:00",
+						"updated_at": "2026-01-01 00:00:00"
+					}
+				],
+				"bg_image": null
+			}
+		],
+		"excerpt": "Five simple, practical tips to help you get the most value out of working with us.",
+		"author": 1,
+		"categories": [
+			1
+		],
+		"image": null,
+		"meta_title": "Five tips to get the most out of our services",
+		"meta_description": "Five tips to get the most out of our services"
+	}
+]

@@ -1,0 +1,93 @@
+[
+    {
+        "id": 1,
+        "title": "Home",
+        "slug": "home",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "home",
+        "parent_id": null,
+        "url": "october:\/\/cms-page@link\/home?title=Home+%28home%29",
+        "external": 0
+    },
+    {
+        "id": 2,
+        "title": "Blog",
+        "slug": "blog",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "blog",
+        "parent_id": null,
+        "url": "october:\/\/cms-page@link\/blog?title=Blog+%28blog%29",
+        "external": 0
+    },
+    {
+        "id": 3,
+        "title": "About us",
+        "slug": "about-us",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "about-us",
+        "parent_id": null,
+        "url": "october:\/\/cms-page@link\/about?title=About+us+%28about%29",
+        "external": 0
+    },
+    {
+        "id": 4,
+        "title": "Contact",
+        "slug": "contact",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "contact",
+        "parent_id": null,
+        "url": "october:\/\/cms-page@link\/contact?title=Contact+%28contact%29",
+        "external": 0
+    },
+    {
+        "id": 5,
+        "title": "Privacy Policy",
+        "slug": "privacy-policy",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "privacy-policy",
+        "parent_id": null,
+        "url": "october:\/\/entry-builder@link\/1?cms_page=page&title=Privacy+Policy",
+        "external": 0
+    },
+    {
+        "id": 6,
+        "title": "Terms & Conditions",
+        "slug": "terms-and-conditions",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "terms-and-conditions",
+        "parent_id": null,
+        "url": "october:\/\/entry-builder@link\/2?cms_page=page&title=Terms+%26+Conditions",
+        "external": 0
+    },
+    {
+        "id": 7,
+        "title": "Cookie Policy",
+        "slug": "cookie-policy",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "cookie-policy",
+        "parent_id": null,
+        "url": "october:\/\/entry-builder@link\/3?cms_page=page&title=Cookie+Policy",
+        "external": 0
+    }
+]

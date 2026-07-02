@@ -1,0 +1,20 @@
+uuid: builder_blocks_gallery_grid
+handle: Builder\Blocks\GalleryGrid
+type: mixin
+name: Gallery grid
+fields:
+    images:
+        tab: Content
+        label: Images
+        type: fileupload
+        mode: image
+    block_name:
+        label: Name
+        tab: Block properties
+        commentAbove: "Block name for organization purposes"
+        type: text
+        span: auto
+        default: Gallery grid
+    advanced_content:
+        type: mixin
+        source: Builder\Mixins\BlockAdvanced

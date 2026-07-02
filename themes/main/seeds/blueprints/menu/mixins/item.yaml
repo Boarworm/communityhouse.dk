@@ -1,0 +1,27 @@
+uuid: menu_mixins_item
+handle: Menu\Mixins\Item
+type: mixin
+name: Menu item
+
+fields:
+    id:
+        hidden: true
+    title:
+        placeholder: Title
+    slug:
+        column: false
+        scope: false
+    fullslug:
+        column: false
+        scope: false
+    url:
+        type: pagefinder
+        label: Url
+        singleMode: true
+        column: invisible
+    external:
+        label: External link
+        type: switch
+        default: 0
+        span: auto
+        scope: false

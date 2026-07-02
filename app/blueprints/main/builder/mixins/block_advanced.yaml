@@ -1,0 +1,56 @@
+uuid: builder_mixins_block_advanced
+handle: Builder\Mixins\BlockAdvanced
+type: mixin
+name: Block Advanced Fields
+
+fields:
+    is_enabled:
+        label: Enabled
+        tab: Block properties
+        type: balloon-selector
+        options:
+            1: Enabled
+            0: Disabled
+        span: auto
+        default: true
+        commentAbove: "Show or hide the block on frontend"
+    css_classes:
+        label: CSS Classes
+        tab: Block properties
+        commentAbove: Custom CSS classes (usually used to add custom styles)
+        span: auto
+    html_anchor:
+        label: ID/Anchor
+        tab: Block properties
+        commentAbove: Unique block identifier (usually used as an anchor link)
+        type: text
+        validation: alpha_dash
+        span: auto
+    margins:
+        tab: Block properties
+        label: Margin
+        commentAbove: The outer space above and below the block.
+        type: datatable
+        adding: true
+        deleting: false
+        toolbar: false
+        span: auto
+        columns:
+            top:
+                title: Top
+                type: dropdown
+                options:
+                    none: ...
+                    small: Small
+                    medium: Medium
+                    large: Large
+            bottom:
+                title: Bottom
+                type: dropdown
+                options:
+                    none: ...
+                    small: Small
+                    medium: Medium
+                    large: Large
+        recordsPerPage: false
+        searching: false
