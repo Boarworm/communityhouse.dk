@@ -1,4 +1,8 @@
 {
+  "__commonjsHelpers.js": {
+    "file": "js/_commonjsHelpers.js",
+    "name": "_commonjsHelpers"
+  },
   "_fancybox.css": {
     "file": "css/fancybox.css",
     "src": "_fancybox.css"
@@ -17,8 +21,22 @@
   "_pagination.js": {
     "file": "js/pagination.js",
     "name": "pagination",
+    "imports": [
+      "_swiper.js"
+    ],
     "css": [
       "css/pagination.css"
+    ]
+  },
+  "_swiper.css": {
+    "file": "css/swiper.css",
+    "src": "_swiper.css"
+  },
+  "_swiper.js": {
+    "file": "js/swiper.js",
+    "name": "swiper",
+    "css": [
+      "css/swiper.css"
     ]
   },
   "assets/src/icons/interface.svg": {
@@ -39,10 +57,14 @@
       "partials/layout/menu-mobile/menu-mobile.js",
       "partials/blocks/post-carousel-latest/post-carousel-latest.js",
       "partials/blocks/carousel/carousel-advantages.js",
+      "partials/blocks/testimonial-carousel/testimonial-carousel.js",
       "partials/blocks/gallery-grid/gallery-grid.js",
       "assets/src/js/common/fancybox-image.js",
       "partials/blocks/youtube-embed/youtube-embed.js",
-      "partials/blocks/language-picker/language-picker.js"
+      "partials/blocks/language-picker/language-picker.js",
+      "partials/blocks/openstreet-map/openstreet-map.js",
+      "partials/blocks/video-background-youtube/video-background-youtube.js",
+      "partials/blocks/slider/slider.js"
     ],
     "css": [
       "css/app.css"
@@ -63,6 +85,7 @@
     "src": "partials/blocks/carousel/carousel-advantages.js",
     "isDynamicEntry": true,
     "imports": [
+      "_swiper.js",
       "_pagination.js"
     ]
   },
@@ -80,8 +103,23 @@
     "name": "language-picker",
     "src": "partials/blocks/language-picker/language-picker.js",
     "isDynamicEntry": true,
+    "imports": [
+      "__commonjsHelpers.js"
+    ],
     "css": [
       "css/language-picker.css"
+    ]
+  },
+  "partials/blocks/openstreet-map/openstreet-map.js": {
+    "file": "js/openstreet-map.js",
+    "name": "openstreet-map",
+    "src": "partials/blocks/openstreet-map/openstreet-map.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "__commonjsHelpers.js"
+    ],
+    "css": [
+      "css/openstreet-map.css"
     ]
   },
   "partials/blocks/post-carousel-latest/post-carousel-latest.js": {
@@ -90,8 +128,34 @@
     "src": "partials/blocks/post-carousel-latest/post-carousel-latest.js",
     "isDynamicEntry": true,
     "imports": [
+      "_swiper.js",
       "_pagination.js"
     ]
+  },
+  "partials/blocks/slider/slider.js": {
+    "file": "js/slider.js",
+    "name": "slider",
+    "src": "partials/blocks/slider/slider.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_swiper.js"
+    ]
+  },
+  "partials/blocks/testimonial-carousel/testimonial-carousel.js": {
+    "file": "js/testimonial-carousel.js",
+    "name": "testimonial-carousel",
+    "src": "partials/blocks/testimonial-carousel/testimonial-carousel.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_swiper.js",
+      "_pagination.js"
+    ]
+  },
+  "partials/blocks/video-background-youtube/video-background-youtube.js": {
+    "file": "js/video-background-youtube.js",
+    "name": "video-background-youtube",
+    "src": "partials/blocks/video-background-youtube/video-background-youtube.js",
+    "isDynamicEntry": true
   },
   "partials/blocks/youtube-embed/youtube-embed.js": {
     "file": "js/youtube-embed.js",

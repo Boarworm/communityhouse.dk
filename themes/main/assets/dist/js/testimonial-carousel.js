@@ -1,0 +1,2 @@
+import{S as r,N as t}from"./swiper.js";import{P as i}from"./pagination.js";function o(e){new r(e,{modules:[i,t],loop:!0,slidesPerView:1,spaceBetween:20,speed:500,pagination:{el:e.querySelector(".swiper-pagination"),bulletClass:"swiper-pagination-bullet !bg-transparent !border-2 !border-neutral !w-4 !h-4 !rounded-full !opacity-100",dynamicBullets:!0,dynamicMainBullets:1,clickable:!0},navigation:{nextEl:e.querySelector(".swiper-button-next"),prevEl:e.querySelector(".swiper-button-prev")}})}export{o as default};
+//# sourceMappingURL=testimonial-carousel.js.map
