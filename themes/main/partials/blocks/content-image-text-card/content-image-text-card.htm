@@ -1,0 +1,30 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} grid grid-cols-1 gap-6 justify-items-center md:grid-cols-2 md:justify-items-start" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	<div class="w-[calc(100%-16px)] max-w-[470px] -ml-4 pb-4 sm:ml-0 md:pb-8 md:w-[calc(100%-48px)]">
+		<div class="bg-primary-light aspect-square">
+			<div class="bg-primary-lightest w-full h-full p-8 flex items-center justify-center relative -bottom-4 -right-4 lg:-bottom-8 lg:-right-12">
+				{% partial "blocks/image/image" data = {
+					cssClasses: data.image.cssClasses,
+					imgCssClasses: data.image.imgCssClasses,
+					src: data.image.src|default("assets/images/placeholder.jpg"|theme),
+					resize: data.image.resize,
+					attributes: data.image.attributes,
+					imgAttributes: data.image.imgAttributes
+				} %}
+			</div>
+		</div>
+	</div>
+	<div class="prose md:pt-4 lg:pt-8">
+		{% if data.headline.text %}
+			{% partial "blocks/headline/headline" data = {
+				cssClasses: data.headline.cssClasses,
+				tag: data.headline.tag|default("h2"),
+				text: data.headline.text,
+				color: data.headline.color|default("dark"),
+				size: data.headline.size|default("h2"),
+				variant: data.headline.variant,
+				attributes: data.headline.attributes
+			} %}
+		{% endif %}
+		{{ data.text|raw }}
+	</div>
+</div>

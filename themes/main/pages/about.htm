@@ -1,6 +1,6 @@
 url = "/about"
 layout = "default"
-title = "About us"
+title = "We are Community House"
 
 [section page]
 handle = "Site\Pages\About"
@@ -16,8 +16,7 @@ value = ""
 } %}
 {% endput %}
 
-<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="container">
-    <div class="pt-7">
+<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="container pt-8 pb-18">
         {% partial "blocks/breadcrumbs/breadcrumbs" data = {
             cssClasses: "mb-4",
             breadcrumbs: [
@@ -33,5 +32,59 @@ value = ""
             text: page.title,
             attributes: {}
         } %}
-    </div>
+    {% partial "blocks/content-image-text/content-image-text" data = {
+        cssClasses: "mb-10 xl:mb-16",
+        image: {
+            cssClasses: "",
+            imgCssClasses: "",
+            src: page.what_we_do_image ?: "assets/images/placeholder.jpg"|theme,
+            resize: {
+                width: "710",
+                height: "530",
+                mode: "crop",
+                extension: "",
+                quality: ""
+            },
+            attributes: {},
+            imgAttributes: {
+                alt: page.what_we_do_image.description ?: page.what_we_do_headline
+            }
+        },
+        headline: {
+            tag: "h2",
+            text: page.what_we_do_headline,
+            color: "dark",
+            size: "h2"
+        },
+        text: page.what_we_do_text,
+        attributes: {}
+    } %}
+    {% partial "blocks/content-image-text/content-image-text" data = {
+        cssClasses: "",
+        reverse: true,
+        image: {
+            cssClasses: "",
+            imgCssClasses: "",
+            src: page.who_we_are_image ?: "assets/images/placeholder.jpg"|theme,
+            resize: {
+                width: "710",
+                height: "530",
+                mode: "crop",
+                extension: "",
+                quality: ""
+            },
+            attributes: {},
+            imgAttributes: {
+                alt: page.who_we_are_image.description ?: page.who_we_are_headline
+            }
+        },
+        headline: {
+            tag: "h2",
+            text: page.who_we_are_headline,
+            color: "dark",
+            size: "h2"
+        },
+        text: page.who_we_are_text,
+        attributes: {}
+    } %}
 </div>

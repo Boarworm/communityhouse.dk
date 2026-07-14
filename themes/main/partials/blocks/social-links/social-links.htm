@@ -1,0 +1,14 @@
+{% if siteConfig.social_links %}
+	<ul data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="-m-1 list-inside flex flex-wrap {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+		{% for social in siteConfig.social_links|filter(social => social.url) %}
+			<li class="flex m-1">
+				<a href="{{ social.url }}" target="_blank" class="group p-3 border border-primary-dark transition hover:bg-primary-dark">
+					{% partial "blocks/icon-svg/icon-svg" data = {
+						name: social.code,
+						cssClasses: "w-6 h-6 fill-primary-dark transition group-hover:fill-white"
+					} %}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endif %}

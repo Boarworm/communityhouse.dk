@@ -1,0 +1,14 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="relative overflow-hidden w-full h-full {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	<div class="absolute w-full h-full top-0 left-0 z-10"></div>
+	<div class="js-video-background-youtube-container w-full h-full [&>iframe]:!w-full [&>iframe]:!h-full"></div>
+	<div class="js-video-background-youtube-mute-icon absolute z-20 bottom-3 left-3 cursor-pointer md:bottom-5 md:left-5">
+		{% partial "blocks/icon-svg/icon-svg" data = {
+			cssClasses: "js-video-background-youtube-icon-muted w-6 h-6 stroke-white transition md:w-8 md:h-8",
+			name: "sound-off"
+		} %}
+		{% partial "blocks/icon-svg/icon-svg" data = {
+			cssClasses: "js-video-background-youtube-icon-unmuted hidden w-6 h-6 stroke-white transition md:w-8 md:h-8",
+			name: "sound-on"
+		} %}
+	</div>
+</div>

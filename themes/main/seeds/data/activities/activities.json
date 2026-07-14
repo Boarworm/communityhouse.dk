@@ -1,0 +1,44 @@
+[
+	{
+		"id": 1,
+		"title": "Counseling",
+		"slug": "counseling",
+		"is_enabled": 1,
+		"published_at": null,
+		"expired_at": null,
+		"schedule": "Wednesday, 16:00–20:00",
+		"text": "<p>Our counseling sessions offer a confidential space to talk through challenges related to work, housing, legal rights, or everyday life in Denmark. Whether you have a quick question or need ongoing support, our team is here to listen and help you find practical next steps.</p><p>No appointment needed &mdash; just drop by during our open hours.</p>",
+		"image": null,
+		"cta_text": "<p>Reach out to book your free counseling session &mdash; we are open every Wednesday.</p>",
+		"meta_title": "Counseling",
+		"meta_description": "Counseling"
+	},
+	{
+		"id": 2,
+		"title": "Support group",
+		"slug": "support-group",
+		"is_enabled": 1,
+		"published_at": null,
+		"expired_at": null,
+		"schedule": "Thursday",
+		"text": "<p>The Community House Support Group is a weekly gathering for internationals living in Denmark who would like a space to reflect, connect, and share their experiences with others. Living in a new country can be exciting, but it can also bring challenges such as loneliness, stress, cultural differences, identity changes, and feelings of not fully belonging. In this group, participants are invited to speak openly about the realities of building a life in Denmark in a respectful, confidential, and supportive environment. Through conversation, reflection, and shared experience, we explore what it means to live away from home while staying connected to ourselves and others. The group is facilitated by a clinical psychotherapist-in-training and welcomes people from all backgrounds.</p>",
+		"image": null,
+		"cta_text": "<p>Join our free support group &mdash; we meet every Thursday.</p>",
+		"meta_title": "Support group",
+		"meta_description": "Support group"
+	},
+	{
+		"id": 3,
+		"title": "English teaching",
+		"slug": "english-teaching",
+		"is_enabled": 1,
+		"published_at": null,
+		"expired_at": null,
+		"schedule": "Friday, 18:00–20:00",
+		"text": "<p>Our English teaching runs in two parts, back to back, so you can join whichever level fits you best. The beginner class is taught in Ukrainian, giving newcomers a comfortable starting point to build their first English vocabulary and everyday phrases without a language barrier standing in the way.</p><p>Right after, the intermediate class is open to everyone, regardless of native language or background. It's a relaxed, conversation-focused session aimed at building real confidence &mdash; useful English for job interviews, workplace conversations, and daily life in Denmark.</p><p>Both classes run every Friday from 18:00 to 20:00, at our space close to the Town Hall Square of Copenhagen. No registration needed &mdash; just come as you are.</p>",
+		"image": null,
+		"cta_text": "<p>Come to our free English classes &mdash; every Friday, 18:00&ndash;20:00.</p>",
+		"meta_title": "English teaching",
+		"meta_description": "English teaching"
+	}
+]

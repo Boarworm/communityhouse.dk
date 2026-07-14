@@ -27,7 +27,7 @@ function onStart()
 <!DOCTYPE html>
 <html dir="ltr" lang="{{ this.site.locale }}">
 {% partial "layout/head/head" %}
-<body data-layout="{{ (_self|split('/')|last|split('.')|first) }}" class="flex flex-col min-h-screen text-sm leading-none sm:text-base">
+<body data-layout="{{ (_self|split('/')|last|split('.')|first) }}" class="flex flex-col min-h-screen text-sm leading-1.4 sm:text-base">
 {% if not is_bot and siteConfig.enable_code_placeholders %}
     {{ siteConfig.code_body_start|raw }}
 {% endif %}

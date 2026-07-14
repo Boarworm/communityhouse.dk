@@ -1,0 +1,32 @@
+url = "/folk-paa-vej"
+layout = "default"
+title = "Folk på Vej"
+==
+{% put meta %}
+{% partial "layout/meta/meta" data = {
+    title: this.page.title,
+    description: this.page.title~".",
+    og_image_1200_630: "",
+    og_image_1200_1200: ""
+} %}
+{% endput %}
+
+<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="container">
+    <div class="pt-7">
+        {% partial "blocks/breadcrumbs/breadcrumbs" data = {
+            cssClasses: "mb-4",
+            breadcrumbs: [
+                {name: this.page.title, url: ''}
+            ]
+        } %}
+        {% partial "blocks/headline/headline" data = {
+            cssClasses: "mb-7 lg:mb-10",
+            tag: "h1",
+            color: "dark",
+            size: "h1",
+            variant: "",
+            text: this.page.title,
+            attributes: {}
+        } %}
+    </div>
+</div>

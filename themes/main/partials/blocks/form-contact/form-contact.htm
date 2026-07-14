@@ -1,0 +1,106 @@
+[uploadForm formContact]
+group = "Contact"
+rules[name] = "required"
+rules[email] = "required|email"
+rules[comments] = "required|string|max:1000"
+messages_success = "Message sent successfully"
+messages_errors = "Error sending message"
+mail_enabled = 1
+mail_recipients[] = "info@example.com"
+mail_replyto = "email"
+mail_subject = ""
+mail_template = ""
+mail_resp_enabled = 0
+mail_resp_field = "email"
+mail_resp_template = ""
+mail_resp_replyto = "info@example.com"
+reset_form = 1
+feedback_mode = "inline"
+allowed_fields[] = "name"
+allowed_fields[] = "email"
+allowed_fields[] = "comments"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_enabled = 0
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "invisible"
+skip_database = 0
+emails_date_format = "Y-m-d"
+==
+{#
+	Requires the "Publipresse.Forms" plugin (Magic Forms 2), installed via:
+		php artisan plugin:install Publipresse.Forms
+
+	Before using this form on a page:
+	- Set mail_recipients[] above to the real recipient address(es).
+	- Configure the reCAPTCHA site/secret keys in Backend > Settings > CMS > Magic Forms if recaptcha_enabled is turned on.
+	- mail_template is left blank so the plugin falls back to its built-in "publipresse.forms::mail.notification" template;
+	  override it with a custom mail template code if branded emails are needed.
+#}
+<form
+	id="{{ data.formId }}"
+	data-block="{{ (_self|split('/')|last|split('.')|first) }}"
+	class="grid gap-5 {{ data.cssClasses }}"
+	data-request="formContact::onFormSubmit"
+	data-request-validate
+	data-request-update="'blocks/form-contact/success': '#{{ data.formId }}-success'"
+	data-request-success="document.getElementById('{{ data.formId }}-content').classList.add('hidden'); document.getElementById('{{ data.formId }}-success').classList.remove('hidden');"
+	{% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}
+>
+	{{ form_token() }}
+
+	<div id="{{ data.formId }}-content" class="grid gap-5">
+		{% partial "blocks/field-input/field-input" data = {
+			cssClasses: "w-full",
+			label: "Name *",
+			size: data.fieldsSize|default("md"),
+			color: data.color,
+			variant: "",
+			inputAttributes: {
+				name: "name",
+				id: data.formId~"-name",
+				placeholder: "Your name"
+			}
+		} %}
+		{% partial "blocks/field-input/field-input" data = {
+			cssClasses: "w-full",
+			label: "Email *",
+			size: data.fieldsSize|default("md"),
+			color: data.color,
+			variant: "",
+			inputAttributes: {
+				type: "email",
+				name: "email",
+				id: data.formId~"-email",
+				placeholder: "you@example.com"
+			}
+		} %}
+		{% partial "blocks/field-textarea/field-textarea" data = {
+			cssClasses: "w-full",
+			label: "Message *",
+			size: data.fieldsSize|default("md"),
+			color: data.color,
+			variant: "",
+			inputAttributes: {
+				name: "comments",
+				id: data.formId~"-comments",
+				placeholder: "Type your message here."
+			}
+		} %}
+		{% partial "blocks/button/button" data = {
+			cssClasses: "w-fit",
+			tag: "button",
+			body: "Submit",
+			variant: "",
+			color: "primary",
+			size: "md",
+			attributes: {
+				type: "submit"
+			}
+		} %}
+	</div>
+
+	<div id="{{ data.formId }}-success" class="hidden"></div>
+	<div id="{{ formContact }}_forms_flash" class="hidden"></div>
+</form>

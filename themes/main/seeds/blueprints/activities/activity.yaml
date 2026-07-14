@@ -1,0 +1,50 @@
+uuid: activities-activity
+handle: Activities\Activity
+type: stream
+name: Activities
+drafts: true
+multisite: true
+
+primaryNavigation:
+    label: Activities
+    icon: ph ph-calendar-check
+    order: 280
+
+navigation:
+    icon: octo-icon-calendar
+    order: 100
+
+customMessages:
+    buttonCreate: Create Activity
+
+fields:
+    title:
+        placeholder: Title
+    schedule:
+        label: Schedule
+        tab: Manage
+        commentAbove: "e.g. Wednesday, 16:00–20:00"
+        span: full
+        translatable: true
+    text:
+        label: Description
+        tab: Manage
+        type: richeditor
+        span: full
+        translatable: true
+    image:
+        label: Image
+        tab: Media
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    cta_text:
+        label: Call to action text
+        tab: Manage
+        commentAbove: "Optional. Shown as a highlighted banner on the activity page."
+        type: richeditor
+        span: full
+        translatable: true
+    _meta:
+        type: mixin
+        source: Site\Mixins\Meta

@@ -1,0 +1,89 @@
+url = "/activities/:slug"
+layout = "default"
+title = "Activity details"
+
+[section activity]
+handle = "Activities\Activity"
+identifier = "slug"
+value = "{{ :slug }}"
+==
+{% if activity is empty %}{% do abort(404) %}{% endif %}
+
+{% put meta %}
+{% partial "layout/meta/meta" data = {
+    title: activity.meta_title|default(activity.title),
+    description: activity.meta_description|default(activity.title~"."),
+    og_image_1200_630: activity.image ?: "",
+    og_image_1200_1200: activity.image ?: ""
+} %}
+{% endput %}
+
+<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="container pt-8 pb-18">
+        {% partial "blocks/breadcrumbs/breadcrumbs" data = {
+            cssClasses: "mb-4",
+            breadcrumbs: [
+                {name: "Activities"|_, url: "activities"|page},
+                {name: activity.title, url: ''}
+            ]
+        } %}
+        {% partial "blocks/headline/headline" data = {
+            cssClasses: "mb-7 lg:mb-10",
+            tag: "h1",
+            color: "dark",
+            size: "h1",
+            variant: "",
+            text: activity.title,
+            attributes: {}
+        } %}
+        {% if activity.schedule %}
+            {% partial "blocks/tag-icon/tag-icon" data = {
+                cssClasses: "mb-4",
+                icon: {
+                    name: "clock-filled",
+                    cssClasses: "",
+                    attributes: {}
+                },
+                text: activity.schedule,
+                color: "light",
+                size: "md",
+                variant: "",
+                attributes: {}
+            } %}
+        {% endif %}
+
+        <div class="prose mb-7">
+            {{ activity.text|raw }}
+        </div>
+
+        {% if activity.cta_text %}
+            {% partial "blocks/cta-banner/cta-banner" data = {
+                cssClasses: "mb-7",
+                text: activity.cta_text,
+                attributes: {}
+            } %}
+        {% endif %}
+
+        {% partial "blocks/button/button" data = {
+            cssClasses: "",
+            tag: "a",
+            body: "Back to all activities"|_,
+            icon: "arrow-left",
+            variant: "",
+            color: "primary",
+            size: "sm",
+            attributes: {
+                href: "activities"|page
+            }
+        } %}
+
+        <hr class="hidden h-px text-secondary my-12 lg:block">
+
+        <div class="mb-5 flex justify-between items-end">
+            <div class="font-bold text-2xl">{{ "More activities"|_ }}</div>
+            <a href="{{ 'activities'|page }}" class="text-xs font-bold text-secondary hover:text-secondary-dark">{{ "All Activities"|_ }} →</a>
+        </div>
+        {% partial "blocks/activities-list/activities-list" data = {
+            cssClasses: "",
+            attributes: {}
+        } %}
+</div>

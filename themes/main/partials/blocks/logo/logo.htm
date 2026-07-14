@@ -9,7 +9,7 @@
 <div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}>
 	<a href="{{ 'home'|page }}" class="h-full">
 		{% if isSvg %}
-			<img src="{{ logo }}" alt="{{ siteConfig.site_name }}" title="{{ siteConfig.site_name }}" class="h-full" width="152" height="38">
+			<img src="{{ logo }}" alt="{{ siteConfig.site_name }}" title="{{ siteConfig.site_name }}" class="h-full" width="70" height="60">
 		{% else %}
 			{% partial "blocks/image/image" data = {
 				cssClasses: "w-full h-full",

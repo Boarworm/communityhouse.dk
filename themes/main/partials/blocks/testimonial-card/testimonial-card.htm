@@ -1,0 +1,21 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} relative overflow-hidden flex flex-col p-5 pb-12 bg-default-lightest rounded-sm sm:p-7" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    {% partial "blocks/icon-svg/icon-svg" data = {
+        cssClasses: "absolute top-4 right-4 w-16 h-16 fill-default-light/40 lg:w-20 lg:h-20",
+        name: "quote",
+        attributes: { "aria-hidden": "true" }
+    } %}
+    {% if data.headline %}
+        <div class="relative font-bold text-default-darker text-xl leading-[1.1] mb-2.5 lg:text-2xl">{{ data.headline }}</div>
+    {% endif %}
+    {% if data.text %}
+        <div class="relative font-medium text-default-darker text-sm leading-[1.4] mb-2.5 sm:mb-5 lg:text-base">{{ data.text }}</div>
+    {% endif %}
+    <div class="relative flex flex-col gap-1 bg-white rounded-sm py-3 px-5 justify-self-start">
+        {% if data.name %}
+            <div class="font-bold text-primary text-xl leading-[1.1]">{{ data.name }}</div>
+        {% endif %}
+        {% if data.company %}
+            <div class="font-medium text-primary text-sm leading-[1.4]">{{ data.company }}</div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,21 @@
+[collection activities]
+handle = "Activities\Activity"
+sortColumn = "id"
+sortDirection = "asc"
+==
+{% set activities = activities.where('slug', '!=', activity.slug|default('')).take(data.limit ?: 999).get() %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="grid grid-cols-1 gap-6 sm:grid-cols-2 {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	{% for item in activities %}
+		{% partial "blocks/card-image-title/card-image-title" data = {
+			cssClasses: "",
+			url: "activities-details"|page({ slug: item.slug }),
+			title: item.title,
+			image: {
+				src: item.image ?: "assets/images/placeholder.jpg"|theme,
+				imgAttributes: { alt: item.image.description ?: item.title }
+			},
+			attributes: {}
+		} %}
+	{% endfor %}
+</div>

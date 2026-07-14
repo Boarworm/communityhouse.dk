@@ -21,7 +21,7 @@
         Language-to-country code mappings can be added in the {% if countryCode == ... %} block below
 #}
 {% if sitePicker.sites|length > 1 %}
-    <div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} bg-primary-light rounded-sm" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    <div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} bg-primary-lighter rounded-sm" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
         <label for="language-picker" class="sr-only">{{ 'Select Language'|_ }}</label>
         <select 
             name="language-picker" 

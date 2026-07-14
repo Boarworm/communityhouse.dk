@@ -1,0 +1,50 @@
+{% set configHeight = {
+	"medium": "min-h-[300px] md:min-h-[400px] md:py-20 lg:min-h-[500px]",
+	"large": "min-h-[400px] md:min-h-[500px] md:py-20 lg:min-h-[700px]"
+} %}
+
+{% set configContainer = {
+	"narrow": "container-narrow",
+	"normal": "container"
+} %}
+
+{% set configHeadlineTextPosition = {
+	"top-left": "md:justify-start md:items-start md:text-left",
+	"top-center": "md:justify-start md:items-center md:text-center",
+	"top-right": "md:justify-start md:items-end md:text-right",
+	"middle-left": "md:justify-center md:items-start md:text-left",
+	"middle-center": "md:justify-center md:items-center md:text-center",
+	"middle-right": "md:justify-center md:items-end md:text-right",
+	"bottom-left": "md:justify-end md:items-start md:text-left",
+	"bottom-center": "md:justify-end md:items-center md:text-center",
+	"bottom-right": "md:justify-end md:items-end md:text-right",
+} %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} relative overflow-hidden flex flex-col py-10 {{ configHeight[data.height|default("medium")] }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	{% partial "blocks/image/image" data = {
+		cssClasses: "absolute w-full h-full top-0 left-0 "~data.bgImage.cssClasses,
+		imgCssClasses: "object-cover h-full w-full "~data.bgImage.imgCssClasses,
+		src: data.bgImage.src|default("assets/images/placeholder.jpg"|theme),
+		resize: data.bgImage.resize,
+		attributes: data.bgImage.attributes,
+		imgAttributes: data.bgImage.imgAttributes
+	} %}
+	<div class="{{ configContainer[data.containerStyle|default("normal")] }} grow relative z-10 flex flex-col justify-center items-center text-center {{ configHeadlineTextPosition[data.headlineAndTextPosition] }}">
+		<div class="max-w-[500px] lg:max-w-[700px]">
+			{% if data.headline.text %}
+				{% partial "blocks/headline/headline" data = {
+					cssClasses: "text-white [text-shadow:_2px_2px_2px_rgb(0_0_0_/_30%)] "~data.headline.cssClasses,
+					tag: data.headline.tag,
+					text: data.headline.text,
+					color: data.headline.color,
+					size: data.headline.size,
+					variant: data.headline.variant,
+					attributes: data.headline.attributes
+				} %}
+			{% endif %}
+			{% if data.text %}
+				<div class="prose font-secondary text-white [text-shadow:_1px_1px_5px_rgb(0_0_0_/_50%)] mt-4 mx-auto md:mt-6 lg:mt-8">{{ data.text|raw }}</div>
+			{% endif %}
+		</div>
+	</div>
+</div>

@@ -11,6 +11,53 @@ navigation:
 fields:
     title:
         placeholder: Title
+
+    what_we_do_image:
+        tab: What we do
+        label: Image
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        span: auto
+        fileTypes: png, jpg, jpeg, webp
+        thumbOptions:
+            mode: auto
+        translatable: false
+    what_we_do_headline:
+        tab: What we do
+        label: Headline
+        span: full
+        translatable: true
+    what_we_do_text:
+        tab: What we do
+        label: Text
+        type: richeditor
+        span: full
+        translatable: true
+
+    who_we_are_image:
+        tab: Who we are
+        label: Image
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        span: auto
+        fileTypes: png, jpg, jpeg, webp
+        thumbOptions:
+            mode: auto
+        translatable: false
+    who_we_are_headline:
+        tab: Who we are
+        label: Headline
+        span: full
+        translatable: true
+    who_we_are_text:
+        tab: Who we are
+        label: Text
+        type: richeditor
+        span: full
+        translatable: true
+
     _meta:
         type: mixin
         source: Site\Mixins\Meta

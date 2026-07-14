@@ -66,6 +66,25 @@ fields:
         span: full
         translatable: true
 
+    addresses:
+        tab: Contact
+        label: Addresses
+        span: full
+        type: repeater
+        prompt: Add address
+        translatable: true
+        form:
+            fields:
+                address:
+                    label: Address
+                    span: auto
+                    translatable: true
+                coordinates:
+                    label: Coordinates (lat,lng)
+                    span: auto
+                link_direction:
+                    label: Link to direction
+                    span: auto
     phones:
         tab: Contact
         label: Phones

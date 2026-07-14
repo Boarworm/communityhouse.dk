@@ -3,8 +3,12 @@
 		"id": 1,
 		"is_enabled": 1,
 		"slug": "about",
-		"title": "About us",
+		"title": "We are Community House",
 		"meta_title": "About Us",
-		"meta_description": "Learn more about us."
+		"meta_description": "Learn more about us.",
+		"what_we_do_headline": "What we do",
+		"what_we_do_text": "<p>That support takes different shapes: one-on-one counseling for practical questions about work and rights, a weekly support group for anyone adjusting to life in a new country, and free English classes to help build confidence and community.</p><p>We also organize &mdash; when Wolt couriers saw their pay for short deliveries drop, we gave them a space to come together, and what began as a meeting of 25 people grew into a movement of more than 300.</p>",
+		"who_we_are_headline": "Who we are",
+		"who_we_are_text": "<p>We're run by volunteers and funded by donations. Every crown we receive goes directly back into the community we serve &mdash; through our events, our support services, and our work to create a more inclusive Denmark for everyone.</p><p>Community House Copenhagen exists to support migrant workers in Denmark with a holistic, non-bureaucratic approach to understanding and navigating the Danish labor market and beyond. Many of the people we work with are new to the country and speak little Danish &mdash; our job is to meet them where they are, not the other way around.</p><p>We're based in the heart of Copenhagen, close to the Town Hall Square, and everyone is welcome &mdash; regardless of background, language, or how long you've been here.</p>"
 	}
 ]

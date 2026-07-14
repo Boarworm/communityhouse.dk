@@ -3,74 +3,42 @@
 		"id": 1,
 		"site_id": 1,
 		"site_root_id": 1,
-		"site_name": "Communityhouse",
+		"site_name": "Community House Copenhagen",
 		"year_from": "2026",
-		"copyright": "Communityhouse. All rights reserved",
-		"footer_text": "<p>We are here to help you achieve your goals with expert guidance and personalised solutions.</p><p>Get in touch to find out how we can help.</p>",
+		"copyright": "Community House Copenhagen. All rights reserved",
+		"footer_text": "<p>We support migrant workers in Denmark with a holistic, non-bureaucratic approach to navigating the Danish labor market and beyond.</p><p>Get in touch to find out how we can help.</p>",
+		"addresses": [
+			{
+				"address": "Studiestræde 24<br>Copenhagen, Denmark",
+				"coordinates": "55.678464087820416,12.568661647263381",
+				"link_direction": "https://maps.google.com/?q=55.678464087820416,12.568661647263381"
+			}
+		],
 		"phones": [
 			{
-				"phone": "+1 234 567 8900",
-				"phone_extension": "10",
-				"description": "The direct way."
+				"phone": "+45 60 59 65 53",
+				"phone_extension": "",
+				"description": "Call or text us directly."
 			}
 		],
 		"emails": [
 			{
-				"email": "info@example.com",
+				"email": "contact@communityhousecph.dk",
 				"description": "For those who prefer to write."
-			}
-		],
-		"whatsapp": [
-			{
-				"title": "WhatsApp",
-				"phone": "+1 234 567 8900",
-				"description": "Quick questions, fast answers."
 			}
 		],
 		"social_links": [
 			{
 				"code": "social-facebook",
-				"url": "https://facebook.com"
-			},
-			{
-				"code": "social-twitter-x",
-				"url": "https://x.com"
+				"url": "https://www.facebook.com/communityhousecph"
 			},
 			{
 				"code": "social-instagram",
-				"url": "https://instagram.com"
-			},
-			{
-				"code": "social-google",
-				"url": "https://google.com"
-			},
-			{
-				"code": "social-pinterest",
-				"url": "https://pinterest.com"
-			},
-			{
-				"code": "social-youtube",
-				"url": "https://youtube.com"
+				"url": "https://www.instagram.com/communityhousecph/"
 			},
 			{
 				"code": "social-linkedin",
-				"url": "https://linkedin.com"
-			},
-			{
-				"code": "social-dribble",
-				"url": "https://dribble.com"
-			},
-			{
-				"code": "social-tiktok",
-				"url": "https://tiktok.com"
-			},
-			{
-				"code": "social-foursquare",
-				"url": "https://foursquare.com"
-			},
-			{
-				"code": "social-tripadvisor",
-				"url": "https://tripadvisor.com"
+				"url": "https://www.linkedin.com/company/community-house-copenhagen"
 			}
 		]
 	}

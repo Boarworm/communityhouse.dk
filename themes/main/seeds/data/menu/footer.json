@@ -14,19 +14,6 @@
     },
     {
         "id": 2,
-        "title": "Blog",
-        "slug": "blog",
-        "is_enabled": 1,
-        "published_at": null,
-        "expired_at": null,
-        "content_group": null,
-        "fullslug": "blog",
-        "parent_id": null,
-        "url": "october:\/\/cms-page@link\/blog?title=Blog+%28blog%29",
-        "external": 0
-    },
-    {
-        "id": 3,
         "title": "About us",
         "slug": "about-us",
         "is_enabled": 1,
@@ -39,7 +26,59 @@
         "external": 0
     },
     {
+        "id": 3,
+        "title": "Activities",
+        "slug": "activities",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "activities",
+        "parent_id": null,
+        "url": "october:\/\/cms-page@link\/activities?title=Activities+%28activities%29",
+        "external": 0
+    },
+    {
         "id": 4,
+        "title": "Calendar",
+        "slug": "calendar",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "calendar",
+        "parent_id": null,
+        "url": "october:\/\/cms-page@link\/calendar?title=Calendar+%28calendar%29",
+        "external": 0
+    },
+    {
+        "id": 5,
+        "title": "Folk på Vej",
+        "slug": "folk-paa-vej",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "folk-paa-vej",
+        "parent_id": null,
+        "url": "october:\/\/cms-page@link\/folk-paa-vej?title=Folk+p%C3%A5+Vej+%28folk-paa-vej%29",
+        "external": 0
+    },
+    {
+        "id": 6,
+        "title": "Blog",
+        "slug": "blog",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "blog",
+        "parent_id": null,
+        "url": "october:\/\/cms-page@link\/blog?title=Blog+%28blog%29",
+        "external": 0
+    },
+    {
+        "id": 7,
         "title": "Contact",
         "slug": "contact",
         "is_enabled": 1,
@@ -52,7 +91,7 @@
         "external": 0
     },
     {
-        "id": 5,
+        "id": 8,
         "title": "Privacy Policy",
         "slug": "privacy-policy",
         "is_enabled": 1,
@@ -65,7 +104,7 @@
         "external": 0
     },
     {
-        "id": 6,
+        "id": 9,
         "title": "Terms & Conditions",
         "slug": "terms-and-conditions",
         "is_enabled": 1,
@@ -78,7 +117,7 @@
         "external": 0
     },
     {
-        "id": 7,
+        "id": 10,
         "title": "Cookie Policy",
         "slug": "cookie-policy",
         "is_enabled": 1,

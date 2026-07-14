@@ -1,0 +1,67 @@
+[
+	{
+		"id": 1,
+		"title": "Nataly Tkachuk",
+		"slug": "nataly-tkachuk",
+		"is_enabled": 1,
+		"published_at": null,
+		"expired_at": null,
+		"content_group": null,
+		"parent_id": null,
+		"headline": "Anna coordinated appointments, translated at every visit, and truly saved my partner from ongoing suffering.",
+		"text": "I'm deeply grateful to Anna and the volunteer centre in Copenhagen. As a Ukrainian displaced by the war, my partner developed severe gum problems and was in constant pain. Anna coordinated appointments, translated at every visit, and the dental team's professionalism, care, and teamwork were exceptional. They listened, acted quickly, and truly saved my partner from ongoing suffering. My partner's gum health is now much better, and we also learned how to care for it going forward. Thank you for your kindness and expertise!",
+		"company": "Facebook recommendation"
+	},
+	{
+		"id": 2,
+		"title": "Lochana Sudath Pathirage",
+		"slug": "lochana-sudath-pathirage",
+		"is_enabled": 1,
+		"published_at": null,
+		"expired_at": null,
+		"content_group": null,
+		"parent_id": null,
+		"headline": "They are amazing people and always want to help.",
+		"text": "Highly recommend and trustworthy. I have really good experience with them, honestly they are amazing people and always want to help someone who needs help. I should thank specially \"Freja\" in the organisation for helping me.",
+		"company": "Facebook recommendation"
+	},
+	{
+		"id": 3,
+		"title": "Elena Konovalenko",
+		"slug": "elena-konovalenko",
+		"is_enabled": 1,
+		"published_at": null,
+		"expired_at": null,
+		"content_group": null,
+		"parent_id": null,
+		"headline": "Everyone was very understanding \u2014 especially Anna.",
+		"text": "I contacted this volunteer centre. Thank you all very much! Everyone was very understanding. Especially thanks to Anna, she helped me a lot and told me a lot of useful information.",
+		"company": "Facebook recommendation"
+	},
+	{
+		"id": 4,
+		"title": "Camila Pellegrini",
+		"slug": "camila-pellegrini",
+		"is_enabled": 1,
+		"published_at": null,
+		"expired_at": null,
+		"content_group": null,
+		"parent_id": null,
+		"headline": "Quick and very committed to helping me.",
+		"text": "Nina very kindly helped me clear up my doubts about the CVR and the invoices. I am very grateful for it! The response was quick and very committed to helping me.",
+		"company": "Facebook recommendation"
+	},
+	{
+		"id": 5,
+		"title": "Alina Tomilin",
+		"slug": "alina-tomilin",
+		"is_enabled": 1,
+		"published_at": null,
+		"expired_at": null,
+		"content_group": null,
+		"parent_id": null,
+		"headline": "Really nice people who genuinely try to help you.",
+		"text": "Really nice people work here who genuinely try to help you. I would advise anyone who has questions about bureaucracy or the residency process in Denmark to come and meet them!",
+		"company": "Facebook recommendation"
+	}
+]

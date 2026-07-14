@@ -16,8 +16,8 @@ value = ""
 } %}
 {% endput %}
 
-<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="container">
-    <div class="pt-7">
+<div data-page="{{ (_self|split('/')|last|split('.')|first) }}">
+    <div class="container pt-8">
         {% partial "blocks/breadcrumbs/breadcrumbs" data = {
             cssClasses: "mb-4",
             breadcrumbs: [
@@ -33,5 +33,78 @@ value = ""
             text: page.title,
             attributes: {}
         } %}
+        <div class="grid grid-cols-1 gap-6 mb-12 sm:grid-cols-2 xl:gap-12">
+            {% partial "blocks/contact-details/contact-details" data = {
+                cssClasses: "",
+                attributes: {}
+            } %}
+            {% if siteConfig.social_links %}
+                <div>
+                    {% partial "blocks/headline/headline" data = {
+                        cssClasses: "mb-4",
+                        tag: "h3",
+                        text: "How to reach us"|_,
+                        color: "dark",
+                        size: "h3",
+                        variant: "",
+                        attributes: {}
+                    } %}
+                    <div class="prose mb-6">{{ page.text|raw }}</div>
+                    {% partial "blocks/headline/headline" data = {
+                        cssClasses: "mb-4",
+                        tag: "h3",
+                        text: "Follow us on social media"|_,
+                        color: "dark",
+                        size: "h3",
+                        variant: "",
+                        attributes: {}
+                    } %}
+                    {% partial "blocks/social-links/social-links" data = {
+                        cssClasses: "",
+                        attributes: {}
+                    } %}
+                </div>
+            {% endif %}
+        </div>
     </div>
 </div>
+
+
+<div class="grid grid-cols-1 md:grid-cols-2">
+    <div class="order-1 min-h-[400px] md:order-2 flex items-center py-10 px-5 xl:px-12">
+        <div class="w-full max-w-lg mx-auto">
+            {% partial "blocks/headline/headline" data = {
+                cssClasses: "mb-6",
+                tag: "h3",
+                text: "Get in touch"|_,
+                color: "dark",
+                size: "h3",
+                variant: "",
+                attributes: {}
+            } %}
+            {% ajaxPartial "blocks/form-contact/form-contact" data = {
+                cssClasses: "",
+                formId: "contact",
+                color: "light",
+                fieldsSize: "md",
+                attributes: {}
+            } %}
+        </div>
+    </div>
+    <div class="order-2 min-h-[400px] md:order-1">
+        {% partial "blocks/openstreet-map/openstreet-map" data = {
+            cssClasses: "w-full h-full",
+            attributes: {
+                id: "contact-map",
+                "data-zoom": "15",
+                "data-markers": ([{
+                    id: 1,
+                    coordinates: "55.678464087820416,12.568661647263381",
+                    title: "Community House"|_,
+                    text: "Studiestræde 24, Copenhagen"|_
+                }]|json_encode)|escape('html_attr')
+            }
+        } %}
+    </div>
+</div>
+

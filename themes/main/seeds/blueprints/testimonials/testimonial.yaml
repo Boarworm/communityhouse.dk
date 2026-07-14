@@ -1,0 +1,34 @@
+uuid: testimonials-testimonials
+handle: Testimonials\Testimonial
+type: structure
+name: Testimonials
+multisite: true
+
+structure:
+    maxDepth: 1
+
+primaryNavigation:
+    label: Testimonials
+    icon: icon-comments-o
+    order: 260
+
+customMessages:
+    buttonCreate: Create Testimonial
+
+fields:
+    title:
+        label: Name
+        placeholder: Name
+    headline:
+        label: Headline
+        translatable: true
+    text:
+        label: Text
+        type: textarea
+        size: small
+        translatable: true
+    company:
+        label: Source
+        commentAbove: "e.g. Facebook recommendation, Volunteer"
+        span: auto
+        translatable: true

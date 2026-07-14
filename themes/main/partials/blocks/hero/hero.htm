@@ -1,0 +1,110 @@
+{% set variants = {
+	"default": {
+		"colors": {
+			"primary": {
+				"colorRectClasses": "fill-primary",
+				"colorCircleOneClasses": "fill-primary-dark",
+				"colorCircleTwoClasses": "fill-primary-light",
+				"colorWaveClasses": "fill-primary-darker"
+			},
+			"secondary": {
+				"colorRectClasses": "fill-secondary",
+				"colorCircleOneClasses": "fill-secondary-dark",
+				"colorCircleTwoClasses": "fill-secondary-light",
+				"colorWaveClasses": "fill-secondary-darker"
+			}
+		}
+	}
+} %}
+
+{% set rectClasses = [
+	variants[data.variant|default("default")].colors[data.color|default("primary")].colorRectClasses,
+]|join(" ") %}
+
+{% set circleOneClasses = [
+	variants[data.variant|default("default")].colors[data.color|default("primary")].colorCircleOneClasses,
+]|join(" ") %}
+
+{% set circleTwoClasses = [
+	variants[data.variant|default("default")].colors[data.color|default("primary")].colorCircleTwoClasses,
+]|join(" ") %}
+
+{% set waveClasses = [
+	variants[data.variant|default("default")].colors[data.color|default("primary")].colorWaveClasses,
+]|join(" ") %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="grid grid-cols-1 overflow-hidden sm:grid-cols-2 {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	<div class="relative py-12 w-full flex flex-col justify-center sm:!-mr-20 lg:!-mr-32 xl:!-mr-44">
+		<div class="container-half !mr-0">
+		{% set shapeId = "hero-shape-"~random(100000) %}
+		<svg class="absolute z-0 w-[130%] h-full top-0 left-0" viewBox="0 0 800 635" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+			<defs>
+				<clipPath id="{{ shapeId }}">
+					<path d="M0,0 L650,0 Q600,320 744,635 L0,635 Z"></path>
+				</clipPath>
+			</defs>
+			<g clip-path="url(#{{ shapeId }})">
+				<rect width="800" height="635" class="{{ rectClasses }}" />
+				<circle cx="680" cy="120" r="260" class="{{ circleOneClasses }}" opacity="0.5" />
+				<circle cx="120" cy="520" r="220" class="{{ circleTwoClasses }}" opacity="0.35" />
+				<path d="M0 460 C 200 380, 420 560, 800 400 L800 635 L0 635 Z" class="{{ waveClasses }}" opacity="0.4" />
+			</g>
+		</svg>
+		{% if data.headline.text %}
+			{% partial "blocks/headline/headline" data = {
+				cssClasses: "relative z-10 "~data.headline.cssClasses,
+				tag: data.headline.tag,
+				text: data.headline.text,
+				color: data.headline.color,
+				size: data.headline.size,
+				variant: data.headline.variant,
+				attributes: data.headline.attributes
+			} %}
+		{% endif %}
+		{% if data.text %}
+			<div class="relative z-10 mt-6 prose font-light text-white max-w-[600px] xl:text-lg xl:mt-10">{{ data.text|raw }}</div>
+		{% endif %}
+		{% if data.button_1.body or data.button_2.body %}
+			<div class="relative z-10 mt-6 flex flex-wrap gap-4 xl:mt-10">
+				{% if data.button_1.body %}
+					{% partial "blocks/button/button" data = {
+						cssClasses: " "~data.button_1.cssClasses,
+						tag: data.button_1.tag,
+						body: data.button_1.body,
+						variant: data.button_1.variant,
+						color: data.button_1.color,
+						size: data.button_1.size,
+						attributes: data.button_1.attributes
+					} %}
+				{% endif %}
+				{% if data.button_2.body %}
+					{% partial "blocks/button/button" data = {
+						cssClasses: " "~data.button_2.cssClasses,
+						tag: data.button_2.tag,
+						body: data.button_2.body,
+						variant: data.button_2.variant,
+						color: data.button_2.color,
+						size: data.button_2.size,
+						attributes: data.button_2.attributes
+					} %}
+				{% endif %}
+			</div>
+		{% endif %}
+		</div>
+	</div>
+	{% partial "blocks/image/image" data = {
+		cssClasses: data.image.cssClasses,
+		imgCssClasses: data.image.imgCssClasses|default("object-cover w-full h-full"),
+		src: data.image.src|default("assets/images/placeholder.jpg"|theme),
+		resize: data.image.resize|default({
+			"width": "950",
+			"height": "480",
+			"mode": "auto",
+			"extension": "",
+			"quality": ""
+		}),
+		imgAttributes: data.image.imgAttributes|default({
+			alt: "Image"|_
+		})
+	} %}
+</div>

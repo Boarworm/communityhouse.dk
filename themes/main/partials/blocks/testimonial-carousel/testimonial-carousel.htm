@@ -1,0 +1,26 @@
+[collection testimonials]
+handle = "Testimonials\Testimonial"
+sortColumn = "created_at"
+sortDirection = "asc"
+==
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    {% partial "blocks/carousel/carousel" body data = {
+        cssClasses: "",
+        navigation: testimonials|length > 1 ? true : false,
+        pagination: false,
+        attributes: {
+            "data-js": "testimonial-carousel"
+        },
+    } %}
+        {% for item in testimonials %}
+            {% partial "blocks/testimonial-card/testimonial-card" data = {
+                cssClasses: "swiper-slide !h-auto pb-24 sm:pb-7",
+                name: item.title,
+                headline: item.headline,
+                text: item.text,
+                company: item.company,
+                attributes: {}
+            } %}
+        {% endfor %}
+    {% endpartial %}
+</div>

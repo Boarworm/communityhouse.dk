@@ -1,13 +1,17 @@
 {% set index = 1 %}
-{% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}
-<ol data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="flex items-center overflow-y-auto p-0 list-none {{ data.cssClasses }}" itemscope="" itemtype="https://schema.org/BreadcrumbList" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+<ol data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="flex items-center overflow-y-hidden overflow-x-auto p-0 list-none {{ data.cssClasses }}" itemscope="" itemtype="https://schema.org/BreadcrumbList" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
     <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
         <a href="{{ 'home'|page }}" itemprop="item" class="flex items-center no-underline text-xs text-default transition hover:text-primary">
             <div itemprop="name">{{ 'Home'|_ }}</div>
         </a>
         <meta itemprop="position" content="{{ index }}">
     </li>
-    <li class="px-1 text-default text-xs">/</li>
+    <li class="px-2">
+        {% partial "blocks/icon-svg/icon-svg" data = {
+            cssClasses: "w-2 h-2 fill-default-light",
+            name: "chevron-right"
+        } %}
+    </li>
     {% for breadcrumb in data.breadcrumbs %}
         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
             {% if loop.last %}
@@ -20,7 +24,12 @@
             <meta itemprop="position" content="{{ index }}">
         </li>
         {% if not loop.last %}
-            <li class="px-1 text-default text-xs">/</li>
+            <li class="px-2">
+                {% partial "blocks/icon-svg/icon-svg" data = {
+                    cssClasses: "w-2 h-2 fill-default-light",
+                    name: "chevron-right"
+                } %}
+            </li>
         {% endif %}
         {% set index = loop.index + 1 %}
     {% endfor %}

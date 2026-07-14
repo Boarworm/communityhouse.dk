@@ -1,0 +1,276 @@
+url = "/components"
+layout = "default"
+title = "Components"
+==
+{% put meta %}
+{% partial "layout/meta/meta" data = {
+    title: this.page.title,
+    description: this.page.title~".",
+    og_image_1200_630: "",
+    og_image_1200_1200: ""
+} %}
+{% endput %}
+
+<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="container">
+    <div class="pt-7">
+        {% partial "blocks/breadcrumbs/breadcrumbs" data = {
+            cssClasses: "mb-4",
+            breadcrumbs: [
+                {name: this.page.title, url: ''}
+            ]
+        } %}
+        {% partial "blocks/headline/headline" data = {
+            cssClasses: "mb-7 lg:mb-10",
+            tag: "h1",
+            color: "dark",
+            size: "h1",
+            variant: "",
+            text: this.page.title,
+            attributes: {}
+        } %}
+    </div>
+</div>
+
+{# ================= Colors ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Colors", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    {% partial "blocks/color-swatches/color-swatches" data = {} %}
+</div>
+
+{# ================= Headline ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Headline", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    <div class="grid grid-cols-1 gap-2">
+        {% partial "blocks/headline/headline" data = { cssClasses: "", tag: "h1", text: "Heading H1", color: "dark", size: "h1", variant: "", attributes: {} } %}
+        {% partial "blocks/headline/headline" data = { cssClasses: "", tag: "h2", text: "Heading H2", color: "dark", size: "h2", variant: "", attributes: {} } %}
+        {% partial "blocks/headline/headline" data = { cssClasses: "", tag: "h3", text: "Heading H3", color: "dark", size: "h3", variant: "", attributes: {} } %}
+        {% partial "blocks/headline/headline" data = { cssClasses: "", tag: "h4", text: "Heading H4", color: "dark", size: "h4", variant: "", attributes: {} } %}
+        {% partial "blocks/headline/headline" data = { cssClasses: "", tag: "h5", text: "Heading H5", color: "dark", size: "h5", variant: "", attributes: {} } %}
+        {% partial "blocks/headline/headline" data = { cssClasses: "", tag: "h6", text: "Heading H6", color: "dark", size: "h6", variant: "", attributes: {} } %}
+    </div>
+    <div class="grid grid-cols-1 gap-2 mt-4 bg-primary p-6">
+        {% partial "blocks/headline/headline" data = { cssClasses: "", tag: "h3", text: "color: light", color: "light", size: "h3", variant: "", attributes: {} } %}
+        {% partial "blocks/headline/headline" data = { cssClasses: "", tag: "h3", text: "color: primary", color: "primary", size: "h3", variant: "", attributes: {} } %}
+        {% partial "blocks/headline/headline" data = { cssClasses: "", tag: "h3", text: "color: secondary", color: "secondary", size: "h3", variant: "", attributes: {} } %}
+    </div>
+</div>
+
+{# ================= Button ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Button", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    <div class="flex flex-wrap gap-2 mb-4">
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "primary", variant: "default", color: "primary", size: "md", attributes: {} } %}
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "secondary", variant: "default", color: "secondary", size: "md", attributes: {} } %}
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "tertiary", variant: "default", color: "tertiary", size: "md", attributes: {} } %}
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "dark", variant: "default", color: "dark", size: "md", attributes: {} } %}
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "light", variant: "default", color: "light", size: "md", attributes: {} } %}
+    </div>
+    <div class="flex flex-wrap gap-2 mb-4">
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "outline primary", variant: "outline", color: "primary", size: "md", attributes: {} } %}
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "outline secondary", variant: "outline", color: "secondary", size: "md", attributes: {} } %}
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "outline tertiary", variant: "outline", color: "tertiary", size: "md", attributes: {} } %}
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "outline dark", variant: "outline", color: "dark", size: "md", attributes: {} } %}
+    </div>
+    <div class="flex flex-wrap items-center gap-2">
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "xs", variant: "default", color: "primary", size: "xs", attributes: {} } %}
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "sm", variant: "default", color: "primary", size: "sm", attributes: {} } %}
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "md", variant: "default", color: "primary", size: "md", attributes: {} } %}
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "lg", variant: "default", color: "primary", size: "lg", attributes: {} } %}
+        {% partial "blocks/button/button" data = { cssClasses: "", tag: "button", body: "xl", variant: "default", color: "primary", size: "xl", attributes: {} } %}
+    </div>
+</div>
+
+{# ================= Icon ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Icon", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    <div class="flex flex-wrap gap-4">
+        {% for icon in ["pin-filled", "email-filled", "phone", "mobile", "checkmark", "chevron-right", "social-facebook", "social-instagram", "social-linkedin"] %}
+            {% partial "blocks/icon-svg/icon-svg" data = { cssClasses: "w-8 h-8 fill-primary", name: icon, attributes: {} } %}
+        {% endfor %}
+    </div>
+</div>
+
+{# ================= Image ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Image", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    <div class="max-w-[300px]">
+        {% partial "blocks/image/image" data = {
+            cssClasses: "",
+            imgCssClasses: "w-full h-auto",
+            src: "assets/images/placeholder.jpg"|theme,
+            resize: { width: "300", height: "200", mode: "crop", extension: "", quality: "" },
+            attributes: {},
+            imgAttributes: { alt: "Placeholder"|_ }
+        } %}
+    </div>
+</div>
+
+{# ================= Logo ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Logo", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    <div class="flex flex-wrap items-center gap-8">
+        <div class="h-[45px]">
+            {% partial "blocks/logo/logo" data = { cssClasses: "h-full", color: "dark", attributes: {} } %}
+        </div>
+        <div class="h-[45px] bg-primary p-2">
+            {% partial "blocks/logo/logo" data = { cssClasses: "h-full", color: "light", attributes: {} } %}
+        </div>
+    </div>
+</div>
+
+{# ================= Burger ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Burger menu icon", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    <div class="w-10 h-10">
+        {% partial "blocks/burger/burger" data = { cssClasses: "", color: "dark", size: "md", variant: "", attributes: {} } %}
+    </div>
+</div>
+
+{# ================= Form fields ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Form fields", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    <div class="grid grid-cols-1 gap-4 max-w-md">
+        {% partial "blocks/field-input/field-input" data = {
+            cssClasses: "", label: "Text input", size: "md", color: "dark", variant: "",
+            attributes: {}, inputAttributes: { name: "demo-input", id: "demo-input", placeholder: "Type here" }
+        } %}
+        {% partial "blocks/field-textarea/field-textarea" data = {
+            cssClasses: "", label: "Textarea", size: "md", color: "dark", variant: "",
+            attributes: {}, inputAttributes: { name: "demo-textarea", id: "demo-textarea", placeholder: "Type here" }
+        } %}
+        {% partial "blocks/field-select/field-select" data = {
+            cssClasses: "", label: "Select", size: "md", color: "dark", variant: "",
+            emptyOption: { "": "Please select..." },
+            options: { "a": "Option A", "b": "Option B" },
+            attributes: {}, inputAttributes: { name: "demo-select", id: "demo-select" }
+        } %}
+        {% partial "blocks/field-checkbox/field-checkbox" data = {
+            cssClasses: "", label: "Checkbox label", size: "md", color: "dark", variant: "",
+            attributes: {}, inputAttributes: { name: "demo-checkbox", id: "demo-checkbox" }
+        } %}
+    </div>
+</div>
+
+{# ================= Form contact ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Contact form", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    <div class="max-w-md">
+        {% ajaxPartial "blocks/form-contact/form-contact" data = {
+            cssClasses: "", formId: "components-demo", color: "dark", fieldsSize: "md", attributes: {}
+        } %}
+    </div>
+</div>
+
+{# ================= FAQ ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "FAQ", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    <div class="max-w-2xl">
+        {% partial "blocks/faq/faq" data = {
+            cssClasses: "",
+            items: [
+                { title: "What is Community House?"|_, text: "<p>"~("We support migrant workers in Denmark."|_)~"</p>" },
+                { title: "How can I get involved?"|_, text: "<p>"~("Reach out via the contact page or follow us on social media."|_)~"</p>" }
+            ],
+            attributes: {}
+        } %}
+    </div>
+</div>
+
+{# ================= Carousel ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Carousel", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    {% partial "blocks/carousel/carousel" body data = { cssClasses: "", navigation: true, pagination: true, attributes: {} } %}
+        <div class="swiper-slide bg-primary-light text-white flex items-center justify-center h-40">{{ "Slide 1"|_ }}</div>
+        <div class="swiper-slide bg-secondary-light text-white flex items-center justify-center h-40">{{ "Slide 2"|_ }}</div>
+        <div class="swiper-slide bg-tertiary-light text-default-darker flex items-center justify-center h-40">{{ "Slide 3"|_ }}</div>
+    {% endpartial %}
+</div>
+
+{# ================= Contact details ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Contact details", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    {% partial "blocks/contact-details/contact-details" data = { cssClasses: "", attributes: {} } %}
+</div>
+
+{# ================= Social links ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Social links", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    {% partial "blocks/social-links/social-links" data = { cssClasses: "", attributes: {} } %}
+</div>
+
+{# ================= Map ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Map", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    {% partial "blocks/openstreet-map/openstreet-map" data = {
+        cssClasses: "w-full h-[300px]",
+        attributes: {
+            id: "components-map",
+            "data-zoom": "13",
+            "data-markers": ([{ id: 1, coordinates: "55.678464087820416,12.568661647263381", title: "Community House"|_, text: "Studiestræde 24, Copenhagen"|_ }]|json_encode)|escape('html_attr')
+        }
+    } %}
+</div>
+
+{# ================= Content + image ================= #}
+<div class="container pb-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Content + image (plain)", color: "dark", size: "h2", variant: "", attributes: {} } %}
+</div>
+<div class="container pb-12">
+    {% partial "blocks/content-image-text/content-image-text" data = {
+        cssClasses: "",
+        image: { cssClasses: "", imgCssClasses: "", src: "assets/images/placeholder.jpg"|theme, resize: { width: "600", height: "450", mode: "crop", extension: "", quality: "" }, attributes: {}, imgAttributes: { alt: "Placeholder"|_ } },
+        text: "<p>"~("Simple image + text split, no background or button."|_)~"</p>",
+        attributes: {}
+    } %}
+</div>
+
+<div class="container pb-4">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Content + image (framed)", color: "dark", size: "h2", variant: "", attributes: {} } %}
+</div>
+{% partial "blocks/content-image-text-framed/content-image-text-framed" data = {
+    cssClasses: "",
+    bgImage: { src: "assets/images/placeholder.jpg"|theme, imgAttributes: { alt: "Placeholder"|_ } },
+    headline: { cssClasses: "", tag: "h3", text: "Framed example"|_, color: "light", size: "h3", variant: "", attributes: {} },
+    text: "<p>"~("Full-bleed background with a framed foreground image."|_)~"</p>",
+    image: { src: "assets/images/placeholder.jpg"|theme, imgAttributes: { alt: "Placeholder"|_ } },
+    button: { cssClasses: "", tag: "a", body: "Learn more"|_, variant: "", color: "primary", size: "md", attributes: { href: "#" } },
+    attributes: {}
+} %}
+
+<div class="container py-12">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Content + image (card)", color: "dark", size: "h2", variant: "", attributes: {} } %}
+    {% partial "blocks/content-image-text-card/content-image-text-card" data = {
+        cssClasses: "",
+        image: { cssClasses: "", imgCssClasses: "", src: "assets/images/logo.png"|theme, resize: { width: "400", height: "auto", mode: "auto", extension: "", quality: "" }, attributes: {}, imgAttributes: { alt: "Logo"|_ } },
+        text: "<p>"~("A small inset image in an offset colored card."|_)~"</p>",
+        attributes: {}
+    } %}
+</div>
+
+{# ================= Hero ================= #}
+<div class="container pt-4 pb-4">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Hero (illustration)", color: "dark", size: "h2", variant: "", attributes: {} } %}
+</div>
+{% partial "blocks/hero/hero" data = {
+    cssClasses: "",
+    color: "primary",
+    image: { src: "assets/images/placeholder.jpg"|theme, imgAttributes: { alt: "Placeholder"|_ } },
+    headline: { cssClasses: "", tag: "h2", text: "Hero headline"|_, color: "light", size: "h1", variant: "", attributes: {} },
+    text: "Supporting text for the hero component."|_,
+    button_1: { cssClasses: "", tag: "a", body: "Primary action"|_, color: "light", size: "md", variant: "outline", attributes: { href: "#" } },
+    button_2: { cssClasses: "", tag: "a", body: "Secondary action"|_, color: "light", size: "md", variant: "", attributes: { href: "#" } }
+} %}
+
+<div class="container pt-12 pb-4">
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Hero banner (photo)", color: "dark", size: "h2", variant: "", attributes: {} } %}
+</div>
+{% partial "blocks/hero-banner/hero-banner" data = {
+    cssClasses: "",
+    height: "medium",
+    containerStyle: "normal",
+    headlineAndTextPosition: "middle-center",
+    bgImage: { src: "assets/images/placeholder.jpg"|theme, imgAttributes: { alt: "Placeholder"|_ } },
+    headline: { cssClasses: "", tag: "h2", text: "Hero banner headline"|_, color: "light", size: "h1", variant: "", attributes: {} },
+    text: "Supporting text for the hero banner component."|_,
+    attributes: {}
+} %}

@@ -15,7 +15,7 @@
 }
 
 [data-block="language-picker"] .nice-select .list {
-    @apply bg-primary-light;
+    @apply bg-primary-lighter;
 }
 
 [data-block="language-picker"] .nice-select-dropdown {

@@ -9,8 +9,18 @@ value = ""
 
 [collection posts]
 handle = "Blog\Post"
+
+[collection activities]
+handle = "Activities\Activity"
+sortColumn = "id"
+sortDirection = "asc"
+
+[collection testimonials]
+handle = "Testimonials\Testimonial"
 ==
 {% set latestPostsExists = posts.limit(data.limit).exists() %}
+{% set activitiesExist = activities.exists() %}
+{% set testimonialsExist = testimonials.exists() %}
 
 {% put meta %}
 {% partial "layout/meta/meta" data = {
@@ -21,6 +31,136 @@ handle = "Blog\Post"
 } %}
 {% endput %}
 
+
+
+{% partial "blocks/slider/slider" body data = {
+	cssClasses: "h-screen max-h-[400px] md:max-h-[500px] lg:max-h-none lg:h-[calc(100vh-78px)]",
+	navigation: false,
+	pagination: false
+} %}
+	{% for slide in page.slides %}
+		<div class="swiper-slide relative">
+			{% partial "blocks/image/image" data = {
+				cssClasses: "w-full h-full",
+				imgCssClasses: "w-full h-full object-cover",
+				src: slide.image ?: "assets/images/placeholder.jpg"|theme,
+				resize: {
+					width: "1920",
+					height: "1080",
+					mode: "crop",
+					extension: "",
+					quality: ""
+				},
+				attributes: {},
+				imgAttributes: {
+					alt: slide.image.description ?: slide.text_line_1~" "~slide.text_line_2
+				}
+			} %}
+			<div class="absolute inset-0 flex flex-col items-center justify-center bg-black/30">
+				<div class="container">
+					<div class="text-5xl md:text-6xl lg:text-8xl text-white text-center">{{ slide.text_line_1 }}</div>
+					<div class="text-5xl md:text-6xl lg:text-8xl text-white font-bold text-center">{{ slide.text_line_2 }}</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+{% endpartial %}
+
+<div class="container py-10 xl:py-16">
+	{% partial "blocks/content-image-text-card/content-image-text-card" data = {
+		cssClasses: "",
+		image: {
+			cssClasses: "",
+			imgCssClasses: "",
+			src: page.about_image ? page.about_image.path : "assets/images/demo/logo-dark.svg"|theme,
+			resize: {
+				width: "400",
+				height: "auto",
+				mode: "auto",
+				extension: "",
+				quality: ""
+			},
+			attributes: {},
+			imgAttributes: {
+				alt: page.about_image.description ?: page.about_headline
+			}
+		},
+		headline: {
+			tag: "h2",
+			text: page.about_headline,
+			color: "dark",
+			size: "h2"
+		},
+		text: page.about_text,
+		attributes: {}
+	} %}
+</div>
+
+{% partial "blocks/hero/hero" data = {
+	cssClasses: "",
+	color: "primary",
+	image: {
+		src: page.highlight_image ?: "assets/images/placeholder.jpg"|theme,
+		imgAttributes: {
+			alt: page.highlight_image.description ?: page.highlight_headline
+		}
+	},
+	headline: {
+		cssClasses: "",
+		tag: "h2",
+		text: page.highlight_headline,
+		color: "light",
+		size: "h1",
+		variant: "",
+		attributes: {}
+	},
+	text: page.highlight_text,
+	button_1: {
+		cssClasses: "",
+		tag: "a",
+		body: page.highlight_button_text,
+		color: "light",
+		size: "md",
+		variant: "outline",
+		attributes: {
+			href: page.highlight_button_link|link
+		}
+	}
+} %}
+
+{% if activitiesExist %}
+	<div class="container pt-5">
+		<div class="mb-12 lg:mb-24">
+			<div class="mb-5 flex justify-between items-end">
+				<div class="font-bold text-2xl">{{ "Our activities"|_ }}</div>
+				<a href="{{ 'activities'|page }}" class="text-xs font-bold text-secondary hover:text-secondary-dark">{{ "All Activities"|_ }} →</a>
+			</div>
+			{% partial "blocks/activities-list/activities-list" data = {
+				cssClasses: "lg:grid-cols-3",
+				attributes: {}
+			} %}
+		</div>
+	</div>
+{% endif %}
+
+{% if testimonialsExist %}
+	<div class="container pt-5">
+		<div class="mb-12 lg:mb-24">
+			{% partial "blocks/headline/headline" data = {
+				cssClasses: "mb-5 text-center",
+				tag: "h2",
+				text: "What people say"|_,
+				color: "dark",
+				size: "h2",
+				variant: "",
+				attributes: {}
+			} %}
+			{% partial "blocks/testimonial-carousel/testimonial-carousel" data = {
+				cssClasses: ""
+			} %}
+		</div>
+	</div>
+{% endif %}
 
 <div class="container pt-5">
 	{% if latestPostsExists %}

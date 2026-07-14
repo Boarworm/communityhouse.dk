@@ -11,6 +11,11 @@ navigation:
 fields:
     title:
         placeholder: Title
+    text:
+        label: Intro text
+        type: richeditor
+        span: full
+        translatable: true
     _meta:
         type: mixin
         source: Site\Mixins\Meta

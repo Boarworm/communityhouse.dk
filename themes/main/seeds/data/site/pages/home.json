@@ -5,6 +5,26 @@
 		"slug": "/",
 		"title": "Home",
 		"meta_title": "Expert guidance, proven results",
-		"meta_description": "Learn more about how we can help you reach your goals with tailored advice and proven strategies. Free initial consultation."
+		"meta_description": "Learn more about how we can help you reach your goals with tailored advice and proven strategies. Free initial consultation.",
+		"slides": [
+			{
+				"text_line_1": "We are",
+				"text_line_2": "Community House"
+			},
+			{
+				"text_line_1": "Supporting",
+				"text_line_2": "Migrant Workers"
+			},
+			{
+				"text_line_1": "Everyone is",
+				"text_line_2": "Welcome Here"
+			}
+		],
+		"about_headline": "We are Community House",
+		"about_text": "<p>Located in the heart of Copenhagen, we support migrant workers in Denmark with a holistic, non-bureaucratic approach to navigating the Danish labor market and beyond &mdash; through counseling, a weekly support group, and free English classes.</p><p>We're run by volunteers and funded by donations, and everyone is welcome, regardless of background, language, or how long you've been here.</p>",
+		"highlight_headline": "The Wolt strike",
+		"highlight_text": "<p>When Wolt couriers saw their pay for short deliveries drop, we gave them a space to organize. What started as a meeting of 25 people grew into a movement of more than 300.</p>",
+		"highlight_button_text": "Read more",
+		"highlight_button_link": "october://cms-page@link/about?title=About+us+%28about%29"
 	}
 ]

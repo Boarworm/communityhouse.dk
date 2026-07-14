@@ -17,6 +17,91 @@ fields:
     title:
         placeholder: Title
 
+    slides:
+        tab: Slider
+        label: Slider slides
+        span: full
+        type: repeater
+        prompt: Add slide
+        translatable: true
+        form:
+            fields:
+                image:
+                    label: Image
+                    type: fileupload
+                    mode: image
+                    maxFiles: 1
+                    span: full
+                    fileTypes: png, jpg, jpeg, webp
+                    thumbOptions:
+                        mode: auto
+                    translatable: false
+                text_line_1:
+                    label: Text line 1
+                    span: auto
+                    translatable: true
+                text_line_2:
+                    label: Text line 2 (bold)
+                    span: auto
+                    translatable: true
+
+    about_image:
+        tab: About
+        label: Image
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        span: auto
+        fileTypes: png, jpg, jpeg, webp, svg
+        thumbOptions:
+            mode: auto
+        translatable: false
+    about_headline:
+        tab: About
+        label: Headline
+        span: full
+        translatable: true
+    about_text:
+        tab: About
+        label: Text
+        type: richeditor
+        span: full
+        translatable: true
+
+    highlight_image:
+        tab: Highlight
+        label: Image
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        span: auto
+        fileTypes: png, jpg, jpeg, webp
+        thumbOptions:
+            mode: auto
+        translatable: false
+    highlight_headline:
+        tab: Highlight
+        label: Headline
+        span: full
+        translatable: true
+    highlight_text:
+        tab: Highlight
+        label: Text
+        type: richeditor
+        span: full
+        translatable: true
+    highlight_button_text:
+        tab: Highlight
+        label: Button text
+        span: auto
+        translatable: true
+    highlight_button_link:
+        tab: Highlight
+        label: Button link
+        type: pagefinder
+        singleMode: true
+        span: auto
+
     _meta:
         type: mixin
         source: Site\Mixins\Meta

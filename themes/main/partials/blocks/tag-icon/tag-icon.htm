@@ -1,0 +1,62 @@
+{% set variants = {
+    "default": {
+        "baseBlockClasses": 'inline-flex items-center gap-2 rounded-full font-bold',
+        "baseIconClasses": "shrink-0",
+        "colors": {
+            'primary': {
+                "colorBlockClasses": 'text-white bg-primary',
+                "colorIconClasses": "fill-white"
+            },
+            'secondary': {
+                "colorBlockClasses": 'text-white bg-secondary',
+                "colorIconClasses": "fill-white"
+            },
+            'tertiary': {
+                "colorBlockClasses": 'text-default-darker bg-tertiary',
+                "colorIconClasses": "fill-default-darker"
+            },
+            'light': {
+                "colorBlockClasses": 'text-primary bg-primary-lightest',
+                "colorIconClasses": "fill-primary"
+            }
+        },
+        "sizes": {
+            'sm': {
+                "sizeBlockClasses": "text-xs px-3 py-1.5",
+                "sizeIconClasses": "w-3 h-3"
+            },
+            'md': {
+                "sizeBlockClasses": "text-sm px-4 py-2",
+                "sizeIconClasses": "w-4 h-4"
+            },
+            'lg': {
+                "sizeBlockClasses": "text-base px-5 py-2.5",
+                "sizeIconClasses": "w-5 h-5"
+            }
+        }
+    }
+} %}
+
+{% set blockClasses = [
+    data.cssClasses,
+    variants[data.variant|default("default")].baseBlockClasses,
+    variants[data.variant|default("default")].colors[data.color|default("primary")].colorBlockClasses,
+    variants[data.variant|default("default")].sizes[data.size|default("md")].sizeBlockClasses,
+]|join(" ") %}
+
+{% set iconClasses = [
+    variants[data.variant|default("default")].baseIconClasses,
+    variants[data.variant|default("default")].colors[data.color|default("primary")].colorIconClasses,
+    variants[data.variant|default("default")].sizes[data.size|default("md")].sizeIconClasses,
+]|join(" ") %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ blockClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    {% if data.icon.name %}
+        {% partial "blocks/icon-svg/icon-svg" data = {
+            cssClasses: iconClasses~" "~data.icon.cssClasses,
+            name: data.icon.name,
+            attributes: data.icon.attributes
+        } %}
+    {% endif %}
+    {{ data.text }}
+</div>

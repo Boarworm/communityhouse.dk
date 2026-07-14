@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install -y \
     && pecl install imagick redis \
     && docker-php-ext-enable imagick redis
 
-RUN echo "memory_limit=512M\nmax_execution_time=600" > /usr/local/etc/php/conf.d/memory.ini
+RUN echo "memory_limit=512M\nmax_execution_time=600\nupload_max_filesize=64M\npost_max_size=64M" > /usr/local/etc/php/conf.d/memory.ini
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

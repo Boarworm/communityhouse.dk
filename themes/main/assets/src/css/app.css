@@ -48,7 +48,7 @@
 /* Theme configuration (replaces theme.extend in config) */
 @theme {
     /* Font family */
-    --font-sans: "Manrope", sans-serif;
+    --font-sans: "Red Hat Text", sans-serif;
 
     /* Default colors */
     --color-default-lightest: #F6F8F8;
@@ -69,13 +69,22 @@
     --color-primary-darkest: #030E1E;
 
     /* Secondary colors */
-    --color-secondary-lightest: #FFFBF5;
-    --color-secondary-lighter: #FFF4E0;
-    --color-secondary-light: #FFE9C7;
-    --color-secondary: #E6BB7C;
-    --color-secondary-dark: #D2A35B;
-    --color-secondary-darker: #A67A35;
-    --color-secondary-darkest: #6B4E1E;
+    --color-secondary-lightest: #F28C9D;
+    --color-secondary-lighter: #ED5E76;
+    --color-secondary-light: #E8304F;
+    --color-secondary: #CF1736;
+    --color-secondary-dark: #A1122A;
+    --color-secondary-darker: #730D1E;
+    --color-secondary-darkest: #450812;
+
+    /* Tertiary colors */
+    --color-tertiary-lightest: #F7E2A1;
+    --color-tertiary-lighter: #F4D371;
+    --color-tertiary-light: #F0C442;
+    --color-tertiary: #ECB613;
+    --color-tertiary-dark: #BD910F;
+    --color-tertiary-darker: #8E6D0B;
+    --color-tertiary-darkest: #5E4908;
 
     /* Transition */
     --transition-duration: 500ms;
@@ -161,6 +170,10 @@
 
 .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
     @apply mt-10 mb-4
+}
+
+.prose > *:first-child {
+    @apply mt-0
 }
 
 .prose a {

@@ -1,0 +1,26 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} grid grid-cols-1 justify-items-center gap-6 md:grid-cols-2" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	<div class="w-full grid grid-cols-1 gap-4 content-start {{ data.reverse ? 'md:order-2' : 'md:order-1' }}">
+		{% partial "blocks/image/image" data = {
+			cssClasses: " "~data.image.cssClasses,
+			imgCssClasses: "w-full "~data.image.imgCssClasses,
+			src: data.image.src|default("assets/images/placeholder.jpg"|theme),
+			resize: data.image.resize,
+			attributes: data.image.attributes,
+			imgAttributes: data.image.imgAttributes
+		} %}
+	</div>
+	<div class="prose {{ data.reverse ? 'md:order-1' : 'md:order-2' }}">
+		{% if data.headline.text %}
+			{% partial "blocks/headline/headline" data = {
+				cssClasses: data.headline.cssClasses,
+				tag: data.headline.tag|default("h2"),
+				text: data.headline.text,
+				color: data.headline.color|default("dark"),
+				size: data.headline.size|default("h2"),
+				variant: data.headline.variant,
+				attributes: data.headline.attributes
+			} %}
+		{% endif %}
+		{{ data.text|raw }}
+	</div>
+</div>
