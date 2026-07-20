@@ -42,6 +42,17 @@ fields:
         thumbOptions:
             mode: auto
         translatable: false
+    logo_colored:
+        tab: General
+        label: Colored logo
+        type: fileupload
+        mode: image
+        maxFiles: 1
+        span: auto
+        fileTypes: svg, png, jpg, jpeg
+        thumbOptions:
+            mode: auto
+        translatable: false
     favicons:
         tab: General
         label: Favicons
