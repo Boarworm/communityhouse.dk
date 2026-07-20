@@ -1,0 +1,25 @@
+{
+    "name": "boarworm/aitranslate-plugin",
+    "type": "october-plugin",
+    "description": "Seamlessly translate October CMS Tailor records using AI.",
+    "homepage": "https://octobercms.com/plugin/boarworm-aitranslate",
+    "keywords": [
+        "october",
+        "octobercms",
+        "aitranslate",
+        "translate",
+        "translation",
+        "ai",
+        "tailor"
+    ],
+    "authors": [
+        {
+            "name": "Boarworm",
+            "email": "klepaysayt@gmail.com",
+            "role": "Creator"
+        }
+	],
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

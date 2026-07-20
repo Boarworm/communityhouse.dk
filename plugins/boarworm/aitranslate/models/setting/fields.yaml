@@ -1,0 +1,68 @@
+fields:
+    provider:
+        label: AI Provider
+        type: dropdown
+        default: chatgpt
+        options:
+            claude: Claude (Anthropic)
+            chatgpt: ChatGPT (OpenAI)
+
+    claude_api_key:
+        label: Claude API Key
+        type: sensitive
+        span: left
+        required: true
+        trigger:
+            action: show
+            field: provider
+            condition: value[claude]
+
+    claude_model:
+        label: Claude Model
+        type: dropdown
+        default: claude-sonnet-4-5-20250929
+        span: right
+        trigger:
+            action: show
+            field: provider
+            condition: value[claude]
+        options:
+            claude-opus-4-5-20251101: Claude 4.5 Opus (Best Quality, Most Expensive)
+            claude-sonnet-4-5-20250929: Claude 4.5 Sonnet (Fast, Cheaper)
+            claude-haiku-4-5-20251001: Claude 4.5 Haiku (Fastest, Cheapest)
+
+    chatgpt_api_key:
+        label: ChatGPT API Key
+        type: sensitive
+        span: left
+        required: true
+        trigger:
+            action: show
+            field: provider
+            condition: value[chatgpt]
+
+    chatgpt_model:
+        label: ChatGPT Model
+        type: dropdown
+        default: gpt-5.2-2025-12-11
+        span: right
+        trigger:
+            action: show
+            field: provider
+            condition: value[chatgpt]
+        options:
+            gpt-5.2-2025-12-11: GPT-5.2 (Best Quality, Most Expensive)
+            gpt-5-mini-2025-08-07: GPT-5 Mini (Fast, Cheaper)
+            gpt-5-nano-2025-08-07: GPT-5 Nano (Fastest, Cheapest)
+
+    tailor_entities:
+        label: Translate Entities
+        type: datatable
+        adding: true
+        deleting: true
+        columns:
+            entity:
+                label: Entity
+                type: dropdown
+        recordsPerPage: false
+        searching: false
