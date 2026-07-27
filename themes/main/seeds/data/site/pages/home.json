@@ -20,11 +20,11 @@
 				"text_line_2": "and beyond."
 			}
 		],
-		"about_headline": "We are Community House",
-		"about_text": "<p>Located in the heart of Copenhagen, we support migrant workers in Denmark with a holistic, non-bureaucratic approach to navigating the Danish labor market and beyond &mdash; through counseling, a weekly support group, and free English classes.</p><p>We're run by volunteers and funded by donations, and everyone is welcome, regardless of background, language, or how long you've been here.</p>",
+		"about_headline": "We are Community House Copenhagen",
+		"about_text": "<p>Located right next to the Town Hall Square of Copenhagen, we support migrant workers navigating the Danish labor market, housing market, and beyond. We offer free hands-on counseling that is unbureaucratic and straightforward to support migrants in organizing and fighting for their rights. We also offer free language classes, a weekly support group, and more.</p><p>As a volunteer-based organization, our doors are open to everyone - no matter your background, native language, or length of stay. All our activities are always free of charge!</p>",
 		"highlight_headline": "The Wolt strike",
-		"highlight_text": "<p>When Wolt couriers saw their pay for short deliveries drop, we gave them a space to organize. What started as a meeting of 25 people grew into a movement of more than 300.</p>",
+		"highlight_text": "<p>When Wolt couriers saw their pay for deliveries drop, we gave them a space to organize. What started as a meeting of five people grew into a movement of more than 300.</p>",
 		"highlight_button_text": "Read more",
-		"highlight_button_link": "october://cms-page@link/about?title=About+us+%28about%29"
+		"highlight_button_link": "october://entry-builder@link/4?cms_page=page&title=Food+courier+project"
 	}
 ]

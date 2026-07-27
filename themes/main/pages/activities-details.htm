@@ -52,8 +52,10 @@ value = "{{ :slug }}"
         {% endif %}
 
         <div class="prose mb-7">
-            {{ activity.text|raw }}
+            {{ activity.text|replace({'{contact_url}': 'contact'|page})|raw }}
         </div>
+
+        <div class="text-secondary mb-7">{{ "Join us at Studiestræde 24, Copenhagen"|_ }}</div>
 
         {% if activity.cta_text %}
             {% partial "blocks/cta-banner/cta-banner" data = {

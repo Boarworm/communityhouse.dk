@@ -165,7 +165,7 @@
 }
 
 .prose {
-    @apply max-w-full
+    @apply max-w-full text-sm sm:text-base
 }
 
 .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
@@ -177,7 +177,7 @@
 }
 
 .prose a {
-    @apply no-underline
+    @apply no-underline text-secondary font-normal
 }
 
 .prose a:hover {
