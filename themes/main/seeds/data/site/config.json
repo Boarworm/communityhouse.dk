@@ -7,6 +7,7 @@
 		"year_from": "2026",
 		"copyright": "Community House Copenhagen. All rights reserved",
 		"footer_text": "<p>We support migrant workers in Denmark with a holistic, non-bureaucratic approach to navigating the Danish labor market and beyond.</p><p>Get in touch to find out how we can help.</p>",
+		"favicons": "<link rel=\"icon\" type=\"image/png\" href=\"/favicon-96x96.png\" sizes=\"96x96\" />\n<link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />\n<link rel=\"shortcut icon\" href=\"/favicon.ico\" />\n<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\" />\n<meta name=\"apple-mobile-web-app-title\" content=\"Community House Copenhagen\" />\n<link rel=\"manifest\" href=\"/site.webmanifest\" />",
 		"addresses": [
 			{
 				"address": "Studiestræde 24<br>Copenhagen, Denmark",
