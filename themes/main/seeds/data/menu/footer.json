@@ -26,8 +26,21 @@
         "external": 0
     },
     {
+        "id": 6,
+        "title": "Food courier project",
+        "slug": "food-courier-project",
+        "is_enabled": 1,
+        "published_at": null,
+        "expired_at": null,
+        "content_group": null,
+        "fullslug": "food-courier-project",
+        "parent_id": null,
+        "url": "october:\/\/entry-builder@link\/4?cms_page=page&title=Food+courier+project",
+        "external": 0
+    },
+    {
         "id": 3,
-        "title": "Activities",
+        "title": "Weekly activities",
         "slug": "activities",
         "is_enabled": 1,
         "published_at": null,
@@ -75,45 +88,6 @@
         "fullslug": "contact",
         "parent_id": null,
         "url": "october:\/\/cms-page@link\/contact?title=Contact+%28contact%29",
-        "external": 0
-    },
-    {
-        "id": 8,
-        "title": "Privacy Policy",
-        "slug": "privacy-policy",
-        "is_enabled": 1,
-        "published_at": null,
-        "expired_at": null,
-        "content_group": null,
-        "fullslug": "privacy-policy",
-        "parent_id": null,
-        "url": "october:\/\/entry-builder@link\/1?cms_page=page&title=Privacy+Policy",
-        "external": 0
-    },
-    {
-        "id": 9,
-        "title": "Terms & Conditions",
-        "slug": "terms-and-conditions",
-        "is_enabled": 1,
-        "published_at": null,
-        "expired_at": null,
-        "content_group": null,
-        "fullslug": "terms-and-conditions",
-        "parent_id": null,
-        "url": "october:\/\/entry-builder@link\/2?cms_page=page&title=Terms+%26+Conditions",
-        "external": 0
-    },
-    {
-        "id": 10,
-        "title": "Cookie Policy",
-        "slug": "cookie-policy",
-        "is_enabled": 1,
-        "published_at": null,
-        "expired_at": null,
-        "content_group": null,
-        "fullslug": "cookie-policy",
-        "parent_id": null,
-        "url": "october:\/\/entry-builder@link\/3?cms_page=page&title=Cookie+Policy",
         "external": 0
     }
 ]
