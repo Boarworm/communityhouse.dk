@@ -12,6 +12,13 @@
     update_existing: true
     file_format: json
     blueprint_uuid: menu_footer
+- name: Menu Footer Bottom
+  class: Tailor\Models\RecordImport
+  file: seeds/data/menu/footer-bottom.json
+  attributes:
+    update_existing: true
+    file_format: json
+    blueprint_uuid: menu_footer_bottom
 - name: Menu Mobile
   class: Tailor\Models\RecordImport
   file: seeds/data/menu/mobile.json
