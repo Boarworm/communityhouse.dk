@@ -12,8 +12,10 @@ fields:
     title:
         placeholder: Title
 
+    what_we_do_section:
+        label: What we do
+        type: section
     what_we_do_image:
-        tab: What we do
         label: Image
         type: fileupload
         mode: image
@@ -24,19 +26,19 @@ fields:
             mode: auto
         translatable: false
     what_we_do_headline:
-        tab: What we do
         label: Headline
         span: full
         translatable: true
     what_we_do_text:
-        tab: What we do
         label: Text
         type: richeditor
         span: full
         translatable: true
 
+    who_we_are_section:
+        label: Who we are
+        type: section
     who_we_are_image:
-        tab: Who we are
         label: Image
         type: fileupload
         mode: image
@@ -47,12 +49,10 @@ fields:
             mode: auto
         translatable: false
     who_we_are_headline:
-        tab: Who we are
         label: Headline
         span: full
         translatable: true
     who_we_are_text:
-        tab: Who we are
         label: Text
         type: richeditor
         span: full

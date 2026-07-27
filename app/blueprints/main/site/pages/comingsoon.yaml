@@ -9,9 +9,11 @@ navigation:
     order: 210
 
 fields:
+    media_section:
+        label: Media
+        type: section
     image:
         label: Image
-        tab: Media
         type: fileupload
         mode: image
         maxFiles: 1

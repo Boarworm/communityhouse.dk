@@ -17,8 +17,10 @@ fields:
     title:
         placeholder: Title
 
+    slider_section:
+        label: Slider
+        type: section
     slides:
-        tab: Slider
         label: Slider slides
         span: full
         type: repeater
@@ -45,8 +47,10 @@ fields:
                     span: auto
                     translatable: true
 
+    about_section:
+        label: About
+        type: section
     about_image:
-        tab: About
         label: Image
         type: fileupload
         mode: image
@@ -57,19 +61,19 @@ fields:
             mode: auto
         translatable: false
     about_headline:
-        tab: About
         label: Headline
         span: full
         translatable: true
     about_text:
-        tab: About
         label: Text
         type: richeditor
         span: full
         translatable: true
 
+    highlight_section:
+        label: Highlight
+        type: section
     highlight_image:
-        tab: Highlight
         label: Image
         type: fileupload
         mode: image
@@ -80,23 +84,19 @@ fields:
             mode: auto
         translatable: false
     highlight_headline:
-        tab: Highlight
         label: Headline
         span: full
         translatable: true
     highlight_text:
-        tab: Highlight
         label: Text
         type: richeditor
         span: full
         translatable: true
     highlight_button_text:
-        tab: Highlight
         label: Button text
         span: auto
         translatable: true
     highlight_button_link:
-        tab: Highlight
         label: Button link
         type: pagefinder
         singleMode: true

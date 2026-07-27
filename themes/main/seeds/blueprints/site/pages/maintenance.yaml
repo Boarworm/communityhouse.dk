@@ -11,8 +11,10 @@ navigation:
 fields:
     title:
         placeholder: Title
+    content_section:
+        label: Content
+        type: section
     text:
-        tab: Content
         label: Text
         type: richeditor
         span: full
