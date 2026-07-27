@@ -110,7 +110,7 @@
 	<ul data-block="{{ (_self|split('/')|last|split('.')|first) }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %} class="{{ blockClasses }}">
 		{% for social in siteConfig.social_links|filter(social => social.url) %}
 			<li class="{{ itemClasses }}">
-				<a href="{{ social.url }}" target="_blank" class="{{ linkClasses }}">
+				<a href="{{ social.url }}" target="_blank" rel="noopener noreferrer" class="{{ linkClasses }}">
 					{% partial "blocks/icon-svg/icon-svg" data = {
 						name: social.code,
 						cssClasses: iconClasses
