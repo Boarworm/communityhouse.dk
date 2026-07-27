@@ -22,7 +22,7 @@
 #}
 {% if sitePicker.sites|length > 1 %}
     <div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} bg-primary-lighter" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
-        <label for="language-picker" class="sr-only">{{ 'Select Language'|_ }}</label>
+        <label for="language-picker" class="sr-only">{{ __('Select Language') }}</label>
         <select 
             name="language-picker"
             id="language-picker"

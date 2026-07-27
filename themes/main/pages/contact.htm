@@ -43,7 +43,7 @@ value = ""
                     {% partial "blocks/headline/headline" data = {
                         cssClasses: "mb-4",
                         tag: "h3",
-                        text: "How to reach us"|_,
+                        text: __("How to reach us"),
                         color: "dark",
                         size: "h3",
                         variant: "",
@@ -53,7 +53,7 @@ value = ""
                     {% partial "blocks/headline/headline" data = {
                         cssClasses: "mb-4",
                         tag: "h3",
-                        text: "Follow us on social media"|_,
+                        text: __("Follow us on social media"),
                         color: "dark",
                         size: "h3",
                         variant: "",
@@ -76,7 +76,7 @@ value = ""
             {% partial "blocks/headline/headline" data = {
                 cssClasses: "mb-6",
                 tag: "h3",
-                text: "Get in touch"|_,
+                text: __("Get in touch"),
                 color: "dark",
                 size: "h3",
                 variant: "",
@@ -100,8 +100,8 @@ value = ""
                 "data-markers": ([{
                     id: 1,
                     coordinates: "55.678464087820416,12.568661647263381",
-                    title: "Community House"|_,
-                    text: "Studiestræde 24, Copenhagen"|_
+                    title: __("Community House"),
+                    text: __("Studiestræde 24, Copenhagen")
                 }]|json_encode)|escape('html_attr')
             }
         } %}

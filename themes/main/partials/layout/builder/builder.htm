@@ -65,7 +65,7 @@
 
 		<div data-block-layout="page-builder__container" {{ container.html_anchor ? "id=\"#{container.html_anchor}\""|raw }} class="{{ [containerClasses, gridClasses]|join(' ')|trim }}">
 			{% if container.bg_image %}
-				<img src="{{ container.bg_image.path }}" alt="{{ container.bg_image.description ?: "Background" }}" class="{{ bgImageClasses }}">
+				<img src="{{ container.bg_image.path }}" alt="{{ container.bg_image.description ?: __("Background") }}" class="{{ bgImageClasses }}">
 			{% endif %}
 			{% partial "layout/builder/blocks" config=config blocks=container.blocks %}
 		</div>

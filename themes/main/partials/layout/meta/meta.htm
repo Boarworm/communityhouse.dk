@@ -1,7 +1,7 @@
 {% if get('page') %}
-	{% set titleSuffix = " - page "|_~get('page') %}
-	{% set descriptionSuffix = " Page "|_~get('page')~"." %}
-	{% set keywordsSuffix = ", page "|_~get('page') %}
+	{% set titleSuffix = __(" - page ")~get('page') %}
+	{% set descriptionSuffix = __(" Page ")~get('page')~"." %}
+	{% set keywordsSuffix = __(", page ")~get('page') %}
 {% endif %}
 
 <title>{{ data.title }}{{ titleSuffix }}</title>

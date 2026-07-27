@@ -53,19 +53,19 @@ emails_date_format = "Y-m-d"
 	<div id="{{ data.formId }}-content" class="grid gap-5">
 		{% partial "blocks/field-input/field-input" data = {
 			cssClasses: "w-full",
-			label: "Name *",
+			label: __("Name *"),
 			size: data.fieldsSize|default("md"),
 			color: data.color,
 			variant: "",
 			inputAttributes: {
 				name: "name",
 				id: data.formId~"-name",
-				placeholder: "Your name"
+				placeholder: __("Your name")
 			}
 		} %}
 		{% partial "blocks/field-input/field-input" data = {
 			cssClasses: "w-full",
-			label: "Email *",
+			label: __("Email *"),
 			size: data.fieldsSize|default("md"),
 			color: data.color,
 			variant: "",
@@ -73,25 +73,25 @@ emails_date_format = "Y-m-d"
 				type: "email",
 				name: "email",
 				id: data.formId~"-email",
-				placeholder: "you@example.com"
+				placeholder: __("you@example.com")
 			}
 		} %}
 		{% partial "blocks/field-textarea/field-textarea" data = {
 			cssClasses: "w-full",
-			label: "Message *",
+			label: __("Message *"),
 			size: data.fieldsSize|default("md"),
 			color: data.color,
 			variant: "",
 			inputAttributes: {
 				name: "comments",
 				id: data.formId~"-comments",
-				placeholder: "Type your message here."
+				placeholder: __("Type your message here.")
 			}
 		} %}
 		{% partial "blocks/button/button" data = {
 			cssClasses: "w-fit",
 			tag: "button",
-			body: "Submit",
+			body: __("Submit"),
 			variant: "",
 			color: "primary",
 			size: "md",

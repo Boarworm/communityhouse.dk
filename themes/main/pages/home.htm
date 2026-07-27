@@ -124,8 +124,8 @@ sortDirection = "asc"
 	<div class="container pt-5">
 		<div class="mb-12 lg:mb-24">
 			<div class="mb-5 flex justify-between items-end">
-				<div class="font-bold text-2xl">{{ "Weekly activities"|_ }}</div>
-				<a href="{{ 'activities'|page }}" class="text-xs font-bold text-secondary hover:text-secondary-dark">{{ "All Activities"|_ }} →</a>
+				<div class="font-bold text-2xl">{{ __("Weekly activities") }}</div>
+				<a href="{{ 'activities'|page }}" class="text-xs font-bold text-secondary hover:text-secondary-dark">{{ __("All Activities") }} →</a>
 			</div>
 			{% partial "blocks/activities-list/activities-list" data = {
 				cssClasses: "lg:grid-cols-3",

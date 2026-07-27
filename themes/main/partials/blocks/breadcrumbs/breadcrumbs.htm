@@ -2,7 +2,7 @@
 <ol data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="flex items-center overflow-y-hidden overflow-x-auto p-0 list-none {{ data.cssClasses }}" itemscope="" itemtype="https://schema.org/BreadcrumbList" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
     <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
         <a href="{{ 'home'|page }}" itemprop="item" class="flex items-center no-underline text-sm text-default transition hover:text-primary">
-            <div itemprop="name">{{ 'Home'|_ }}</div>
+            <div itemprop="name">{{ __('Home') }}</div>
         </a>
         <meta itemprop="position" content="{{ index }}">
     </li>
@@ -15,7 +15,7 @@
     {% for breadcrumb in data.breadcrumbs %}
         <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
             {% if loop.last %}
-                <div class="whitespace-nowrap text-sm text-default" itemprop="name">{{ breadcrumb.name~(get('page') ? " - page "|_~get('page')) }}</div>
+                <div class="whitespace-nowrap text-sm text-default" itemprop="name">{{ breadcrumb.name~(get('page') ? __(" - page ")~get('page')) }}</div>
             {% else %}
                 <a class="whitespace-nowrap no-underline text-sm text-default transition hover:text-primary" href="{{ breadcrumb.url }}" itemprop="item">
                     <div itemprop="name">{{ breadcrumb.name }}</div>

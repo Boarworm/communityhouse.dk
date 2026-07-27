@@ -9,7 +9,7 @@
 				<div class="prose mt-4 prose-p:text-white text-sm">{{ siteConfig.footer_text|raw }}</div>
 			</div>
 			<div>
-				<div class="text-2xl uppercase font-italic font-secondary text-white mb-4 md:mb-8 md:text-3xl">{{ "Contact"|_ }}</div>
+				<div class="text-2xl uppercase font-italic font-secondary text-white mb-4 md:mb-8 md:text-3xl">{{ __("Contact") }}</div>
 				<div class="mb-4">
 					{% for item in siteConfig.addresses %}
 						{% if item.link_direction %}
@@ -72,18 +72,18 @@
 					{% partial "blocks/button/button" data = {
 						cssClasses: "mt-10",
 						tag: "a",
-						body: "Contact us by Whatsapp",
+						body: __("Contact us by Whatsapp"),
 						variant: "",
 						color: "",
 						size: "",
 						attributes: {
-							href: "https://wa.me/+"~siteConfig.whatsapp_phone|replace({"+":"","-":""," ":"","(":"",")":""})~"?text=Hello!",
+							href: "https://wa.me/+"~siteConfig.whatsapp_phone|replace({"+":"","-":""," ":"","(":"",")":""})~"?text="~__("Hello!")|url_encode,
 						}
 					} %}
 				{% endif %}
 			</div>
 			<div>
-				<div class="text-2xl uppercase font-italic font-secondary text-white mb-4 md:mb-8 md:text-3xl">{{ "Quick links"|_ }}</div>
+				<div class="text-2xl uppercase font-italic font-secondary text-white mb-4 md:mb-8 md:text-3xl">{{ __("Quick links") }}</div>
 				{% partial "layout/menu-footer/menu-footer" data = {
 					cssClasses: ""
 				} %}

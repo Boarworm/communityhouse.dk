@@ -22,7 +22,7 @@ value = "{{ :slug }}"
         {% partial "blocks/breadcrumbs/breadcrumbs" data = {
             cssClasses: "mb-4",
             breadcrumbs: [
-                {name: "Weekly activities"|_, url: "activities"|page},
+                {name: __("Weekly activities"), url: "activities"|page},
                 {name: activity.title, url: ''}
             ]
         } %}
@@ -55,7 +55,7 @@ value = "{{ :slug }}"
             {{ activity.text|replace({'{contact_url}': 'contact'|page})|raw }}
         </div>
 
-        <div class="text-secondary mb-7">{{ "Join us at Studiestræde 24, Copenhagen"|_ }}</div>
+        <div class="text-secondary mb-7">{{ __("Join us at Studiestræde 24, Copenhagen") }}</div>
 
         {% if activity.cta_text %}
             {% partial "blocks/cta-banner/cta-banner" data = {
@@ -68,7 +68,7 @@ value = "{{ :slug }}"
         {% partial "blocks/button/button" data = {
             cssClasses: "",
             tag: "a",
-            body: "Back to all activities"|_,
+            body: __("Back to all activities"),
             icon: "arrow-left",
             variant: "",
             color: "primary",
@@ -81,8 +81,8 @@ value = "{{ :slug }}"
         <hr class="hidden h-px text-secondary my-12 lg:block">
 
         <div class="mb-5 flex justify-between items-end">
-            <div class="font-bold text-2xl">{{ "More activities"|_ }}</div>
-            <a href="{{ 'activities'|page }}" class="text-xs font-bold text-secondary hover:text-secondary-dark">{{ "All Activities"|_ }} →</a>
+            <div class="font-bold text-2xl">{{ __("More activities") }}</div>
+            <a href="{{ 'activities'|page }}" class="text-xs font-bold text-secondary hover:text-secondary-dark">{{ __("All Activities") }} →</a>
         </div>
         {% partial "blocks/activities-list/activities-list" data = {
             cssClasses: "",

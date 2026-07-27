@@ -76,7 +76,7 @@
 
 <div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ blockClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
 	<div class="h-full w-full flex items-center justify-center">
-		<input type="checkbox" aria-label="hamburger" class="{{ checkboxClasses }}" {{ data.active ? "checked" }}>
+		<input type="checkbox" aria-label="{{ __('hamburger') }}" class="{{ checkboxClasses }}" {{ data.active ? "checked" }}>
 		<div aria-hidden="true" class="{{ line1Classes }}"></div>
 		<div aria-hidden="true" class="{{ line2Classes }}"></div>
 		<div aria-hidden="true" class="{{ line3Classes }}"></div>
