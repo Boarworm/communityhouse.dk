@@ -1,1 +1,4 @@
 node_modules
+seeds/blueprints-library
+seeds/data-library
+partials/blocks-library
