@@ -8,12 +8,6 @@ document.querySelectorAll('[data-block-layout="menu-mobile"]').forEach($el => {
     import('../../../partials/layout/menu-mobile/menu-mobile' /* webpackChunkName: "/dist/js/menu-mobile" */).then(({ default: init }) => init($el));
 });
 
-document.querySelectorAll('[data-js="post-carousel-latest"]').forEach($el => {
-    initInView($el).then(() => {
-        import('../../../partials/blocks/post-carousel-latest/post-carousel-latest' /* webpackChunkName: "/dist/js/post-carousel-latest" */).then(({ default: init }) => init($el));
-    });
-});
-
 document.querySelectorAll('[data-js="carousel-advantages"]').forEach($el => {
     initInView($el).then(() => {
         import('../../../partials/blocks/carousel/carousel-advantages' /* webpackChunkName: "/dist/js/carousel-advantages" */).then(({ default: init }) => init($el));

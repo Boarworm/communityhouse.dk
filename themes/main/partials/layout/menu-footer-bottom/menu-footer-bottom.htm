@@ -1,0 +1,30 @@
+[collection menuFooterBottom]
+handle = "Menu\FooterBottom"
+==
+{% set level = 1 %}
+{% set maxLevel = data.maxLevel|default(1) %}
+{% macro menu(items, level, maxLevel) %}
+	{% import _self as menu %}
+	{% set classUlLevel1 = 'flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:justify-end' %}
+	{% set classLiLevel1 = '' %}
+	{% set classALevel1 = 'text-xs text-white/80 transition hover:text-white' %}
+	{% set classActive = '' %}
+	{% if items|length and maxLevel >= level %}
+		<ul class="{{ _context['classUlLevel'~level] }}" role="menubar">
+			{% for item in items %}
+				{% if item.is_enabled %}
+					<li class="{{ _context['classLiLevel'~level] }}" role="menuitem">
+						<a class="{{ _context['classALevel'~level] }} {{ (item.url|link == url_current() and menuLevel < 2) ? classActive }}" href="{{ item.url ? item.url|link : '#' }}" {{ item.external ? "target=\"_blank\"" }}>
+							{{ item.title }}
+						</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endmacro %}
+{% import _self as menu %}
+
+<nav data-block-layout="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	{{ menu.menu(menuFooterBottom, level, maxLevel) }}
+</nav>

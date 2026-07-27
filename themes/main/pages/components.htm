@@ -195,7 +195,29 @@ title = "Components"
 {# ================= Social links ================= #}
 <div class="container pb-12">
     {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: "Social links", color: "dark", size: "h2", variant: "", attributes: {} } %}
-    {% partial "blocks/social-links/social-links" data = { cssClasses: "", attributes: {} } %}
+
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-2", tag: "h3", text: "variant: default", color: "dark", size: "h4", variant: "", attributes: {} } %}
+    <div class="flex flex-wrap items-start gap-4 mb-4">
+        {% partial "blocks/social-links/social-links" data = { cssClasses: "", variant: "default", color: "primary", size: "md", attributes: {} } %}
+        <div class="bg-primary p-4">
+            {% partial "blocks/social-links/social-links" data = { cssClasses: "", variant: "default", color: "light", size: "md", attributes: {} } %}
+        </div>
+    </div>
+
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-2", tag: "h3", text: "variant: outline", color: "dark", size: "h4", variant: "", attributes: {} } %}
+    <div class="flex flex-wrap items-start gap-4 mb-4">
+        {% partial "blocks/social-links/social-links" data = { cssClasses: "", variant: "outline", color: "primary", size: "md", attributes: {} } %}
+        <div class="bg-primary p-4">
+            {% partial "blocks/social-links/social-links" data = { cssClasses: "", variant: "outline", color: "light", size: "md", attributes: {} } %}
+        </div>
+    </div>
+
+    {% partial "blocks/headline/headline" data = { cssClasses: "mb-2", tag: "h3", text: "sizes: sm / md / lg", color: "dark", size: "h4", variant: "", attributes: {} } %}
+    <div class="flex flex-wrap items-center gap-4">
+        {% partial "blocks/social-links/social-links" data = { cssClasses: "", variant: "default", color: "primary", size: "sm", attributes: {} } %}
+        {% partial "blocks/social-links/social-links" data = { cssClasses: "", variant: "default", color: "primary", size: "md", attributes: {} } %}
+        {% partial "blocks/social-links/social-links" data = { cssClasses: "", variant: "default", color: "primary", size: "lg", attributes: {} } %}
+    </div>
 </div>
 
 {# ================= Map ================= #}

@@ -11,7 +11,7 @@
     @apply right-2;
 }
 [data-block="language-picker"] .nice-select .current {
-    @apply text-secondary font-bold flex items-center;
+    @apply text-primary font-semibold flex items-center;
 }
 
 [data-block="language-picker"] .nice-select .list {
@@ -23,7 +23,7 @@
 }
 
 [data-block="language-picker"] .nice-select .option {
-    @apply font-bold px-2 flex items-center leading-[32px] text-white;
+    @apply font-semibold px-2 flex items-center leading-[32px] text-primary;
 }
 
 [data-block="language-picker"] .nice-select .option img {
@@ -31,11 +31,11 @@
 }
 
 [data-block="language-picker"] .nice-select .option:hover {
-    @apply bg-white text-primary;
+    @apply bg-primary text-white;
 }
 
 [data-block="language-picker"] .nice-select .option.selected {
-    @apply text-secondary;
+    @apply text-primary;
 }
 [data-block="language-picker"] .nice-select .option.selected.focus {
     @apply bg-transparent;

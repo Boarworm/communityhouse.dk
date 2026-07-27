@@ -65,19 +65,6 @@
         "external": 0
     },
     {
-        "id": 6,
-        "title": "Blog",
-        "slug": "blog",
-        "is_enabled": 1,
-        "published_at": null,
-        "expired_at": null,
-        "content_group": null,
-        "fullslug": "blog",
-        "parent_id": null,
-        "url": "october:\/\/cms-page@link\/blog?title=Blog+%28blog%29",
-        "external": 0
-    },
-    {
         "id": 7,
         "title": "Contact",
         "slug": "contact",

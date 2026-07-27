@@ -13,11 +13,23 @@
 				<div class="mb-4">
 					{% for item in siteConfig.addresses %}
 						{% if item.link_direction %}
-							<a href="{{ item.link_direction }}" target="_blank" class="flex items-center transition hover:text-secondary text-white mb-2 last:mb-0">
+							<a href="{{ item.link_direction }}" target="_blank" class="flex items-center justify-self-start transition hover:text-secondary text-white mb-2 last:mb-0">
+								{% if loop.first %}
+									{% partial "blocks/icon-svg/icon-svg" data = {
+										cssClasses: "w-5 h-5 fill-white mr-3 shrink-0 self-start xl:mr-6",
+										name: "pin-filled"
+									} %}
+								{% endif %}
 								{{ item.address|raw }}
 							</a>
 						{% else %}
 							<div class="flex items-center text-white mb-2 last:mb-0">
+								{% if loop.first %}
+									{% partial "blocks/icon-svg/icon-svg" data = {
+										cssClasses: "w-5 h-5 fill-white mr-3 shrink-0 self-start xl:mr-6",
+										name: "pin-filled"
+									} %}
+								{% endif %}
 								{{ item.address|raw }}
 							</div>
 						{% endif %}
@@ -49,20 +61,13 @@
 						</div>
 					{% endfor %}
 				</div>
-				{% if siteConfig.social_links %}
-					<ul class="-m-2 list-inside flex flex-wrap mt-4">
-						{% for social in siteConfig.social_links|filter(social => social.url) %}
-							<li class="flex m-2">
-								<a href="{{ social.url }}" target="_blank" class="bg-white transition p-2 rounded-sm group hover:scale-105">
-									{% partial "blocks/icon-svg/icon-svg" data = {
-										name: social.code,
-										cssClasses: "w-6 h-6 fill-primary group-hover:fill-secondary transition"
-									} %}
-								</a>
-							</li>
-						{% endfor %}
-					</ul>
-				{% endif %}
+				{% partial "blocks/social-links/social-links" data = {
+					cssClasses: "mt-8",
+					variant: "default",
+					color: "light",
+					size: "md",
+					attributes: {}
+				} %}
 				{% if siteConfig.whatsapp_phone %}
 					{% partial "blocks/button/button" data = {
 						cssClasses: "mt-10",
@@ -87,13 +92,16 @@
 	</div>
 	<div class="bg-primary-darker">
 		<div class="container py-6">
-			<div class="flex flex-col items-center md:flex-row md:justify-between">
-				<div class="text-white text-center">
+			<div class="flex flex-col items-center gap-4 md:flex-row md:justify-between">
+				<div class="text-sm text-white text-center">
 					{% set year_from = siteConfig.year_from %}
 					{% set year_current = 'now'|date('Y') %}
 					© {{ year_from is empty or year_from == year_current ? year_current : year_from~"-"~year_current }}
 					{{ siteConfig.copyright }}
 				</div>
+				{% partial "layout/menu-footer-bottom/menu-footer-bottom" data = {
+					cssClasses: ""
+				} %}
 			</div>
 		</div>
 	</div>

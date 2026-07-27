@@ -1,14 +1,14 @@
-<header data-block-layout="{{ (_self|split('/')|last|split('.')|first) }}" class="bg-white transition-all duration-1000 ease-in-out top-0 w-full z-40 border-b-2 border-primary-light {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}>
-	<div class="container py-2 flex items-center justify-between">
+<header data-block-layout="{{ (_self|split('/')|last|split('.')|first) }}" class="bg-primary-lightest transition-all duration-1000 ease-in-out top-0 w-full z-40 border-b-3 border-primary-lighter {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}>
+	<div class="container py-2 flex items-end">
 		{% partial "blocks/logo/logo" data = {
 			cssClasses: "h-[45px] lg:mr-4 lg:mr-auto lg:h-[60px]",
 			color: "colored"
 		} %}
 		{% partial "layout/menu-header/menu-header" data = {
-			cssClasses: "hidden md:flex md:ml-auto"
+			cssClasses: "hidden md:flex md:ml-auto -mb-[11px]"
 		} %}
 		{% partial "blocks/language-picker/language-picker" data = {
-			cssClasses: "ml-2 md:ml-4"
+			cssClasses: "ml-auto mr-4 mb-1 md:ml-4"
 		} %}
 		<div class="js-burger js-menu-mobile-trigger w-10 h-10 md:hidden">
 			{% partial "blocks/burger/burger" data = {

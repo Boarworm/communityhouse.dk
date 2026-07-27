@@ -19,28 +19,6 @@
     update_existing: true
     file_format: json
     blueprint_uuid: menu_mobile
-- name: Blog Category Data
-  class: Tailor\Models\RecordImport
-  file: seeds/data/blog/categories.json
-  attributes:
-    update_existing: true
-    file_format: json
-    blueprint_uuid: blog-categories
-- name: Blog Author Data
-  class: Tailor\Models\RecordImport
-  file: seeds/data/blog/authors.json
-  attributes:
-    update_existing: true
-    file_format: json
-    blueprint_uuid: blog-authors
-- name: Blog Post Data
-  class: Tailor\Models\RecordImport
-  file: seeds/data/blog/posts.json
-  attributes:
-    update_existing: true
-    file_format: json
-    blueprint_uuid: blog-posts
-
 - name: Activities Data
   class: Tailor\Models\RecordImport
   file: seeds/data/activities/activities.json
@@ -78,13 +56,6 @@
     update_existing: true
     file_format: json
     blueprint_uuid: site_pages_not_found
-- name: Site Pages - Blog
-  class: Tailor\Models\RecordImport
-  file: seeds/data/site/pages/blog.json
-  attributes:
-    update_existing: true
-    file_format: json
-    blueprint_uuid: site_pages_blog
 - name: Site Pages - About us
   class: Tailor\Models\RecordImport
   file: seeds/data/site/pages/about.json
@@ -98,14 +69,7 @@
   attributes:
     update_existing: true
     file_format: json
-    blueprint_uuid: site_pages_contact    
-- name: Site Pages - Blog
-  class: Tailor\Models\RecordImport
-  file: seeds/data/site/pages/blog.json
-  attributes:
-    update_existing: true
-    file_format: json
-    blueprint_uuid: site_pages_blog
+    blueprint_uuid: site_pages_contact
 - name: Site Pages - Home
   class: Tailor\Models\RecordImport
   file: seeds/data/site/pages/home.json

@@ -1,11 +1,119 @@
+{% set variants = {
+    "default": {
+        "baseBlockClasses": "list-inside flex flex-wrap",
+        "baseItemClasses": "flex",
+        "baseLinkClasses": "group transition",
+        "baseIconClasses": "transition",
+        "colors": {
+            "primary": {
+                "colorBlockClasses": "",
+                "colorItemClasses": "",
+                "colorLinkClasses": "bg-primary-dark hover:bg-secondary",
+                "colorIconClasses": "fill-white"
+            },
+            "light": {
+                "colorBlockClasses": "",
+                "colorItemClasses": "",
+                "colorLinkClasses": "bg-white hover:bg-secondary",
+                "colorIconClasses": "fill-primary group-hover:fill-white"
+            }
+        },
+        "sizes": {
+            "sm": {
+                "sizeBlockClasses": "gap-1",
+                "sizeItemClasses": "",
+                "sizeLinkClasses": "p-2",
+                "sizeIconClasses": "w-5 h-5"
+            },
+            "md": {
+                "sizeBlockClasses": "gap-2",
+                "sizeItemClasses": "",
+                "sizeLinkClasses": "p-3",
+                "sizeIconClasses": "w-6 h-6"
+            },
+            "lg": {
+                "sizeBlockClasses": "gap-3",
+                "sizeItemClasses": "",
+                "sizeLinkClasses": "p-4",
+                "sizeIconClasses": "w-7 h-7"
+            }
+        }
+    },
+    "outline": {
+        "baseBlockClasses": "list-inside flex flex-wrap",
+        "baseItemClasses": "flex",
+        "baseLinkClasses": "group transition border",
+        "baseIconClasses": "transition",
+        "colors": {
+            "primary": {
+                "colorBlockClasses": "",
+                "colorItemClasses": "",
+                "colorLinkClasses": "border-primary-dark hover:bg-primary-dark",
+                "colorIconClasses": "fill-primary-dark group-hover:fill-white"
+            },
+            "light": {
+                "colorBlockClasses": "",
+                "colorItemClasses": "",
+                "colorLinkClasses": "border-white hover:bg-white",
+                "colorIconClasses": "fill-white group-hover:fill-primary"
+            }
+        },
+        "sizes": {
+            "sm": {
+                "sizeBlockClasses": "gap-1",
+                "sizeItemClasses": "",
+                "sizeLinkClasses": "p-2",
+                "sizeIconClasses": "w-5 h-5"
+            },
+            "md": {
+                "sizeBlockClasses": "gap-2",
+                "sizeItemClasses": "",
+                "sizeLinkClasses": "p-3",
+                "sizeIconClasses": "w-6 h-6"
+            },
+            "lg": {
+                "sizeBlockClasses": "gap-3",
+                "sizeItemClasses": "",
+                "sizeLinkClasses": "p-4",
+                "sizeIconClasses": "w-7 h-7"
+            }
+        }
+    }
+} %}
+
+{% set blockClasses = [
+    data.cssClasses,
+    variants[data.variant|default("default")].baseBlockClasses,
+    variants[data.variant|default("default")].colors[data.color|default("primary")].colorBlockClasses,
+    variants[data.variant|default("default")].sizes[data.size|default("md")].sizeBlockClasses,
+]|join(" ") %}
+
+{% set itemClasses = [
+    variants[data.variant|default("default")].baseItemClasses,
+    variants[data.variant|default("default")].colors[data.color|default("primary")].colorItemClasses,
+    variants[data.variant|default("default")].sizes[data.size|default("md")].sizeItemClasses,
+]|join(" ") %}
+
+{% set linkClasses = [
+    variants[data.variant|default("default")].baseLinkClasses,
+    variants[data.variant|default("default")].colors[data.color|default("primary")].colorLinkClasses,
+    variants[data.variant|default("default")].sizes[data.size|default("md")].sizeLinkClasses,
+]|join(" ") %}
+
+{% set iconClasses = [
+    variants[data.variant|default("default")].baseIconClasses,
+    variants[data.variant|default("default")].colors[data.color|default("primary")].colorIconClasses,
+    variants[data.variant|default("default")].sizes[data.size|default("md")].sizeIconClasses,
+]|join(" ") %}
+
 {% if siteConfig.social_links %}
-	<ul data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="-m-1 list-inside flex flex-wrap {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	<ul data-block="{{ (_self|split('/')|last|split('.')|first) }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %} class="{{ blockClasses }}">
 		{% for social in siteConfig.social_links|filter(social => social.url) %}
-			<li class="flex m-1">
-				<a href="{{ social.url }}" target="_blank" class="group p-3 border border-primary-dark transition hover:bg-primary-dark">
+			<li class="{{ itemClasses }}">
+				<a href="{{ social.url }}" target="_blank" class="{{ linkClasses }}">
 					{% partial "blocks/icon-svg/icon-svg" data = {
 						name: social.code,
-						cssClasses: "w-6 h-6 fill-primary-dark transition group-hover:fill-white"
+						cssClasses: iconClasses
 					} %}
 				</a>
 			</li>
