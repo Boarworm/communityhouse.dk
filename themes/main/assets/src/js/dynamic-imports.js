@@ -14,13 +14,6 @@ document.querySelectorAll('[data-js="carousel-advantages"]').forEach($el => {
     });
 });
 
-document.querySelectorAll('[data-js="testimonial-carousel"]').forEach($el => {
-    initInView($el).then(() => {
-        import('../../../partials/blocks/testimonial-carousel/testimonial-carousel' /* webpackChunkName: "/dist/js/testimonial-carousel" */).then(({ default: init }) => init($el));
-    });
-});
-
-
 document.querySelectorAll('[data-block="gallery-grid"]').forEach($el => {
     initInView($el).then(() => {
         import('../../../partials/blocks/gallery-grid/gallery-grid' /* webpackChunkName: "/dist/js/gallery-grid" */).then(({ default: init }) => init($el));

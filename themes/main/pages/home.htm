@@ -11,12 +11,8 @@ value = ""
 handle = "Activities\Activity"
 sortColumn = "id"
 sortDirection = "asc"
-
-[collection testimonials]
-handle = "Testimonials\Testimonial"
 ==
 {% set activitiesExist = activities.exists() %}
-{% set testimonialsExist = testimonials.exists() %}
 
 {% put meta %}
 {% partial "layout/meta/meta" data = {
@@ -128,31 +124,12 @@ handle = "Testimonials\Testimonial"
 	<div class="container pt-5">
 		<div class="mb-12 lg:mb-24">
 			<div class="mb-5 flex justify-between items-end">
-				<div class="font-bold text-2xl">{{ "Our activities"|_ }}</div>
+				<div class="font-bold text-2xl">{{ "Weekly activities"|_ }}</div>
 				<a href="{{ 'activities'|page }}" class="text-xs font-bold text-secondary hover:text-secondary-dark">{{ "All Activities"|_ }} →</a>
 			</div>
 			{% partial "blocks/activities-list/activities-list" data = {
 				cssClasses: "lg:grid-cols-3",
 				attributes: {}
-			} %}
-		</div>
-	</div>
-{% endif %}
-
-{% if testimonialsExist %}
-	<div class="container pt-5">
-		<div class="mb-12 lg:mb-24">
-			{% partial "blocks/headline/headline" data = {
-				cssClasses: "mb-5 text-center",
-				tag: "h2",
-				text: "What people say"|_,
-				color: "dark",
-				size: "h2",
-				variant: "",
-				attributes: {}
-			} %}
-			{% partial "blocks/testimonial-carousel/testimonial-carousel" data = {
-				cssClasses: ""
 			} %}
 		</div>
 	</div>
