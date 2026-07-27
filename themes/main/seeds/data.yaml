@@ -34,14 +34,6 @@
     file_format: json
     blueprint_uuid: activities-activity
 
-- name: Testimonials Data
-  class: Tailor\Models\RecordImport
-  file: seeds/data/testimonials/testimonials.json
-  attributes:
-    update_existing: true
-    file_format: json
-    blueprint_uuid: testimonials-testimonials
-
 - name: Builder Builders Data
   class: Tailor\Models\RecordImport
   file: seeds/data/builder/builders.json
