@@ -59,30 +59,17 @@ sortDirection = "asc"
 {% endpartial %}
 
 <div class="container py-10 xl:py-16">
-	{% partial "blocks/content-image-text-card/content-image-text-card" data = {
+	{% partial "blocks/headline/headline" data = {
+		cssClasses: "mb-4",
+		tag: "h1",
+		text: page.about_headline,
+		color: "dark",
+		size: "h1",
+		variant: "",
+		attributes: {}
+	} %}
+	{% partial "blocks/richeditor/richeditor" data = {
 		cssClasses: "",
-		image: {
-			cssClasses: "",
-			imgCssClasses: "",
-			src: page.about_image ? page.about_image.path : "assets/images/demo/logo-dark.svg"|theme,
-			resize: {
-				width: "400",
-				height: "auto",
-				mode: "auto",
-				extension: "",
-				quality: ""
-			},
-			attributes: {},
-			imgAttributes: {
-				alt: page.about_image.description ?: page.about_headline
-			}
-		},
-		headline: {
-			tag: "h2",
-			text: page.about_headline,
-			color: "dark",
-			size: "h2"
-		},
 		text: page.about_text,
 		attributes: {}
 	} %}
@@ -121,16 +108,14 @@ sortDirection = "asc"
 } %}
 
 {% if activitiesExist %}
-	<div class="container pt-5">
-		<div class="mb-12 lg:mb-24">
-			<div class="mb-5 flex justify-between items-end">
-				<div class="font-bold text-2xl">{{ __("Weekly activities") }}</div>
-				<a href="{{ 'activities'|page }}" class="text-xs font-bold text-secondary hover:text-secondary-dark">{{ __("All Activities") }} →</a>
-			</div>
-			{% partial "blocks/activities-list/activities-list" data = {
-				cssClasses: "lg:grid-cols-3",
-				attributes: {}
-			} %}
+	<div class="container py-10">
+		<div class="mb-5 flex justify-between items-end">
+			<div class="font-bold text-lg sm:text-2xl">{{ __("Weekly activities") }}</div>
+			<a href="{{ 'activities'|page }}" class="text-xs font-bold text-secondary hover:text-secondary-dark">{{ __("All Activities") }} →</a>
 		</div>
+		{% partial "blocks/activities-list/activities-list" data = {
+			cssClasses: "lg:grid-cols-3",
+			attributes: {}
+		} %}
 	</div>
 {% endif %}
