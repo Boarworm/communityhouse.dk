@@ -1,0 +1,77 @@
+uuid: boarworm-aitranslate-test
+handle: Boarworm\AiTranslate\Test
+type: structure
+name: AI Translate Test
+drafts: false
+multisite: true
+
+structure:
+    maxDepth: 2
+
+primaryNavigation:
+    label: AI Translate Tests
+    icon: icon-flask
+    order: 900
+
+navigation:
+    parent: Boarworm\AiTranslate\Test
+    label: Structure (True)
+    order: 100
+
+fields:
+    title:
+        label: Name
+        placeholder: e.g. Test Entry
+        span: auto
+        translatable: true
+    subtitle:
+        label: Subtitle
+        type: text
+        span: auto
+        translatable: true
+    description:
+        label: Description
+        type: textarea
+        size: small
+        span: full
+        translatable: true
+    body:
+        label: Body
+        type: richeditor
+        size: small
+        span: full
+        translatable: true
+    items:
+        label: Items
+        type: repeater
+        span: full
+        prompt: Add item
+        translatable: true
+        form:
+            fields:
+                label:
+                    label: Label
+                    span: auto
+                    translatable: true
+                icon:
+                    label: Icon (not translatable)
+                    span: auto
+                    translatable: false
+                note:
+                    label: Note
+                    type: textarea
+                    size: small
+                    span: full
+                    translatable: true
+                sub_items:
+                    label: Sub Items
+                    type: repeater
+                    span: full
+                    prompt: Add sub item
+                    translatable: true
+                    form:
+                        fields:
+                            sub_label:
+                                label: Sub Label
+                                span: full
+                                translatable: true

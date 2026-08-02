@@ -27,3 +27,23 @@ php artisan plugin:install boarworm.aitranslate
 - **Multi-Provider Support**: Choose between OpenAI and Claude for your translations.
 - **Tailor Integration**: Seamlessly integrates with October CMS Tailor blueprints.
 - **Configurable**: Select specific blueprints to enable translation for.
+
+## Bulk Translation (Console)
+
+Translate every entry of a Tailor blueprint from one site into one or more other sites:
+
+```
+php artisan aitranslate:bulk Blog\Post
+```
+
+Options:
+
+- `--from=<code>` Source site code (default: the site marked default/primary).
+- `--to=<code>` Target site code, repeatable (default: all other sites).
+- `--mode=create|update` `create` skips entries that already exist on the target site; `update` overwrites them (default: `create`).
+
+Example translating only into `de` and `fr` from the `en` site, overwriting existing translations:
+
+```
+php artisan aitranslate:bulk Blog\Post --from=en --to=de --to=fr --mode=update
+```

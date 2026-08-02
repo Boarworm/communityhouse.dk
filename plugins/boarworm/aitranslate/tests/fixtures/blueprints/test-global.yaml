@@ -1,0 +1,25 @@
+uuid: boarworm-aitranslate-test-global
+handle: Boarworm\AiTranslate\TestGlobal
+type: global
+name: AI Translate Test (Global)
+multisite: true
+
+navigation:
+    parent: Boarworm\AiTranslate\Test
+    label: Global
+    order: 105
+
+fields:
+    title:
+        label: Name
+        span: auto
+        translatable: true
+    description:
+        label: Description
+        type: textarea
+        size: small
+        span: full
+        translatable: true
+    # Deliberately no repeater field here: the core 'tailor_global_repeaters'
+    # table has no 'site_root_id' column, so multisite + repeater on a Global
+    # blueprint throws a SQL error - see ModelTranslatorGlobalTest for details.

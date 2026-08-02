@@ -8,12 +8,12 @@
     "packages": [
         {
             "name": "boarworm/aitranslate-plugin",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "dist": {
                 "type": "zip",
-                "url": "https://gateway.octobercms.com/composer/dist/boarworm/aitranslate-plugin/boarworm-aitranslate-plugin-44a711ccb5de54ff2b1e2d24c76b318d66e95954-zip-dc1bf8.zip",
-                "reference": "44a711ccb5de54ff2b1e2d24c76b318d66e95954",
-                "shasum": "c9cff0e71160b170f49499f907ace5edc9231f55"
+                "url": "https://gateway.octobercms.com/composer/dist/boarworm/aitranslate-plugin/boarworm-aitranslate-plugin-f47270c176c4448b7a4bd9b9c801225a6a64c3cd-zip-071b1f.zip",
+                "reference": "f47270c176c4448b7a4bd9b9c801225a6a64c3cd",
+                "shasum": "ecacb342683d46d45461a2efb43cde0edcde3ac9"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -38,10 +38,10 @@
                 "translation"
             ],
             "support": {
-                "source": "https://github.com/Boarworm/oc-aitranslate-plugin/tree/v1.0.4",
+                "source": "https://github.com/Boarworm/oc-aitranslate-plugin/tree/v1.0.5",
                 "issues": "https://github.com/Boarworm/oc-aitranslate-plugin/issues"
             },
-            "time": "2026-03-19T18:25:35+00:00"
+            "time": "2026-08-02T21:23:22+00:00"
         },
         {
             "name": "brick/math",

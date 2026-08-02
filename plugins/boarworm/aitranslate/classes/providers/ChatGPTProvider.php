@@ -54,14 +54,23 @@ class ChatGPTProvider implements AiProviderInterface
                "3. Preserve all HTML tags (like <p>, <strong>, <a>) EXACTLY. Do not translate class names or attributes.\n" .
                "4. Keep JSON keys exactly as they are.\n" .
                "5. Return ONLY valid JSON. No markdown formatting.\n" .
-               "6. The 'slug' field should be translated to '{$target}'\n\n" .
+               "6. The 'slug' field should be translated to '{$target}'\n" .
+               "7. If any double quote character (\") appears inside a string value (including inside HTML content), it MUST be escaped as \\\" so the JSON remains valid. Do not replace it with a different character.\n" .
+               "8. Before responding, verify your output is valid, parseable JSON.\n\n" .
                "Input Data:\n" . json_encode($data, JSON_UNESCAPED_UNICODE);
     }
 
     protected function parseResponse($result)
     {
+        $finishReason = $result['choices'][0]['finish_reason'] ?? null;
         $rawText = $result['choices'][0]['message']['content'] ?? '{}';
         $jsonText = preg_replace('/^```(?:json)?\s*|\s*```$/i', '', trim($rawText));
-        return json_decode($jsonText, true) ?: [];
+        $decoded = json_decode($jsonText, true);
+
+        if ($decoded === null) {
+            throw new Exception("ChatGPT API returned invalid JSON" . ($finishReason === 'length' ? ' (response was truncated, max token limit reached)' : '') . ".");
+        }
+
+        return $decoded;
     }
 }

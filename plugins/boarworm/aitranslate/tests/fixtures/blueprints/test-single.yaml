@@ -1,0 +1,38 @@
+uuid: boarworm-aitranslate-test-single
+handle: Boarworm\AiTranslate\TestSingle
+type: single
+name: AI Translate Test (Single)
+multisite: true
+
+navigation:
+    parent: Boarworm\AiTranslate\Test
+    label: Single
+    order: 104
+
+fields:
+    title:
+        label: Name
+        span: auto
+        translatable: true
+    description:
+        label: Description
+        type: textarea
+        size: small
+        span: full
+        translatable: true
+    items:
+        label: Items
+        type: repeater
+        span: full
+        prompt: Add item
+        translatable: true
+        form:
+            fields:
+                label:
+                    label: Label
+                    span: auto
+                    translatable: true
+                icon:
+                    label: Icon (not translatable)
+                    span: auto
+                    translatable: false

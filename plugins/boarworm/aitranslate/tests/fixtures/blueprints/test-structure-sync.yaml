@@ -1,0 +1,54 @@
+uuid: boarworm-aitranslate-test-structure-sync
+handle: Boarworm\AiTranslate\TestStructureSync
+type: structure
+name: AI Translate Test (Structure, Sync)
+drafts: false
+multisite: sync
+
+structure:
+    maxDepth: 2
+
+navigation:
+    parent: Boarworm\AiTranslate\Test
+    label: Structure (Sync)
+    order: 101
+
+fields:
+    title:
+        label: Name
+        span: auto
+        translatable: true
+    description:
+        label: Description
+        type: textarea
+        size: small
+        span: full
+        translatable: true
+    items:
+        label: Items
+        type: repeater
+        span: full
+        prompt: Add item
+        translatable: true
+        form:
+            fields:
+                label:
+                    label: Label
+                    span: auto
+                    translatable: true
+                icon:
+                    label: Icon (not translatable)
+                    span: auto
+                    translatable: false
+                sub_items:
+                    label: Sub Items
+                    type: repeater
+                    span: full
+                    prompt: Add sub item
+                    translatable: true
+                    form:
+                        fields:
+                            sub_label:
+                                label: Sub Label
+                                span: full
+                                translatable: true
