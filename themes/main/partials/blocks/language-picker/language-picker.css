@@ -15,11 +15,11 @@
 }
 
 [data-block="language-picker"] .nice-select .list {
-    @apply bg-primary-lighter;
+    @apply bg-primary-lighter rounded-none;
 }
 
 [data-block="language-picker"] .nice-select-dropdown {
-    @apply w-full bg-transparent;
+    @apply w-full bg-transparent rounded-none;
 }
 
 [data-block="language-picker"] .nice-select .option {

@@ -13,7 +13,7 @@
 				<div class="mb-4">
 					{% for item in siteConfig.addresses %}
 						{% if item.link_direction %}
-							<a href="{{ item.link_direction }}" target="_blank" class="flex items-center justify-self-start transition hover:text-secondary text-white mb-2 last:mb-0">
+							<a href="{{ item.link_direction }}" target="_blank" class="flex items-center justify-self-start transition hover:text-white/60 text-white mb-2 last:mb-0">
 								{% if loop.first %}
 									{% partial "blocks/icon-svg/icon-svg" data = {
 										cssClasses: "w-5 h-5 fill-white mr-3 shrink-0 self-start xl:mr-6",
@@ -44,7 +44,7 @@
 									name: "mobile"
 								} %}
 							{% endif %}
-							<a href="tel:+{{ item.phone|replace({'+':'','-':'',' ':'','(':'',')':''}) }}" class="transition text-white hover:text-secondary truncate {{ not loop.first ? "mt-1 ml-8 xl:ml-11" }}">{{ item.phone }}</a>
+							<a href="tel:+{{ item.phone|replace({'+':'','-':'',' ':'','(':'',')':''}) }}" class="transition text-white hover:text-white/60 truncate {{ not loop.first ? "mt-1 ml-8 xl:ml-11" }}">{{ item.phone }}</a>
 						</div>
 					{% endfor %}
 				</div>
@@ -57,7 +57,7 @@
 									name: "email"
 								} %}
 							{% endif %}
-							<a href="mailto:{{ item.email }}" class="transition text-white hover:text-secondary truncate {{ not loop.first ? "mt-1 ml-8 xl:ml-11" }}">{{ item.email }}</a>
+							<a href="mailto:{{ item.email }}" class="transition text-white hover:text-white/60 truncate {{ not loop.first ? "mt-1 ml-8 xl:ml-11" }}">{{ item.email }}</a>
 						</div>
 					{% endfor %}
 				</div>
