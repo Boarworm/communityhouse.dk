@@ -14,20 +14,6 @@
       "css/fancybox.css"
     ]
   },
-  "_pagination.css": {
-    "file": "css/pagination.css",
-    "src": "_pagination.css"
-  },
-  "_pagination.js": {
-    "file": "js/pagination.js",
-    "name": "pagination",
-    "imports": [
-      "_swiper.js"
-    ],
-    "css": [
-      "css/pagination.css"
-    ]
-  },
   "_swiper.css": {
     "file": "css/swiper.css",
     "src": "_swiper.css"
@@ -55,9 +41,7 @@
     "dynamicImports": [
       "partials/layout/header/header.js",
       "partials/layout/menu-mobile/menu-mobile.js",
-      "partials/blocks/post-carousel-latest/post-carousel-latest.js",
       "partials/blocks/carousel/carousel-advantages.js",
-      "partials/blocks/testimonial-carousel/testimonial-carousel.js",
       "partials/blocks/gallery-grid/gallery-grid.js",
       "assets/src/js/common/fancybox-image.js",
       "partials/blocks/youtube-embed/youtube-embed.js",
@@ -85,8 +69,10 @@
     "src": "partials/blocks/carousel/carousel-advantages.js",
     "isDynamicEntry": true,
     "imports": [
-      "_swiper.js",
-      "_pagination.js"
+      "_swiper.js"
+    ],
+    "css": [
+      "css/carousel-advantages.css"
     ]
   },
   "partials/blocks/gallery-grid/gallery-grid.js": {
@@ -122,16 +108,6 @@
       "css/openstreet-map.css"
     ]
   },
-  "partials/blocks/post-carousel-latest/post-carousel-latest.js": {
-    "file": "js/post-carousel-latest.js",
-    "name": "post-carousel-latest",
-    "src": "partials/blocks/post-carousel-latest/post-carousel-latest.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_swiper.js",
-      "_pagination.js"
-    ]
-  },
   "partials/blocks/slider/slider.js": {
     "file": "js/slider.js",
     "name": "slider",
@@ -139,16 +115,6 @@
     "isDynamicEntry": true,
     "imports": [
       "_swiper.js"
-    ]
-  },
-  "partials/blocks/testimonial-carousel/testimonial-carousel.js": {
-    "file": "js/testimonial-carousel.js",
-    "name": "testimonial-carousel",
-    "src": "partials/blocks/testimonial-carousel/testimonial-carousel.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_swiper.js",
-      "_pagination.js"
     ]
   },
   "partials/blocks/video-background-youtube/video-background-youtube.js": {
