@@ -6,7 +6,7 @@ drafts: true
 multisite: true
 
 primaryNavigation:
-    label: Activities
+    label: Weekly activities
     icon: ph ph-calendar-check
     order: 280
 

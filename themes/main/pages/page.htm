@@ -37,7 +37,11 @@ isDefault = 1
             attributes: {}
         } %}
         <div class="mb-12 lg:mb-24">
-            {% partial "layout/builder/builder" builder=builder %}
+            {% if builder.containers is empty %}
+                <div class="text-default-dark">{{ __("Content coming soon.") }}</div>
+            {% else %}
+                {% partial "layout/builder/builder" builder=builder %}
+            {% endif %}
         </div>
     </div>
 </div>
