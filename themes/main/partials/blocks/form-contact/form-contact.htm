@@ -6,14 +6,14 @@ rules[comments] = "required|string|max:1000"
 messages_success = "Message sent successfully"
 messages_errors = "Error sending message"
 mail_enabled = 1
-mail_recipients[] = "info@example.com"
+mail_recipients[] = "contact@communityhousecph.dk"
 mail_replyto = "email"
 mail_subject = ""
-mail_template = ""
-mail_resp_enabled = 0
+mail_template = "boarworm.base::mail.contact_admin"
+mail_resp_enabled = 1
 mail_resp_field = "email"
-mail_resp_template = ""
-mail_resp_replyto = "info@example.com"
+mail_resp_template = "boarworm.base::mail.contact_client"
+mail_resp_replyto = "contact@communityhousecph.dk"
 reset_form = 1
 feedback_mode = "inline"
 allowed_fields[] = "name"
@@ -28,16 +28,6 @@ recaptcha_size = "invisible"
 skip_database = 0
 emails_date_format = "Y-m-d"
 ==
-{#
-	Requires the "Publipresse.Forms" plugin (Magic Forms 2), installed via:
-		php artisan plugin:install Publipresse.Forms
-
-	Before using this form on a page:
-	- Set mail_recipients[] above to the real recipient address(es).
-	- Configure the reCAPTCHA site/secret keys in Backend > Settings > CMS > Magic Forms if recaptcha_enabled is turned on.
-	- mail_template is left blank so the plugin falls back to its built-in "publipresse.forms::mail.notification" template;
-	  override it with a custom mail template code if branded emails are needed.
-#}
 <form
 	id="{{ data.formId }}"
 	data-block="{{ (_self|split('/')|last|split('.')|first) }}"
@@ -96,7 +86,8 @@ emails_date_format = "Y-m-d"
 			color: "primary",
 			size: "md",
 			attributes: {
-				type: "submit"
+				type: "submit",
+				"data-attach-loading": 1
 			}
 		} %}
 	</div>

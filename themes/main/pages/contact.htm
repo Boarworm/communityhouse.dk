@@ -70,7 +70,7 @@ value = ""
 </div>
 
 
-<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="bg-primary-lightest grid grid-cols-1 md:grid-cols-2">
     <div class="order-1 min-h-[400px] md:order-2 flex items-center py-10 px-5 xl:px-12">
         <div class="w-full max-w-lg mx-auto">
             {% partial "blocks/headline/headline" data = {
@@ -100,11 +100,10 @@ value = ""
                 "data-markers": ([{
                     id: 1,
                     coordinates: "55.678464087820416,12.568661647263381",
-                    title: __("Community House"),
-                    text: __("Studiestræde 24, Copenhagen")
+                    title: siteConfig.site_name,
+                    text: "<div class='prose'><ul><li>"~siteConfig.addresses[0].address~"</li><li><a href='mailto:"~siteConfig.emails[0].email~"'>"~siteConfig.emails[0].email~"</a></li><li><a href='tel:+"~siteConfig.phones[0].phone|replace({'+':'','-':'',' ':'','(':'',')':''})~"'>"~siteConfig.phones[0].phone~"</a></li></ul></div>"
                 }]|json_encode)|escape('html_attr')
             }
         } %}
     </div>
 </div>
-

@@ -1,0 +1,37 @@
+name = "Main layout"
+==
+{{ content|raw }}
+==
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    {{ emailHead|raw }}
+</head>
+<body style="margin:0;padding:0;background-color:#F5F0E8;font-family:'Georgia',serif;">
+    <style type="text/css" media="screen">
+        {{ brandCss|raw }}
+        {{ css|raw }}
+    </style>
+
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#F5F0E8;">
+      <tr>
+        <td align="center" style="padding:32px 16px;">
+
+          <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="max-width:600px;width:100%;">
+
+            {% partial 'header'%}
+
+            {{ content|raw }}
+
+            {% partial 'footer' %}
+
+          </table>
+        </td>
+      </tr>
+    </table>
+
+</body>
+</html>
+

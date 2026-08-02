@@ -1,0 +1,12 @@
+.form-group {
+    &.number-field {
+        > .form-control {
+            text-align: left;
+        }
+    }
+}
+.field-textarea {
+    &.size-small {
+        min-height: 119px;
+    }
+}
