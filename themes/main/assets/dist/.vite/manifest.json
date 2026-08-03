@@ -115,6 +115,9 @@
     "isDynamicEntry": true,
     "imports": [
       "_swiper.js"
+    ],
+    "css": [
+      "css/slider.css"
     ]
   },
   "partials/blocks/video-background-youtube/video-background-youtube.js": {
