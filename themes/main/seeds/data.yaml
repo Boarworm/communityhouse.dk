@@ -90,3 +90,24 @@
     update_existing: true
     file_format: json
     blueprint_uuid: site_pages_comingsoon
+- name: Site Pages - Activities
+  class: Tailor\Models\RecordImport
+  file: seeds/data/site/pages/activities.json
+  attributes:
+    update_existing: true
+    file_format: json
+    blueprint_uuid: site_pages_activities
+- name: Site Pages - Calendar
+  class: Tailor\Models\RecordImport
+  file: seeds/data/site/pages/calendar.json
+  attributes:
+    update_existing: true
+    file_format: json
+    blueprint_uuid: site_pages_calendar
+- name: Site Pages - Folk på Vej
+  class: Tailor\Models\RecordImport
+  file: seeds/data/site/pages/folk-paa-vej.json
+  attributes:
+    update_existing: true
+    file_format: json
+    blueprint_uuid: site_pages_folk_paa_vej
