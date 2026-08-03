@@ -1,0 +1,16 @@
+uuid: site_pages_folk_paa_vej
+handle: Site\Pages\FolkPaaVej
+type: single
+name: Folk på Vej
+multisite: true
+
+navigation:
+    parent: Site\Pages\Home
+    order: 60
+
+fields:
+    title:
+        placeholder: Title
+    _meta:
+        type: mixin
+        source: Site\Mixins\Meta

@@ -1,11 +1,16 @@
 url = "/folk-paa-vej"
 layout = "default"
 title = "Folk på Vej"
+
+[section page]
+handle = "Site\Pages\FolkPaaVej"
+identifier = ""
+value = ""
 ==
 {% put meta %}
 {% partial "layout/meta/meta" data = {
-    title: this.page.title,
-    description: this.page.title~".",
+    title: page.meta_title|default(page.title),
+    description: page.meta_description|default(page.title~"."),
     og_image_1200_630: "",
     og_image_1200_1200: ""
 } %}
@@ -16,7 +21,7 @@ title = "Folk på Vej"
         {% partial "blocks/breadcrumbs/breadcrumbs" data = {
             cssClasses: "mb-4",
             breadcrumbs: [
-                {name: this.page.title, url: ''}
+                {name: page.title, url: ''}
             ]
         } %}
         {% partial "blocks/headline/headline" data = {
@@ -25,7 +30,7 @@ title = "Folk på Vej"
             color: "dark",
             size: "h1",
             variant: "",
-            text: this.page.title,
+            text: page.title,
             attributes: {}
         } %}
         <div class="pb-12 lg:pb-24 text-default-dark">{{ __("Content coming soon.") }}</div>

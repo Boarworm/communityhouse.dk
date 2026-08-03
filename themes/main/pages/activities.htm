@@ -1,11 +1,16 @@
 url = "/activities"
 layout = "default"
 title = "Weekly activities"
+
+[section page]
+handle = "Site\Pages\Activities"
+identifier = ""
+value = ""
 ==
 {% put meta %}
 {% partial "layout/meta/meta" data = {
-    title: this.page.title,
-    description: this.page.title~".",
+    title: page.meta_title|default(page.title),
+    description: page.meta_description|default(page.title~"."),
     og_image_1200_630: "",
     og_image_1200_1200: ""
 } %}
@@ -15,7 +20,7 @@ title = "Weekly activities"
     {% partial "blocks/breadcrumbs/breadcrumbs" data = {
         cssClasses: "mb-4",
         breadcrumbs: [
-            {name: this.page.title, url: ''}
+            {name: page.title, url: ''}
         ]
     } %}
     {% partial "blocks/headline/headline" data = {
@@ -24,7 +29,7 @@ title = "Weekly activities"
         color: "dark",
         size: "h1",
         variant: "",
-        text: this.page.title,
+        text: page.title,
         attributes: {}
     } %}
     {% partial "blocks/activities-list/activities-list" data = {
