@@ -50,16 +50,6 @@ fields:
     about_section:
         label: About
         type: section
-    about_image:
-        label: Image
-        type: fileupload
-        mode: image
-        maxFiles: 1
-        span: auto
-        fileTypes: png, jpg, jpeg, webp, svg
-        thumbOptions:
-            mode: auto
-        translatable: false
     about_headline:
         label: Headline
         span: full
