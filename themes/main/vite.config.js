@@ -53,7 +53,7 @@ export default defineConfig({
             protocol: 'ws',
         },
         cors: {
-            origin: 'http://communityhouse.local:8004',
+            origin: 'http://communityhousecph.local:8004',
         },
         watch: {
             usePolling: false,
