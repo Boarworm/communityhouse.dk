@@ -4,11 +4,11 @@
 	{% set keywordsSuffix = __(", page ")~get('page') %}
 {% endif %}
 
-<title>{{ data.title }}{{ titleSuffix }}</title>
+<title>{{ data.title }}{{ titleSuffix }} | {{ siteConfig.site_name }}</title>
 <meta name="description" content="{{ data.description }}{{ descriptionSuffix }}">
 <meta name="keywords" content="{{ data.keywords|lower }}{{ keywordsSuffix }}">
 <meta property="og:url" content="{{ url_current() }}"/>
-<meta property="og:title" content="{{ data.title }}{{ titleSuffix }}"/>
+<meta property="og:title" content="{{ data.title }}{{ titleSuffix }} | {{ siteConfig.site_name }}"/>
 <meta property="og:description" content="{{ data.description }}{{ descriptionSuffix }}"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="{{ siteConfig.site_name }}"/>
