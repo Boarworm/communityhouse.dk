@@ -1,7 +1,7 @@
 uuid: site_pages_activities
 handle: Site\Pages\Activities
 type: single
-name: Activities
+name: Weekly activities
 multisite: true
 
 navigation:
