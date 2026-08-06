@@ -65,7 +65,7 @@ handle = "Menu\Mobile"
 			<div class="flex items-center gap-3">
 				{% partial "blocks/icon-svg/icon-svg" data = {
 					cssClasses: "w-5 h-5 fill-primary shrink-0",
-					name: "phone"
+					name: "phone-filled"
 				} %}
 				<a href="tel:+{{ item.phone|replace({'+':'','-':'',' ':'','(':'',')':''}) }}" class="text-neutral-darker transition hover:text-primary truncate">{{ item.phone }}</a>
 			</div>

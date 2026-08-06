@@ -41,7 +41,7 @@
 							{% if loop.first %}
 								{% partial "blocks/icon-svg/icon-svg" data = {
 									cssClasses: "w-5 h-6 fill-white mr-3 shrink-0 self-start xl:mr-6",
-									name: "mobile"
+									name: "phone-filled"
 								} %}
 							{% endif %}
 							<a href="tel:+{{ item.phone|replace({'+':'','-':'',' ':'','(':'',')':''}) }}" class="transition text-white hover:text-white/60 truncate {{ not loop.first ? "mt-1 ml-8 xl:ml-11" }}">{{ item.phone }}</a>
@@ -54,7 +54,7 @@
 							{% if loop.first %}
 								{% partial "blocks/icon-svg/icon-svg" data = {
 									cssClasses: "w-5 h-5 fill-white mr-3 mt-0.5 shrink-0 self-start xl:mr-6",
-									name: "email"
+									name: "email-filled"
 								} %}
 							{% endif %}
 							<a href="mailto:{{ item.email }}" class="transition text-white hover:text-white/60 truncate {{ not loop.first ? "mt-1 ml-8 xl:ml-11" }}">{{ item.email }}</a>
