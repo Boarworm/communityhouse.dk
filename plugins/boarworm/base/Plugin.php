@@ -106,8 +106,8 @@ class Plugin extends PluginBase
     public function registerMailTemplates()
     {
         return [
-            'base:contact_admin' => 'boarworm.base::mail.contact-admin',
-            'base:contact_client' => 'boarworm.base::mail.contact-client',
+            'boarworm.base::mail.contact_admin' => 'boarworm.base::mail.contact-admin',
+            'boarworm.base::mail.contact_client' => 'boarworm.base::mail.contact-client',
         ];
     }
 
