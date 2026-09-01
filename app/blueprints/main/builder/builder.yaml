@@ -38,6 +38,14 @@ fields:
     _settings:
         type: mixin
         source: Builder\Mixins\Settings
+    is_hidden:
+        label: Hidden
+        tab: Manage
+        comment: Hides this page from visitors. Only visible when logged into the backend panel.
+        type: switch
+        default: 0
+        span: auto
+        scope: false
     _docs:
         type: mixin
         source: Builder\Mixins\Docs

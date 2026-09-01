@@ -8,7 +8,13 @@ identifier = "fullslug"
 value = "{{ :slug }}"
 isDefault = 1
 ==
+function onStart()
+{
+    $this['isBackendUser'] = BackendAuth::check();
+}
+==
 {% if builder is empty %}{% do abort(404) %}{% endif %}
+{% if builder.is_hidden and not isBackendUser %}{% do abort(404) %}{% endif %}
 
 {% put meta %}
 {% partial "layout/meta/meta" data = {
