@@ -116,4 +116,14 @@
 		} %}
 	{% endif %}
 
+	{% if name == 'tabs' and isEnabled %}
+		{% partial "blocks/tabs/tabs" data = {
+			cssClasses: blockClasses,
+			items: block.items,
+			attributes: {
+				"id":block.html_anchor
+			}
+		} %}
+	{% endif %}
+
 {% endfor %}

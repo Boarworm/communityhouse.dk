@@ -1,0 +1,35 @@
+uuid: builder_blocks_tabs
+handle: Builder\Blocks\Tabs
+type: mixin
+name: Tabs
+fields:
+    items:
+        type: repeater
+        span: full
+        tab: Content
+        prompt: Add tab
+        titleFrom: title
+        translatable: true
+        form:
+            fields:
+                title:
+                    label: Title
+                    type: text
+                    span: full
+                    translatable: true
+                text:
+                    label: Content
+                    type: richeditor
+                    span: full
+                    size: small
+                    translatable: true
+    block_name:
+        label: Name
+        tab: Block properties
+        commentAbove: "Block name for organization purposes"
+        type: text
+        span: auto
+        default: Tabs
+    advanced_content:
+        type: mixin
+        source: Builder\Mixins\BlockAdvanced

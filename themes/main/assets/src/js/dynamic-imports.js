@@ -64,3 +64,10 @@ document.querySelectorAll('[data-block="timeline"]').forEach($el => {
         import('../../../partials/blocks/timeline/timeline' /* webpackChunkName: "/dist/js/timeline" */).then(({ default: init }) => init($el));
     });
 });
+
+document.querySelectorAll('[data-block="tabs"]').forEach($el => {
+    initInView($el).then(() => {
+        import('../../../partials/blocks/tabs/tabs' /* webpackChunkName: "/dist/js/tabs" */).then(({ default: init }) => init($el));
+    });
+});
+

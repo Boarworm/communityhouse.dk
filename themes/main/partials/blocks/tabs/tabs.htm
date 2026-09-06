@@ -1,0 +1,18 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+    <div class="overflow-x-auto overflow-y-hidden pt-px">
+        <div class="w-fit min-w-full border-b-3 border-secondary flex gap-0.5">
+            {% for item in data.items %}
+                <button type="button" data-js="tab-link" data-tab="tab-{{ loop.index0 }}" class="{{ loop.first ? "active" }} text-sm relative rounded-t-lg border-3 border-b-0 border-transparent cursor-pointer p-2 py-4 min-w-[150px] font-semibold transition-all hover:border-secondary [&.active]:after:content-[''] [&.active]:after:h-1 [&.active]:after:w-full [&.active]:after:bg-default-lightest [&.active]:after:absolute [&.active]:after:-bottom-1 [&.active]:after:left-0 [&.active]:bg-default-lightest [&.active]:border-secondary lg:text-base lg:px-6">
+                    {{ item.title }}
+                </button>
+            {% endfor %}
+        </div>
+    </div>
+    <div data-js="tab-contents">
+        {% for item in data.items %}
+            <div data-js="tab-content" id="tab-{{ loop.index0 }}" class="{{ loop.first ? "" : "hidden" }} bg-default-lightest p-5 shadow-lg prose">
+                {{ item.text|raw }}
+            </div>
+        {% endfor %}
+    </div>
+</div>

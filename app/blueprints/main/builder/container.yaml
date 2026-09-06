@@ -85,6 +85,14 @@ fields:
                     _timeline:
                         type: mixin
                         source: Builder\Blocks\Timeline
+            tabs:
+                name: Tabs
+                icon: ph ph-tabs
+                useTabs: true
+                fields:
+                    _tabs:
+                        type: mixin
+                        source: Builder\Blocks\Tabs
     advanced_content:
         type: mixin
         source: Builder\Mixins\ContainerAdvanced
