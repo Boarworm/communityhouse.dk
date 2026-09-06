@@ -25,29 +25,10 @@ function onStart()
 } %}
 {% endput %}
 
-<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="container">
-    <div class="pt-7">
-        {% partial "blocks/breadcrumbs/breadcrumbs" data = {
-            cssClasses: "mb-4",
-            breadcrumbs: [
-                {name: builder.title, url: ''}
-            ]
-        } %}
-        {% partial "blocks/headline/headline" data = {
-            cssClasses: "mb-7 lg:mb-10",
-            tag: "h1",
-            color: "dark",
-            size: "h1",
-            variant: "",
-            text: builder.title,
-            attributes: {}
-        } %}
-        <div class="mb-12 lg:mb-24">
-            {% if builder.containers is empty %}
-                <div class="text-default-dark">{{ __("Content coming soon.") }}</div>
-            {% else %}
-                {% partial "layout/builder/builder" builder=builder %}
-            {% endif %}
-        </div>
-    </div>
+<div data-page="{{ (_self|split('/')|last|split('.')|first) }}">
+    {% if builder.containers is empty %}
+        <div class="text-default-dark">{{ __("Content coming soon.") }}</div>
+    {% else %}
+        {% partial "layout/builder/builder" builder=builder %}
+    {% endif %}
 </div>

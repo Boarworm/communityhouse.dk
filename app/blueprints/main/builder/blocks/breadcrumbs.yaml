@@ -1,0 +1,40 @@
+uuid: builder_blocks_breadcrumbs
+handle: Builder\Blocks\Breadcrumbs
+type: mixin
+name: Breadcrumbs
+fields:
+    mode:
+        tab: Content
+        label: Breadcrumbs type
+        type: dropdown
+        options:
+            static: Static page
+            custom: Custom
+    items:
+        tab: Content
+        label: Items
+        type: repeater
+        trigger:
+            action: show
+            field: mode
+            condition: value[custom]
+        form:
+            fields:
+                name:
+                    label: Name
+                    type: text
+                    span: auto
+                url:
+                    label: Url
+                    type: text
+                    span: auto
+    block_name:
+        label: Name
+        tab: Block properties
+        commentAbove: "Block name for organization purposes"
+        type: text
+        span: auto
+        default: Breadcrumbs
+    advanced_content:
+        type: mixin
+        source: Builder\Mixins\BlockAdvanced

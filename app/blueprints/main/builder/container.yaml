@@ -93,6 +93,14 @@ fields:
                     _tabs:
                         type: mixin
                         source: Builder\Blocks\Tabs
+            breadcrumbs:
+                name: Breadcrumbs
+                icon: ph ph-list
+                useTabs: true
+                fields:
+                    _breadcrumbs:
+                        type: mixin
+                        source: Builder\Blocks\Breadcrumbs
     advanced_content:
         type: mixin
         source: Builder\Mixins\ContainerAdvanced

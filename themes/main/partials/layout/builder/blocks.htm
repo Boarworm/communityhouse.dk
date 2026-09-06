@@ -126,4 +126,14 @@
 		} %}
 	{% endif %}
 
+	{% if name == 'breadcrumbs' and isEnabled %}
+		{% partial "blocks/breadcrumbs/breadcrumbs" data = {
+			cssClasses: blockClasses,
+			breadcrumbs: (block.mode == "custom" ? block.items : [{"name": builder.title,"url": ""}]),
+			attributes: {
+				"id":block.html_anchor
+			}
+		} %}
+	{% endif %}
+
 {% endfor %}
