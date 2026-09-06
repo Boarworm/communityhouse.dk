@@ -48,7 +48,9 @@
       "partials/blocks/language-picker/language-picker.js",
       "partials/blocks/openstreet-map/openstreet-map.js",
       "partials/blocks/video-background-youtube/video-background-youtube.js",
-      "partials/blocks/slider/slider.js"
+      "partials/blocks/slider/slider.js",
+      "partials/blocks/timeline/timeline.js",
+      "partials/blocks/tabs/tabs.js"
     ],
     "css": [
       "css/app.css"
@@ -119,6 +121,18 @@
     "css": [
       "css/slider.css"
     ]
+  },
+  "partials/blocks/tabs/tabs.js": {
+    "file": "js/tabs.js",
+    "name": "tabs",
+    "src": "partials/blocks/tabs/tabs.js",
+    "isDynamicEntry": true
+  },
+  "partials/blocks/timeline/timeline.js": {
+    "file": "js/timeline.js",
+    "name": "timeline",
+    "src": "partials/blocks/timeline/timeline.js",
+    "isDynamicEntry": true
   },
   "partials/blocks/video-background-youtube/video-background-youtube.js": {
     "file": "js/video-background-youtube.js",
