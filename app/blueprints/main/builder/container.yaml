@@ -101,6 +101,14 @@ fields:
                     _breadcrumbs:
                         type: mixin
                         source: Builder\Blocks\Breadcrumbs
+            cta_social_links:
+                name: CTA social links
+                icon: ph ph-share-network
+                useTabs: true
+                fields:
+                    _cta_social_links:
+                        type: mixin
+                        source: Builder\Blocks\CtaSocialLinks
     advanced_content:
         type: mixin
         source: Builder\Mixins\ContainerAdvanced

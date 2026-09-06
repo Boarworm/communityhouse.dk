@@ -1,0 +1,68 @@
+uuid: builder_blocks_cta_social_links
+handle: Builder\Blocks\CtaSocialLinks
+type: mixin
+name: CTA social links
+fields:
+    headline:
+        label: Headline
+        type: text
+        span: full
+        tab: Content
+        translatable: true
+    text:
+        label: Text
+        type: richeditor
+        span: full
+        tab: Content
+        size: small
+        translatable: true
+    items:
+        type: repeater
+        span: full
+        tab: Content
+        prompt: Add link
+        titleFrom: title
+        translatable: true
+        form:
+            fields:
+                platform:
+                    label: Platform
+                    span: auto
+                    type: dropdown
+                    options:
+                        social-facebook: Facebook
+                        social-whatsapp: WhatsApp
+                        social-twitter-x: X (Twitter)
+                        social-instagram: Instagram
+                        social-google: Google
+                        social-pinterest: Pinterest
+                        social-youtube: YouTube
+                        social-linkedin: LinkedIn
+                        social-dribble: Dribble
+                        social-tiktok: TikTok
+                        social-foursquare: Foursquare
+                        social-tripadvisor: TripAdvisor
+                title:
+                    label: Title
+                    type: text
+                    span: auto
+                    translatable: true
+                text:
+                    label: Description
+                    type: text
+                    span: auto
+                    translatable: true
+                url:
+                    label: URL
+                    placeholder: "https://..."
+                    span: auto
+    block_name:
+        label: Name
+        tab: Block properties
+        commentAbove: "Block name for organization purposes"
+        type: text
+        span: auto
+        default: CTA social links
+    advanced_content:
+        type: mixin
+        source: Builder\Mixins\BlockAdvanced

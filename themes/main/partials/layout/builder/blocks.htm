@@ -136,4 +136,16 @@
 		} %}
 	{% endif %}
 
+	{% if name == 'cta_social_links' and isEnabled %}
+		{% partial "blocks/cta-social-links/cta-social-links" data = {
+			cssClasses: blockClasses,
+			headline: block.headline,
+			text: block.text,
+			items: block.items,
+			attributes: {
+				"id":block.html_anchor
+			}
+		} %}
+	{% endif %}
+
 {% endfor %}
