@@ -1,0 +1,34 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}>
+    <div class="grid gap-6">
+        {% for item in data.items %}
+            <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-5 p-6 bg-default-lightest rounded-xl shadow-lg">
+                <div class="shrink-0 w-9 h-9 md:w-12 md:h-12 rounded-lg bg-white ring-1 ring-default-light flex items-center justify-center">
+                    <svg class="w-4 h-4 md:w-6 md:h-6 fill-primary" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 2.5L18.5 9H14V4.5Z"/>
+                    </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="font-semibold text-lg text-primary">{{ item.title }}</div>
+                    {% if item.text %}
+                        <div class="mt-1">{{ item.text|raw }}</div>
+                    {% endif %}
+                </div>
+                {% if item.file %}
+                    {% partial "blocks/button/button" data = {
+                        tag: "a",
+                        color: "primary",
+                        variant: "outline",
+                        size: "sm",
+                        cssClasses: "self-start md:self-center",
+                        body: __("Download"),
+                        attributes: {
+                            href: item.file.path,
+                            download: "",
+                            target: "_blank"
+                        }
+                    } %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>

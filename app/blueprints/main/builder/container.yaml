@@ -69,6 +69,14 @@ fields:
                     _faq:
                         type: mixin
                         source: Builder\Blocks\Faq
+            file_list:
+                name: File list
+                icon: ph ph-files
+                useTabs: true
+                fields:
+                    _file_list:
+                        type: mixin
+                        source: Builder\Blocks\FileList
     advanced_content:
         type: mixin
         source: Builder\Mixins\ContainerAdvanced

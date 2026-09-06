@@ -96,4 +96,14 @@
 		} %}
 	{% endif %}
 
+	{% if name == 'file_list' and isEnabled %}
+		{% partial "blocks/file-list/file-list" data = {
+			cssClasses: blockClasses,
+			items: block.items,
+			attributes: {
+				"id":block.html_anchor
+			}
+		} %}
+	{% endif %}
+
 {% endfor %}

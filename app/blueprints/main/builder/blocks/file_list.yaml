@@ -1,0 +1,42 @@
+uuid: builder_blocks_file_list
+handle: Builder\Blocks\FileList
+type: mixin
+name: File list
+fields:
+    items:
+        type: repeater
+        span: full
+        tab: Content
+        prompt: Add item
+        titleFrom: title
+        translatable: true
+        form:
+            fields:
+                title:
+                    label: Title
+                    type: text
+                    span: full
+                    translatable: true
+                text:
+                    label: Description
+                    type: richeditor
+                    span: auto
+                    size: small
+                    translatable: true
+                file:
+                    label: File
+                    type: fileupload
+                    mode: file
+                    span: auto
+                    maxFiles: 1
+                    fileTypes: pdf,doc,docx,xls,xlsx,ppt,pptx
+    block_name:
+        label: Name
+        tab: Block properties
+        commentAbove: "Block name for organization purposes"
+        type: text
+        span: auto
+        default: File list
+    advanced_content:
+        type: mixin
+        source: Builder\Mixins\BlockAdvanced
