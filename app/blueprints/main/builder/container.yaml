@@ -77,6 +77,14 @@ fields:
                     _file_list:
                         type: mixin
                         source: Builder\Blocks\FileList
+            timeline:
+                name: Timeline
+                icon: ph ph-clock-counter-clockwise
+                useTabs: true
+                fields:
+                    _timeline:
+                        type: mixin
+                        source: Builder\Blocks\Timeline
     advanced_content:
         type: mixin
         source: Builder\Mixins\ContainerAdvanced

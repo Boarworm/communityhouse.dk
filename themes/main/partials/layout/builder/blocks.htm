@@ -106,4 +106,14 @@
 		} %}
 	{% endif %}
 
+	{% if name == 'timeline' and isEnabled %}
+		{% partial "blocks/timeline/timeline" data = {
+			cssClasses: blockClasses,
+			items: block.items,
+			attributes: {
+				"id":block.html_anchor
+			}
+		} %}
+	{% endif %}
+
 {% endfor %}

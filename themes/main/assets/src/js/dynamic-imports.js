@@ -59,3 +59,8 @@ document.querySelectorAll('[data-block="slider"]').forEach($el => {
     });
 });
 
+document.querySelectorAll('[data-block="timeline"]').forEach($el => {
+    initInView($el).then(() => {
+        import('../../../partials/blocks/timeline/timeline' /* webpackChunkName: "/dist/js/timeline" */).then(({ default: init }) => init($el));
+    });
+});

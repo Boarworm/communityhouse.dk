@@ -1,0 +1,37 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} relative flex flex-col items-center overflow-clip bg-primary-darker">
+    <div class="pointer-events-none absolute inset-x-0 top-0 z-30 h-20 bg-gradient-to-b from-primary-darker to-transparent"></div>
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-20 bg-gradient-to-t from-primary-darker to-transparent"></div>
+
+    <div class="container">
+        <div data-timeline-track class="relative w-full">
+            <div class="absolute z-0 top-0 bottom-0 w-[3px] bg-default-darker left-1.5 lg:left-[calc(42.5%+13.5px)] lg:-translate-x-1/2"></div>
+            <div data-timeline-fill class="absolute z-10 top-0 h-0 w-[3px] bg-secondary left-1.5 lg:left-[calc(42.5%+13.5px)] lg:-translate-x-1/2"></div>
+
+            {% for item in data.items %}
+                <div data-timeline-row class="relative z-20 grid grid-cols-[48px_1fr] md:grid-cols-[64px_1fr] lg:grid-cols-[0.85fr_180px_1.15fr] gap-0 md:pl-0 py-20 lg:py-36">
+                    <div class="hidden lg:flex justify-end text-right">
+                        <div data-timeline-text class="sticky top-[45vh] text-white/50 transition-colors duration-300">
+                            <div class="text-5xl font-bold">{{ item.month }}</div>
+                            <div class="text-3xl">{{ item.year }}</div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-start lg:justify-center">
+                        <div data-timeline-dot class="sticky top-[50vh] w-4 h-4 rounded-full bg-default-darker ring-8 ring-primary-darker transition-colors duration-300"></div>
+                    </div>
+
+                    <div class="pr-6">
+                        <div data-timeline-text class="lg:hidden text-white/50 mb-4 transition-colors duration-300">
+                            <div class="text-5xl font-bold">{{ item.month }}</div>
+                            <div class="text-3xl">{{ item.year }}</div>
+                        </div>
+                        <div data-timeline-text class="text-white/50 text-lg mb-2 transition-colors duration-300 lg:text-3xl">{{ item.title }}</div>
+                        {% if item.text %}
+                            <div data-timeline-text class="text-white/50 transition-colors duration-300 lg:text-lg">{{ item.text|raw }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
