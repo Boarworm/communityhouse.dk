@@ -19,7 +19,7 @@ fields:
             light: Light
             primary: Primary
             secondary: Secondary
-        default: secondary
+        default: dark
     tag:
         tab: Content
         label: Tag

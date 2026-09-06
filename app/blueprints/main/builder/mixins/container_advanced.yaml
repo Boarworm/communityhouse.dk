@@ -22,7 +22,7 @@ fields:
             narrow: Narrow
             fluid: Fluid
             none: None (full width)
-        default: none
+        default: normal
     gap_y:
         tab: Container properties
         label: Vertical indent

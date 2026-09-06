@@ -141,12 +141,6 @@
     @apply text-h6 mt-5 mb-2
 }
 
-@layer components {
-    .container {
-        max-width: 1440px;
-    }
-}
-
 .container {
     @apply w-full max-w-[1440px] mx-auto px-5 xl:px-12
 }
