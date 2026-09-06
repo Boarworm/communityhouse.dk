@@ -93,11 +93,12 @@
 	<div class="bg-primary-darker">
 		<div class="container py-6">
 			<div class="flex flex-col items-center gap-4 md:flex-row md:justify-between">
-				<div class="text-sm text-white text-center">
+				<div class="text-sm text-white text-center md:text-left">
 					{% set year_from = siteConfig.year_from %}
 					{% set year_current = 'now'|date('Y') %}
 					© {{ year_from is empty or year_from == year_current ? year_current : year_from~"-"~year_current }}
 					{{ siteConfig.copyright }}
+					<div>{{ __("Design & Development by") }} <a href="https://web-tip.top" target="_blank" rel="nofollow" class="hover:text-white/60">web-tip.top</a></div>
 				</div>
 				{% partial "layout/menu-footer-bottom/menu-footer-bottom" data = {
 					cssClasses: ""
