@@ -1,5 +1,5 @@
 <div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} relative group bg-white" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
-	<a href="{{ data.url }}" class="block absolute top-0 left-0 z-10 w-full h-full cursor-pointer"></a>
+	<a href="{{ data.url }}" aria-label="{{ data.title }}" class="block absolute top-0 left-0 z-10 w-full h-full cursor-pointer"></a>
 	<div class="relative overflow-hidden aspect-video">
 		{% partial "blocks/image/image" data = {
 			cssClasses: "absolute inset-0 w-full h-full transition duration-5000 ease-out group-hover:scale-115 "~data.image.cssClasses,
