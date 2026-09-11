@@ -11,7 +11,7 @@
     <div data-js="tab-contents">
         {% for item in data.items %}
             <div data-js="tab-content" id="tab-{{ loop.index0 }}" class="{{ loop.first ? "" : "hidden" }} bg-default-lightest p-5 shadow-lg prose">
-                {{ item.text|raw }}
+                {{ item.text|content|raw }}
             </div>
         {% endfor %}
     </div>

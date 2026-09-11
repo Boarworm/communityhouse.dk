@@ -21,7 +21,7 @@
                 } %}
             {% endif %}
             {% if data.text %}
-                <div class="prose prose-invert text-white mt-6">{{ data.text|raw }}</div>
+                <div class="prose prose-invert text-white mt-6">{{ data.text|content|raw }}</div>
             {% endif %}
             {% if data.button.body %}
                 {% partial "blocks/button/button" data = {

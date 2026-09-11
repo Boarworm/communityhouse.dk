@@ -11,7 +11,7 @@
                 </span>
             </summary>
             <div class="p-5 text-primary bg-white text-lg">
-                {{ item.text|raw }}
+                {{ item.text|content|raw }}
             </div>
         </details>
     {% endfor %}

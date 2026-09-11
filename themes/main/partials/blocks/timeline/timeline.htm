@@ -27,7 +27,7 @@
                         </div>
                         <div data-timeline-text class="text-white/50 text-lg mb-2 transition-colors duration-300 lg:text-3xl">{{ item.title }}</div>
                         {% if item.text %}
-                            <div data-timeline-text class="text-white/50 transition-colors duration-300 lg:text-lg">{{ item.text|raw }}</div>
+                            <div data-timeline-text class="prose text-white/50 transition-colors duration-300 lg:text-lg">{{ item.text|content|raw }}</div>
                         {% endif %}
                     </div>
                 </div>

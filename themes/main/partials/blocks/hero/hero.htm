@@ -62,7 +62,7 @@
 			} %}
 		{% endif %}
 		{% if data.text %}
-			<div class="relative z-10 mt-6 prose font-light text-white max-w-[600px] xl:text-lg xl:mt-10">{{ data.text|raw }}</div>
+			<div class="relative z-10 mt-6 prose font-light text-white max-w-[600px] xl:text-lg xl:mt-10">{{ data.text|content|raw }}</div>
 		{% endif %}
 		{% if data.button_1.body or data.button_2.body %}
 			<div class="relative z-10 mt-6 flex flex-wrap gap-4 xl:mt-10">

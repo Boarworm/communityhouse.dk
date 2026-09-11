@@ -10,7 +10,7 @@
                 <div class="flex-1 min-w-0">
                     <div class="font-semibold text-lg text-primary">{{ item.title }}</div>
                     {% if item.text %}
-                        <div class="mt-1">{{ item.text|raw }}</div>
+                        <div class="mt-1">{{ item.text|content|raw }}</div>
                     {% endif %}
                 </div>
                 {% if item.file %}

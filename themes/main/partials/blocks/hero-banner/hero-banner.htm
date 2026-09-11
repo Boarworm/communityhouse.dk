@@ -43,7 +43,7 @@
 				} %}
 			{% endif %}
 			{% if data.text %}
-				<div class="prose font-secondary text-white [text-shadow:_1px_1px_5px_rgb(0_0_0_/_50%)] mt-4 mx-auto md:mt-6 lg:mt-8">{{ data.text|raw }}</div>
+				<div class="prose font-secondary text-white [text-shadow:_1px_1px_5px_rgb(0_0_0_/_50%)] mt-4 mx-auto md:mt-6 lg:mt-8">{{ data.text|content|raw }}</div>
 			{% endif %}
 		</div>
 	</div>
