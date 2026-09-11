@@ -26,9 +26,9 @@ function onStart()
 <body data-layout="{{ (_self|split('/')|last|split('.')|first) }}" class="flex flex-col min-h-screen text-neutral-darker font-light text-sm sm:text-base">
 {{ siteConfig.enable_code_placeholders ? siteConfig.code_body_start|raw }}
 
-<div class="text-neutral-darker flex flex-col grow shrink-0 basis-auto">
+<main class="text-neutral-darker flex flex-col grow shrink-0 basis-auto">
     {% page %}
-</div>
+</main>
 
 {{ vite(['assets/src/js/app.js'], { 'defer': true }) }}
 {% scripts %}
