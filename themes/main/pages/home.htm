@@ -36,6 +36,7 @@ sortDirection = "asc"
 				cssClasses: "w-full h-full",
 				imgCssClasses: "w-full h-full object-cover",
 				src: slide.image ?: "assets/images/placeholder.jpg"|theme,
+				lazy: false,
 				resize: {
 					width: "1920",
 					height: "1080",
@@ -45,7 +46,8 @@ sortDirection = "asc"
 				},
 				attributes: {},
 				imgAttributes: {
-					alt: slide.image.description ?: slide.text_line_1~" "~slide.text_line_2
+					alt: slide.image.description ?: slide.text_line_1~" "~slide.text_line_2,
+					fetchpriority: "high"
 				}
 			} %}
 			<div class="absolute inset-0 flex flex-col items-center justify-center bg-black/30">
