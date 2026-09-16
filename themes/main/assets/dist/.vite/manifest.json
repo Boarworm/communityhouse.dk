@@ -34,7 +34,7 @@
     "src": "assets/src/icons/social-youtube-colored.svg"
   },
   "assets/src/js/app.js": {
-    "file": "js/app-BbSVA1E5.js",
+    "file": "js/app-BjPlL8RG.js",
     "name": "app",
     "src": "assets/src/js/app.js",
     "isEntry": true,
@@ -53,7 +53,7 @@
       "partials/blocks/tabs/tabs.js"
     ],
     "css": [
-      "css/app-BQnr_Gj5.css"
+      "css/app-ywa_2eC6.css"
     ]
   },
   "assets/src/js/common/fancybox-image.js": {

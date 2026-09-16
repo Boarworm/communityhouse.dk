@@ -5,4 +5,4 @@ function S1(){if(typeof window>"u"||typeof document>"u")return()=>()=>{};const a
                 bottom: 5px !important;
             }
         `,a.shadowRoot.appendChild(t),!0}return!1}const Wt=new MutationObserver((a,t)=>{document.getElementById("usercentrics-cmp-ui")&&J()&&t.disconnect()});Wt.observe(document.body,{childList:!0,subtree:!0});J();setTimeout(J,500);setTimeout(J,1e3);setTimeout(J,2e3);window.scrollToElement=Zt;
-//# sourceMappingURL=app-BbSVA1E5.js.map
+//# sourceMappingURL=app-BjPlL8RG.js.map
