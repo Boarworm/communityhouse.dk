@@ -11,7 +11,8 @@ export default function init(element) {
     markersData = JSON.parse(element.dataset.markers);
     markerIcon = createMarkerIcon("/themes/main/partials/blocks/openstreet-map/marker.svg");
 
-    let tiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {});
+    const apiKey = element.dataset.apiKey;
+    let tiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png' + (apiKey ? '?key=' + apiKey : ''), {});
 
     const map = L.map(container, {
         zoom: zoom,

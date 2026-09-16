@@ -60,6 +60,12 @@ fields:
         span: full
         type: codeeditor
         translatable: false
+    carto_api_key:
+        tab: General
+        label: CARTO basemap API key
+        commentAbove: Required for map tiles, get one free on https://carto.com/basemaps/apikey
+        span: full
+        translatable: false
     year_from:
         label: Year from
         tab: Footer
