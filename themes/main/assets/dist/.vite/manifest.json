@@ -1,40 +1,40 @@
 {
-  "__commonjsHelpers.js": {
-    "file": "js/_commonjsHelpers.js",
+  "__commonjsHelpers-CqkleIqs.js": {
+    "file": "js/_commonjsHelpers-CqkleIqs.js",
     "name": "_commonjsHelpers"
   },
-  "_fancybox.css": {
-    "file": "css/fancybox.css",
-    "src": "_fancybox.css"
+  "_fancybox-CS0i6PXw.css": {
+    "file": "css/fancybox-CS0i6PXw.css",
+    "src": "_fancybox-CS0i6PXw.css"
   },
-  "_fancybox.js": {
-    "file": "js/fancybox.js",
+  "_fancybox-l-KORKrc.js": {
+    "file": "js/fancybox-l-KORKrc.js",
     "name": "fancybox",
     "css": [
-      "css/fancybox.css"
+      "css/fancybox-CS0i6PXw.css"
     ]
   },
-  "_swiper.css": {
-    "file": "css/swiper.css",
-    "src": "_swiper.css"
+  "_swiper-C2J0D0kV.css": {
+    "file": "css/swiper-C2J0D0kV.css",
+    "src": "_swiper-C2J0D0kV.css"
   },
-  "_swiper.js": {
-    "file": "js/swiper.js",
+  "_swiper-rLX2DyVL.js": {
+    "file": "js/swiper-rLX2DyVL.js",
     "name": "swiper",
     "css": [
-      "css/swiper.css"
+      "css/swiper-C2J0D0kV.css"
     ]
   },
   "assets/src/icons/interface.svg": {
-    "file": "assets/interface.svg",
+    "file": "assets/interface-D8f-iXdz.svg",
     "src": "assets/src/icons/interface.svg"
   },
   "assets/src/icons/social-youtube-colored.svg": {
-    "file": "assets/social-youtube-colored.svg",
+    "file": "assets/social-youtube-colored-D4d1tXo6.svg",
     "src": "assets/src/icons/social-youtube-colored.svg"
   },
   "assets/src/js/app.js": {
-    "file": "js/app.js",
+    "file": "js/app-BbSVA1E5.js",
     "name": "app",
     "src": "assets/src/js/app.js",
     "isEntry": true,
@@ -53,107 +53,107 @@
       "partials/blocks/tabs/tabs.js"
     ],
     "css": [
-      "css/app.css"
+      "css/app-BQnr_Gj5.css"
     ]
   },
   "assets/src/js/common/fancybox-image.js": {
-    "file": "js/fancybox-image.js",
+    "file": "js/fancybox-image-i7DP6VoA.js",
     "name": "fancybox-image",
     "src": "assets/src/js/common/fancybox-image.js",
     "isDynamicEntry": true,
     "imports": [
-      "_fancybox.js"
+      "_fancybox-l-KORKrc.js"
     ]
   },
   "partials/blocks/carousel/carousel-advantages.js": {
-    "file": "js/carousel-advantages.js",
+    "file": "js/carousel-advantages-Dn_d_HuJ.js",
     "name": "carousel-advantages",
     "src": "partials/blocks/carousel/carousel-advantages.js",
     "isDynamicEntry": true,
     "imports": [
-      "_swiper.js"
+      "_swiper-rLX2DyVL.js"
     ],
     "css": [
-      "css/carousel-advantages.css"
+      "css/carousel-advantages-DbhFIee8.css"
     ]
   },
   "partials/blocks/gallery-grid/gallery-grid.js": {
-    "file": "js/gallery-grid.js",
+    "file": "js/gallery-grid-i7DP6VoA.js",
     "name": "gallery-grid",
     "src": "partials/blocks/gallery-grid/gallery-grid.js",
     "isDynamicEntry": true,
     "imports": [
-      "_fancybox.js"
+      "_fancybox-l-KORKrc.js"
     ]
   },
   "partials/blocks/language-picker/language-picker.js": {
-    "file": "js/language-picker.js",
+    "file": "js/language-picker-DLCw9S_7.js",
     "name": "language-picker",
     "src": "partials/blocks/language-picker/language-picker.js",
     "isDynamicEntry": true,
     "imports": [
-      "__commonjsHelpers.js"
+      "__commonjsHelpers-CqkleIqs.js"
     ],
     "css": [
-      "css/language-picker.css"
+      "css/language-picker-CxbikHej.css"
     ]
   },
   "partials/blocks/openstreet-map/openstreet-map.js": {
-    "file": "js/openstreet-map.js",
+    "file": "js/openstreet-map-QJb_B0Zq.js",
     "name": "openstreet-map",
     "src": "partials/blocks/openstreet-map/openstreet-map.js",
     "isDynamicEntry": true,
     "imports": [
-      "__commonjsHelpers.js"
+      "__commonjsHelpers-CqkleIqs.js"
     ],
     "css": [
-      "css/openstreet-map.css"
+      "css/openstreet-map-Dyj9FDc_.css"
     ]
   },
   "partials/blocks/slider/slider.js": {
-    "file": "js/slider.js",
+    "file": "js/slider-ChD_TfMi.js",
     "name": "slider",
     "src": "partials/blocks/slider/slider.js",
     "isDynamicEntry": true,
     "imports": [
-      "_swiper.js"
+      "_swiper-rLX2DyVL.js"
     ],
     "css": [
-      "css/slider.css"
+      "css/slider-DyjU0h27.css"
     ]
   },
   "partials/blocks/tabs/tabs.js": {
-    "file": "js/tabs.js",
+    "file": "js/tabs-CS2xcDCi.js",
     "name": "tabs",
     "src": "partials/blocks/tabs/tabs.js",
     "isDynamicEntry": true
   },
   "partials/blocks/timeline/timeline.js": {
-    "file": "js/timeline.js",
+    "file": "js/timeline-iI7x6e9x.js",
     "name": "timeline",
     "src": "partials/blocks/timeline/timeline.js",
     "isDynamicEntry": true
   },
   "partials/blocks/video-background-youtube/video-background-youtube.js": {
-    "file": "js/video-background-youtube.js",
+    "file": "js/video-background-youtube-kD7nyqLN.js",
     "name": "video-background-youtube",
     "src": "partials/blocks/video-background-youtube/video-background-youtube.js",
     "isDynamicEntry": true
   },
   "partials/blocks/youtube-embed/youtube-embed.js": {
-    "file": "js/youtube-embed.js",
+    "file": "js/youtube-embed-CAv6ilQj.js",
     "name": "youtube-embed",
     "src": "partials/blocks/youtube-embed/youtube-embed.js",
     "isDynamicEntry": true
   },
   "partials/layout/header/header.js": {
-    "file": "js/header.js",
+    "file": "js/header-DOP_umM1.js",
     "name": "header",
     "src": "partials/layout/header/header.js",
     "isDynamicEntry": true
   },
   "partials/layout/menu-mobile/menu-mobile.js": {
-    "file": "js/menu-mobile.js",
+    "file": "js/menu-mobile-CxCQJT90.js",
     "name": "menu-mobile",
     "src": "partials/layout/menu-mobile/menu-mobile.js",
     "isDynamicEntry": true
