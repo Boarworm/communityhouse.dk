@@ -5,6 +5,7 @@ use Event;
 use System\Classes\PluginBase;
 use Boarworm\Base\Classes\Event\Site\SiteAwareVarsHandler;
 use Boarworm\Base\Classes\Event\Backend\BackendStylesHandler;
+use Boarworm\Base\Classes\Markup\ImageDimensions;
 
 /**
  * Plugin Information File
@@ -117,6 +118,18 @@ class Plugin extends PluginBase
             'header' => 'boarworm.base::partials.header',
             'footer' => 'boarworm.base::partials.footer',
             'button' => 'boarworm.base::partials.button',
+        ];
+    }
+
+    /**
+     * registerMarkupTags used by the frontend.
+     */
+    public function registerMarkupTags()
+    {
+        return [
+            'filters' => [
+                'dimensions' => [ImageDimensions::class, 'get'],
+            ],
         ];
     }
 }
