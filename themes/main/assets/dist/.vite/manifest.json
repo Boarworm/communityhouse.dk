@@ -34,7 +34,7 @@
     "src": "assets/src/icons/social-youtube-colored.svg"
   },
   "assets/src/js/app.js": {
-    "file": "js/app-BjPlL8RG.js",
+    "file": "js/app-DnctjzPX.js",
     "name": "app",
     "src": "assets/src/js/app.js",
     "isEntry": true,
@@ -99,7 +99,7 @@
     ]
   },
   "partials/blocks/openstreet-map/openstreet-map.js": {
-    "file": "js/openstreet-map-QJb_B0Zq.js",
+    "file": "js/openstreet-map-C19besy3.js",
     "name": "openstreet-map",
     "src": "partials/blocks/openstreet-map/openstreet-map.js",
     "isDynamicEntry": true,
