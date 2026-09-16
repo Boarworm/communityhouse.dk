@@ -1,18 +1,45 @@
-<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
-    {% set isLazy = data.lazy is not defined or data.lazy %}
+{% set isLazy = data.lazy ?? true %}
+{% set width = data.resize.width %}
+{% set height = data.resize.height %}
+{% set isResponsive = width and width != 'auto' %}
+{% set isAutoHeight = not height or height == 'auto' %}
+{% set sizes = data.sizes|default('100vw') %}
+{% set resizeOptions = {
+    mode: data.resize.mode|default('crop'),
+    quality: data.resize.quality|default(80)
+} %}
+{% set webpResizeOptions = resizeOptions|merge({extension: 'webp'}) %}
+
+{% set breakpoints = [400, 800, 1200, 1600, 1920] %}
+{% set candidateWidths = isResponsive ? breakpoints|filter(w => w < width)|merge([width]) : [] %}
+{% set webpSrcset = candidateWidths|map(w => data.src|resize(w, isAutoHeight ? 'auto' : (w / width * height)|round, webpResizeOptions) ~ ' ' ~ w ~ 'w')|join(', ') %}
+{% set fallbackSrcset = candidateWidths|map(w => data.src|resize(w, isAutoHeight ? 'auto' : (w / width * height)|round, resizeOptions) ~ ' ' ~ w ~ 'w')|join(', ') %}
+
+{% set fallbackUrl = data.src|resize(width, height, resizeOptions) %}
+{% set webpUrl = isResponsive ? null : data.src|resize(width, height, webpResizeOptions) %}
+{% set placeholderUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 #{width|default(1)} #{height|default(1)}'%3E%3C/svg%3E" %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value|e}\" "|raw }}{% endfor %}>
     <picture>
-        <source {% if isLazy %}data-srcset{% else %}srcset{% endif %}="{{ data.src|resize(data.resize.width, data.resize.height, {mode:data.resize.mode|default('crop'), quality:data.resize.quality|default(80), 'extension':'webp'}) }}" type="image/webp">
-        <img 
-            class="{% if isLazy %}lazyload {% endif %}max-h-full {{ data.imgCssClasses }}" 
-            {% if data.resize.width and data.resize.width != 'auto' %}width="{{ data.resize.width }}"{% endif %}
-            {% if data.resize.height and data.resize.height != 'auto' %}height="{{ data.resize.height }}"{% endif %}
+        <source
+            {{ isLazy ? 'data-srcset' : 'srcset' }}="{{ isResponsive ? webpSrcset : webpUrl }}"
+            {% if isResponsive %}sizes="{{ sizes }}"{% endif %}
+            type="image/webp"
+        >
+        <img
+            class="{{ isLazy ? 'lazyload' }} max-h-full {{ data.imgCssClasses }}"
+            {% if isResponsive %}width="{{ width }}"{% endif %}
+            {% if not isAutoHeight %}height="{{ height }}"{% endif %}
+            {% if isResponsive %}sizes="{{ sizes }}"{% endif %}
             {% if isLazy %}
-                data-src="{{ data.src|resize(data.resize.width, data.resize.height, {mode:data.resize.mode|default('crop'), quality:data.resize.quality|default(80)}) }}" 
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 {{ data.resize.width|default(1) }} {{ data.resize.height|default(1) }}'%3E%3C/svg%3E"
+                {% if isResponsive %}data-srcset="{{ fallbackSrcset }}"{% endif %}
+                data-src="{{ fallbackUrl }}"
+                src="{{ placeholderUrl }}"
             {% else %}
-                src="{{ data.src|resize(data.resize.width, data.resize.height, {mode:data.resize.mode|default('crop'), quality:data.resize.quality|default(80)}) }}"
+                {% if isResponsive %}srcset="{{ fallbackSrcset }}"{% endif %}
+                src="{{ fallbackUrl }}"
             {% endif %}
-            {% for key, value in data.imgAttributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}
+            {% for key, value in data.imgAttributes %}{{ value ? "#{key}=\"#{value|e}\" "|raw }}{% endfor %}
         >
     </picture>
 </div>
