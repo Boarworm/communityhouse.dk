@@ -19,6 +19,13 @@
 {% set webpUrl = isResponsive ? null : data.src|resize(width, height, webpResizeOptions) %}
 {% set placeholderUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 #{width|default(1)} #{height|default(1)}'%3E%3C/svg%3E" %}
 
+{# fill in the missing side from the source file, so width/height are always set #}
+{% set sourceSize = (not isResponsive or isAutoHeight) ? data.src|dimensions : null %}
+{% set sourceWidth = sourceSize.width|default(0) %}
+{% set sourceHeight = sourceSize.height|default(0) %}
+{% set attrWidth = isResponsive ? width : (not isAutoHeight and sourceHeight ? (height / sourceHeight * sourceWidth)|round : sourceWidth) %}
+{% set attrHeight = not isAutoHeight ? height : (isResponsive and sourceWidth ? (width / sourceWidth * sourceHeight)|round : sourceHeight) %}
+
 <div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value|e}\" "|raw }}{% endfor %}>
     <picture>
         <source
@@ -28,8 +35,8 @@
         >
         <img
             class="{{ isLazy ? 'lazyload' }} max-h-full {{ data.imgCssClasses }}"
-            {% if isResponsive %}width="{{ width }}"{% endif %}
-            {% if not isAutoHeight %}height="{{ height }}"{% endif %}
+            {% if attrWidth %}width="{{ attrWidth }}"{% endif %}
+            {% if attrHeight %}height="{{ attrHeight }}"{% endif %}
             {% if isResponsive %}sizes="{{ sizes }}"{% endif %}
             {% if isLazy %}
                 {% if isResponsive %}data-srcset="{{ fallbackSrcset }}"{% endif %}

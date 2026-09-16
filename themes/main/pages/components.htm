@@ -110,10 +110,36 @@ title = "Components"
     {% partial "blocks/headline/headline" data = { cssClasses: "mb-4", tag: "h2", text: __("Logo"), color: "dark", size: "h2", variant: "", attributes: {} } %}
     <div class="flex flex-wrap items-center gap-8">
         <div class="h-[45px]">
-            {% partial "blocks/logo/logo" data = { cssClasses: "h-full", color: "dark", attributes: {} } %}
+            {% partial "blocks/logo/logo" data = {
+                cssClasses: "h-full",
+                color: "dark",
+                image: {
+                    resize: {
+                        width: "auto",
+                        height: "65",
+                        mode: "auto",
+                        extension: "",
+                        quality: ""
+                    }
+                },
+                attributes: {}
+            } %}
         </div>
         <div class="h-[45px] bg-primary p-2">
-            {% partial "blocks/logo/logo" data = { cssClasses: "h-full", color: "light", attributes: {} } %}
+            {% partial "blocks/logo/logo" data = {
+                cssClasses: "h-full",
+                color: "light",
+                image: {
+                    resize: {
+                        width: "auto",
+                        height: "65",
+                        mode: "auto",
+                        extension: "",
+                        quality: ""
+                    }
+                },
+                attributes: {}
+            } %}
         </div>
     </div>
 </div>

@@ -4,7 +4,16 @@
 			<div>
 				{% partial "blocks/logo/logo" data = {
 					cssClasses: "h-[45px] inline-block lg:mr-4 lg:mr-auto lg:h-[60px]",
-					color: "light"
+					color: "light",
+					image: {
+						resize: {
+							width: "auto",
+							height: "65",
+							mode: "auto",
+							extension:"",
+							quality:""
+						}
+					}
 				} %}
 				<div class="prose mt-4 prose-p:text-white text-sm">{{ siteConfig.footer_text|raw }}</div>
 			</div>
