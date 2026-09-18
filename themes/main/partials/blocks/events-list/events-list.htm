@@ -1,0 +1,28 @@
+[collection events]
+handle = "Events\Event"
+sortColumn = "starts_at"
+sortDirection = "asc"
+==
+{% set all = events.where('slug', '!=', event.slug|default('')).orderBy('starts_at', 'asc').take(data.limit ?: 999).get() %}
+{% set upcoming = all|filter(item => not carbon(item.ends_at ?: item.starts_at).isPast) %}
+{% set past = all|filter(item => carbon(item.ends_at ?: item.starts_at).isPast)|reverse %}
+{% set items = data.showPast is same as(false) ? upcoming : upcoming|merge(past) %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="grid grid-cols-1 gap-6 sm:grid-cols-2 {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	{% for item in items %}
+		{% partial "blocks/card-event/card-event" data = {
+			cssClasses: "",
+			url: "events-details"|page({ slug: item.slug }),
+			title: item.title,
+			date: carbon(item.starts_at).format("j F Y, H:i") ~ (item.ends_at ? " – " ~ carbon(item.ends_at).format("H:i") : ""),
+			location: item.location,
+			description: item.text,
+			isPast: carbon(item.ends_at ?: item.starts_at).isPast,
+			image: {
+				src: item.image ?: "assets/images/placeholder.jpg"|theme,
+				imgAttributes: { alt: item.image.description ?: item.title }
+			},
+			attributes: {}
+		} %}
+	{% endfor %}
+</div>

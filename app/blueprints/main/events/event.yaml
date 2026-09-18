@@ -1,0 +1,54 @@
+uuid: events-event
+handle: Events\Event
+type: stream
+name: Events
+drafts: true
+multisite: true
+
+primaryNavigation:
+    label: Events
+    icon: ph ph-calendar-dots
+    order: 290
+
+navigation:
+    icon: octo-icon-calendar
+    order: 100
+
+customMessages:
+    buttonCreate: Create Event
+
+fields:
+    title:
+        placeholder: Title
+    starts_at:
+        label: Starts at
+        tab: Manage
+        type: datepicker
+        mode: datetime
+        span: auto
+    ends_at:
+        label: Ends at
+        tab: Manage
+        type: datepicker
+        mode: datetime
+        span: auto
+    location:
+        label: Location
+        tab: Manage
+        span: full
+        translatable: true
+    text:
+        label: Description
+        tab: Manage
+        type: richeditor
+        span: full
+        translatable: true
+    image:
+        label: Image
+        tab: Media
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    _meta:
+        type: mixin
+        source: Site\Mixins\Meta

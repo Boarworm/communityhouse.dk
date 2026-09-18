@@ -1,0 +1,114 @@
+url = "/events/:slug"
+layout = "default"
+title = "Event details"
+
+[section event]
+handle = "Events\Event"
+identifier = "slug"
+value = "{{ :slug }}"
+==
+{% if event is empty %}{% do abort(404) %}{% endif %}
+
+{% put meta %}
+{% partial "layout/meta/meta" data = {
+    title: event.meta_title|default(event.title),
+    description: event.meta_description|default(event.title~"."),
+    og_image_1200_630: event.image ?: "",
+    og_image_1200_1200: event.image ?: ""
+} %}
+{% endput %}
+
+<div data-page="{{ (_self|split('/')|last|split('.')|first) }}" class="container pt-8 pb-18">
+    {% partial "blocks/breadcrumbs/breadcrumbs" data = {
+        cssClasses: "mb-4",
+        breadcrumbs: [
+            {name: __("Events"), url: "events"|page},
+            {name: event.title, url: ''}
+        ]
+    } %}
+    {% partial "blocks/headline/headline" data = {
+        cssClasses: "mb-7 lg:mb-10",
+        tag: "h1",
+        color: "dark",
+        size: "h1",
+        variant: "",
+        text: event.title,
+        attributes: {}
+    } %}
+
+    <div class="mb-7 flex flex-wrap items-center gap-x-6 gap-y-2">
+        {% if event.starts_at %}
+            {% partial "blocks/tag-icon/tag-icon" data = {
+                cssClasses: "",
+                icon: {
+                    name: "clock-filled",
+                    cssClasses: "",
+                    attributes: {}
+                },
+                text: carbon(event.starts_at).format("j F Y, H:i") ~ (event.ends_at ? " – " ~ carbon(event.ends_at).format("H:i") : ""),
+                color: "light",
+                size: "md",
+                variant: "",
+                attributes: {}
+            } %}
+        {% endif %}
+
+        {% if event.location %}
+            <div class="flex items-center text-default-dark">
+                {% partial "blocks/icon-svg/icon-svg" data = {
+                    cssClasses: "w-5 h-5 fill-secondary mr-2 shrink-0",
+                    name: "pin"
+                } %}
+                {{ event.location }}
+            </div>
+        {% endif %}
+    </div>
+
+    {% if event.image %}
+        {% partial "blocks/image/image" data = {
+            cssClasses: "mb-7 w-full max-w-md",
+            imgCssClasses: "w-full h-auto",
+            src: event.image,
+            lazy: false,
+            resize: {
+                width: "448",
+                height: "252",
+                mode: "crop",
+                extension: "",
+                quality: ""
+            },
+            imgAttributes: {
+                alt: event.image.description ?: event.title,
+                fetchpriority: "high"
+            }
+        } %}
+    {% endif %}
+
+    <div class="prose mb-7">
+        {{ event.text|content|raw }}
+    </div>
+
+    {% partial "blocks/button/button" data = {
+        cssClasses: "",
+        tag: "a",
+        body: __("Back to all events"),
+        icon: "arrow-left",
+        variant: "",
+        color: "primary",
+        size: "sm",
+        attributes: {
+            href: "events"|page
+        }
+    } %}
+
+    <hr class="h-px text-primary-lightest my-12">
+
+    <div class="mb-5 flex justify-between items-end">
+        <div class="font-bold text-2xl">{{ __("More events") }}</div>
+        <a href="{{ 'events'|page }}" class="text-xs font-bold text-secondary hover:text-secondary-dark">{{ __("All events") }} →</a>
+    </div>
+    {% partial "blocks/events-list/events-list" data = {
+        cssClasses: "lg:grid-cols-3",
+        attributes: {}
+    } %}
+</div>

@@ -1,0 +1,59 @@
+{% set excerpt = data.description|striptags|trim %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="{{ data.cssClasses }} relative group flex flex-col items-start bg-default-lightest shadow-2xl transition-shadow duration-300 group-hover:shadow-md" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\""|join(" ")|raw }}{% endfor %}>
+	<a href="{{ data.url }}" aria-label="{{ data.title }}" class="absolute inset-0 z-10"></a>
+
+	<div class="relative">
+		<div class="aspect-video overflow-hidden">
+			{% partial "blocks/image/image" data = {
+				cssClasses: "w-full h-full transition duration-5000 ease-out group-hover:scale-115",
+				imgCssClasses: "w-full h-full object-cover",
+				src: data.image.src|default("assets/images/placeholder.jpg"|theme),
+				resize: data.image.resize|default({
+					width: "800",
+					height: "450",
+					mode: "crop",
+					extension: "",
+					quality: ""
+				}),
+				imgAttributes: data.image.imgAttributes|default({
+					alt: data.title
+				})
+			} %}
+			{% if data.isPast %}
+				<div class="absolute top-4 left-4 bg-default-darker/90 text-white text-xs font-bold uppercase px-3 py-1 border border-white/60 shadow-md">{{ __("Past") }}</div>
+			{% endif %}
+		</div>
+
+		<div class="absolute -bottom-6 left-0 max-w-[90%] min-h-[56px] flex items-center bg-primary px-4 py-2 font-secondary font-extrabold uppercase leading-tight text-white">{{ data.title }}</div>
+	</div>
+
+	<div class="flex w-full grow flex-col p-4 pt-10">
+		{% if data.location %}
+			<div class="flex items-center text-sm text-default-dark">
+				{% partial "blocks/icon-svg/icon-svg" data = {
+					cssClasses: "w-5 h-5 fill-secondary mr-2 shrink-0",
+					name: "pin"
+				} %}
+				{{ data.location }}
+			</div>
+		{% endif %}
+
+		{% if data.date %}
+			<div class="mt-1 flex items-center text-sm text-default-dark">
+				{% partial "blocks/icon-svg/icon-svg" data = {
+					cssClasses: "w-4 h-4 fill-secondary ml-0.5 mr-2.5 shrink-0",
+					name: "calendar"
+				} %}
+				{{ data.date }}
+			</div>
+		{% endif %}
+
+		{% if excerpt %}
+			<div class="my-3 h-px w-full bg-default-light"></div>
+			<div class="grow text-default-darker">{{ excerpt|length > 153 ? excerpt|slice(0, 153) ~ '…' : excerpt }}</div>
+		{% endif %}
+
+		<div class="mt-3 self-end text-sm text-secondary group-hover:text-secondary-dark">{{ __("Read more") }} →</div>
+	</div>
+</div>

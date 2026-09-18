@@ -1,7 +1,7 @@
-uuid: site_pages_calendar
-handle: Site\Pages\Calendar
+uuid: site_pages_events
+handle: Site\Pages\Events
 type: single
-name: Calendar
+name: Events
 multisite: true
 
 navigation:
