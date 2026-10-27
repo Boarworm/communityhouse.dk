@@ -3,7 +3,7 @@ handle = "Magazine\Seller"
 ==
 <div data-block="{{ (_self|split('/')|last|split('.')|first) }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value|e}\" "|raw }}{% endfor %} class="{{ data.cssClasses }} grid grid-cols-1 gap-8">
 	{% for item in sellers %}
-		{% partial "blocks/person-card/person-card" data = {
+		{% partial "blocks/magazine-seller-card/magazine-seller-card" data = {
 			cssClasses: "",
 			variant: loop.index is odd ? "default" : "reverse",
 			color: "primary",
