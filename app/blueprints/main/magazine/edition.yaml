@@ -1,0 +1,50 @@
+uuid: magazine-edition
+handle: Magazine\Edition
+type: stream
+name: Magazine editions
+drafts: true
+multisite: true
+
+primaryNavigation:
+    label: Magazine
+    icon: ph ph-newspaper
+    order: 295
+
+navigation:
+    label: Editions
+    icon: ph ph-books
+    order: 100
+
+customMessages:
+    buttonCreate: Create Edition
+
+fields:
+    title:
+        placeholder: Title
+    released_at:
+        label: Release date
+        tab: Manage
+        type: datepicker
+        mode: date
+        span: auto
+    articles:
+        label: Articles
+        tab: Manage
+        type: repeater
+        span: full
+        prompt: Add article
+        titleFrom: title
+        translatable: true
+        form:
+            fields:
+                title:
+                    label: Title
+                    type: text
+                    span: full
+                    translatable: true
+    cover:
+        label: Cover
+        tab: Media
+        type: fileupload
+        mode: image
+        maxFiles: 1

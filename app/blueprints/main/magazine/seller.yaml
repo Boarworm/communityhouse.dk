@@ -1,0 +1,34 @@
+uuid: magazine-seller
+handle: Magazine\Seller
+type: structure
+name: Magazine sellers
+drafts: false
+multisite: true
+
+structure:
+    maxDepth: 1
+
+navigation:
+    parent: Magazine\Edition
+    label: Sellers
+    icon: ph ph-users
+    order: 200
+
+customMessages:
+    buttonCreate: Create Seller
+
+fields:
+    title:
+        placeholder: Name
+    text:
+        label: Text
+        tab: Manage
+        type: richeditor
+        span: full
+        translatable: true
+    image:
+        label: Image
+        tab: Media
+        type: fileupload
+        mode: image
+        maxFiles: 1
