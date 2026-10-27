@@ -1,0 +1,46 @@
+{% if popupContent.type == 'magazineEdition' and popupContent.data %}
+	{% set edition = popupContent.data %}
+	{% set popupHeading = edition.title %}
+	{% set popupContent %}
+		<div class="flex items-center gap-4 border-b border-default-light pb-5">
+			{% if edition.cover %}
+				{% partial "blocks/image/image" data = {
+					cssClasses: "w-20 shrink-0",
+					imgCssClasses: "w-full h-auto shadow-md",
+					src: edition.cover,
+					lazy: false,
+					resize: {
+						width: "160",
+						height: "213",
+						mode: "crop",
+						extension: "",
+						quality: ""
+					},
+					attributes: {},
+					imgAttributes: {
+						alt: edition.cover.description ?: edition.title
+					}
+				} %}
+			{% endif %}
+			{% if edition.released_at %}
+				<div class="flex items-center text-sm text-default-dark">
+					{% partial "blocks/icon-svg/icon-svg" data = {
+						cssClasses: "w-4 h-4 fill-secondary ml-0.5 mr-2.5 shrink-0",
+						name: "calendar"
+					} %}
+					{{ carbon(edition.released_at).translatedFormat("F Y")|capitalize }}
+				</div>
+			{% endif %}
+		</div>
+		<ul class="list-disc pl-5 marker:text-secondary divide-y divide-default-light">
+			{% for article in edition.articles %}
+				<li class="py-3 text-default-darker">{{ article.title }}</li>
+			{% endfor %}
+		</ul>
+	{% endset %}
+{% endif %}
+
+{% if popupHeading %}
+	<div class="bg-primary pl-5 pr-10 py-3 text-2xl text-white">{{ popupHeading }}</div>
+{% endif %}
+<div class="p-5">{{ popupContent }}</div>

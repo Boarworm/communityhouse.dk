@@ -6,6 +6,8 @@ description = "Default layout"
 handle = "Site\Config"
 
 [base]
+
+[popup]
 ==
 <?php
 function onStart()
@@ -49,6 +51,13 @@ function onStart()
 {% partial "layout/footer/footer" data = {
     cssClasses: "",
     attributes: {}
+} %}
+
+{% partial "blocks/popup/popup" data = {
+    cssClasses: "js-popup hidden max-w-2xl [--f-html-padding:0]",
+    attributes: {
+        id: "popup"
+    }
 } %}
 
 {% scripts %}

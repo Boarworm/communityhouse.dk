@@ -20,6 +20,12 @@ document.querySelectorAll('[data-block="gallery-grid"]').forEach($el => {
     });
 });
 
+document.querySelectorAll('[data-request="onShowPopup"], .js-popup-trigger, [data-fancybox]').forEach($el => {
+    initInView($el).then(() => {
+        import('../../../partials/blocks/popup/popup' /* webpackChunkName: "/dist/js/popup" */).then(({default: init}) => init($el));
+    });
+});
+
 document.querySelectorAll('[data-fancybox]').forEach($el => {
     initInView($el).then(() => {
         import('./common/fancybox-image' /* webpackChunkName: "/dist/js/fancybox-image" */).then(({ default: init }) => init($el));

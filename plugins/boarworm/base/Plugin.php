@@ -57,10 +57,8 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
-        return []; // Remove this line to activate
-
         return [
-            'Boarworm\Base\Components\MyComponent' => 'myComponent',
+            'Boarworm\Base\Components\Popup' => 'popup',
         ];
     }
 

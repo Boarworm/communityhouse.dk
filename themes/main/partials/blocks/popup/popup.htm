@@ -1,0 +1,5 @@
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" class="w-full {{ data.cssClasses }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value}\" "|raw }}{% endfor %}>
+    <div class="js-popup-content">
+        {% partial "blocks/popup/popup-content" %}
+    </div>
+</div>
