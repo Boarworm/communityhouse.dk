@@ -388,3 +388,5 @@ Command | Description
 - Use `$/acme/blog/models/post/fields.yaml` path notation with `$` prefix as an alternative absolute path syntax.
 
 </laravel-boost-guidelines>
+
+@~/.claude/rules/octobercms-theme.md
