@@ -2,16 +2,16 @@
 	{% set edition = popupContent.data %}
 	{% set popupHeading = edition.title %}
 	{% set popupContent %}
-		<div class="flex items-center gap-4 border-b border-default-light pb-5">
+		<div class="flow-root">
 			{% if edition.cover %}
 				{% partial "blocks/image/image" data = {
-					cssClasses: "w-20 shrink-0",
+					cssClasses: "float-left w-32 mr-5 mb-3 sm:w-48",
 					imgCssClasses: "w-full h-auto shadow-md",
 					src: edition.cover,
 					lazy: false,
 					resize: {
-						width: "160",
-						height: "213",
+						width: "384",
+						height: "512",
 						mode: "crop",
 						extension: "",
 						quality: ""
@@ -23,7 +23,7 @@
 				} %}
 			{% endif %}
 			{% if edition.released_at %}
-				<div class="flex items-center text-sm text-default-dark">
+				<div class="flex items-center pb-3 text-sm text-default-dark">
 					{% partial "blocks/icon-svg/icon-svg" data = {
 						cssClasses: "w-4 h-4 fill-secondary ml-0.5 mr-2.5 shrink-0",
 						name: "calendar"
@@ -31,12 +31,12 @@
 					{{ carbon(edition.released_at).translatedFormat("F Y")|capitalize }}
 				</div>
 			{% endif %}
+			<ul class="list-inside list-disc marker:text-secondary divide-y divide-default-light">
+				{% for article in edition.articles %}
+					<li class="py-3 text-default-darker">{{ article.title }}</li>
+				{% endfor %}
+			</ul>
 		</div>
-		<ul class="list-disc pl-5 marker:text-secondary divide-y divide-default-light">
-			{% for article in edition.articles %}
-				<li class="py-3 text-default-darker">{{ article.title }}</li>
-			{% endfor %}
-		</ul>
 	{% endset %}
 {% endif %}
 
