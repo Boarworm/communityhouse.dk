@@ -1,0 +1,33 @@
+[collection sellers]
+handle = "Magazine\Seller"
+==
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value|e}\" "|raw }}{% endfor %} class="{{ data.cssClasses }} grid grid-cols-1 gap-8">
+	{% for item in sellers %}
+		{% partial "blocks/person-card/person-card" data = {
+			cssClasses: "",
+			variant: loop.index is odd ? "default" : "reverse",
+			color: "primary",
+			size: "md",
+			title: item.title,
+			url: "",
+			excerpt: item.text,
+			image: {
+				cssClasses: "",
+				imgCssClasses: "w-full h-full object-cover",
+				src: item.image ?: "assets/images/placeholder.jpg"|theme,
+				resize: {
+					width: "400",
+					height: "500",
+					mode: "crop",
+					extension: "",
+					quality: ""
+				},
+				attributes: {},
+				imgAttributes: {
+					alt: item.image.description ?: item.title
+				}
+			},
+			attributes: {}
+		} %}
+	{% endfor %}
+</div>

@@ -14,6 +14,12 @@ document.querySelectorAll('[data-block="carousel"]:not([data-block$="-carousel"]
     });
 });
 
+document.querySelectorAll('[data-block="magazine-carousel"]').forEach($el => {
+    initInView($el).then(() => {
+        import('../../../partials/blocks/magazine-carousel/magazine-carousel' /* webpackChunkName: "/dist/js/magazine-carousel" */).then(({ default: init }) => init($el));
+    });
+});
+
 document.querySelectorAll('[data-block="gallery-grid"]').forEach($el => {
     initInView($el).then(() => {
         import('../../../partials/blocks/gallery-grid/gallery-grid' /* webpackChunkName: "/dist/js/gallery-grid" */).then(({ default: init }) => init($el));

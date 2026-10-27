@@ -1,0 +1,19 @@
+uuid: builder_blocks_magazine_carousel
+handle: Builder\Blocks\MagazineCarousel
+type: mixin
+name: Magazine carousel
+fields:
+    magazine_carousel_manage:
+        tab: Content
+        type: hint
+        mode: tip
+        comment: "[Manage magazine editions](/bckpnl/tailor/entries/magazine-edition)"
+    block_name:
+        label: Name
+        tab: Block properties
+        type: text
+        span: auto
+        default: Magazine carousel
+    advanced_content:
+        type: mixin
+        source: Builder\Mixins\BlockAdvanced

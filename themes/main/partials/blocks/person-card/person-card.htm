@@ -1,0 +1,149 @@
+{% set variants = {
+	"default": {
+		"baseBlockClasses": "relative grid grid-cols-1 justify-items-center sm:grid-cols-3 sm:justify-items-start lg:grid-cols-4",
+		"baseImageWrapperClasses": "",
+		"baseFrameClasses": "block aspect-4/5",
+		"baseImageClasses": "relative overflow-hidden",
+		"baseContentClasses": "grid grid-cols-1 self-center justify-items-center text-center sm:col-span-2 sm:text-left sm:justify-items-start lg:col-span-3",
+		"baseTitleClasses": "font-secondary",
+		"basePositionClasses": "",
+		"baseExcerptClasses": "prose sm:text-left",
+		"colors": {
+			"primary": {
+				"colorBlockClasses": "",
+				"colorImageWrapperClasses": "",
+				"colorFrameClasses": "bg-primary-light",
+				"colorImageClasses": "",
+				"colorContentClasses": "",
+				"colorTitleClasses": "text-primary",
+				"colorPositionClasses": "",
+				"colorExcerptClasses": ""
+			}
+		},
+		"sizes": {
+			"md": {
+				"sizeBlockClasses": "w-full gap-4 md:gap-6 lg:gap-8",
+				"sizeImageWrapperClasses": "w-full pr-4 pb-4",
+				"sizeFrameClasses": "",
+				"sizeImageClasses": "-bottom-4 -right-4",
+				"sizeContentClasses": "gap-2 xl:gap-6",
+				"sizeTitleClasses": "text-xl lg:text-4xl",
+				"sizePositionClasses": "",
+				"sizeExcerptClasses": "w-full"
+			}
+		}
+	},
+	"reverse": {
+		"baseBlockClasses": "relative grid grid-cols-1 justify-items-center sm:grid-cols-3 sm:justify-items-end lg:grid-cols-4",
+		"baseImageWrapperClasses": "sm:order-1",
+		"baseFrameClasses": "block aspect-4/5",
+		"baseImageClasses": "relative overflow-hidden",
+		"baseContentClasses": "grid grid-cols-1 self-center justify-items-center text-center sm:col-span-2 sm:text-right sm:justify-items-end lg:col-span-3",
+		"baseTitleClasses": "font-secondary",
+		"basePositionClasses": "",
+		"baseExcerptClasses": "prose sm:text-right",
+		"colors": {
+			"primary": {
+				"colorBlockClasses": "",
+				"colorImageWrapperClasses": "",
+				"colorFrameClasses": "bg-primary-light",
+				"colorImageClasses": "",
+				"colorContentClasses": "",
+				"colorTitleClasses": "text-primary",
+				"colorPositionClasses": "",
+				"colorExcerptClasses": ""
+			}
+		},
+		"sizes": {
+			"md": {
+				"sizeBlockClasses": "w-full gap-4 md:gap-6 lg:gap-8",
+				"sizeImageWrapperClasses": "w-full pl-4 pb-4",
+				"sizeFrameClasses": "",
+				"sizeImageClasses": "-bottom-4 -left-4",
+				"sizeContentClasses": "gap-2 xl:gap-6",
+				"sizeTitleClasses": "text-xl lg:text-4xl",
+				"sizePositionClasses": "",
+				"sizeExcerptClasses": "w-full"
+			}
+		}
+	}
+} %}
+
+{% set blockClasses = [
+	data.cssClasses,
+	variants[data.variant|default("default")].baseBlockClasses,
+	variants[data.variant|default("default")].colors[data.color|default("primary")].colorBlockClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeBlockClasses,
+]|join(" ") %}
+
+{% set imageWrapperClasses = [
+	variants[data.variant|default("default")].baseImageWrapperClasses,
+	variants[data.variant|default("default")].colors[data.color|default("primary")].colorImageWrapperClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeImageWrapperClasses,
+]|join(" ") %}
+
+{% set frameClasses = [
+	variants[data.variant|default("default")].baseFrameClasses,
+	variants[data.variant|default("default")].colors[data.color|default("primary")].colorFrameClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeFrameClasses,
+]|join(" ") %}
+
+{% set imageClasses = [
+	variants[data.variant|default("default")].baseImageClasses,
+	variants[data.variant|default("default")].colors[data.color|default("primary")].colorImageClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeImageClasses,
+]|join(" ") %}
+
+{% set contentClasses = [
+	variants[data.variant|default("default")].baseContentClasses,
+	variants[data.variant|default("default")].colors[data.color|default("primary")].colorContentClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeContentClasses,
+]|join(" ") %}
+
+{% set titleClasses = [
+	variants[data.variant|default("default")].baseTitleClasses,
+	variants[data.variant|default("default")].colors[data.color|default("primary")].colorTitleClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeTitleClasses,
+]|join(" ") %}
+
+{% set positionClasses = [
+	variants[data.variant|default("default")].basePositionClasses,
+	variants[data.variant|default("default")].colors[data.color|default("primary")].colorPositionClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizePositionClasses,
+]|join(" ") %}
+
+{% set excerptClasses = [
+	variants[data.variant|default("default")].baseExcerptClasses,
+	variants[data.variant|default("default")].colors[data.color|default("primary")].colorExcerptClasses,
+	variants[data.variant|default("default")].sizes[data.size|default("md")].sizeExcerptClasses,
+]|join(" ") %}
+
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value|e}\" "|raw }}{% endfor %} class="{{ blockClasses }}">
+	<div class="{{ imageWrapperClasses }}">
+		<div class="{{ frameClasses }}">
+			<{{ data.url ? "a" : "div" }} {{ data.url ? "href=\"#{data.url|e}\""|raw }} class="{{ imageClasses }}">
+				{% partial "blocks/image/image" data = {
+					cssClasses: "w-full h-full",
+					imgCssClasses: data.image.imgCssClasses,
+					src: data.image.src|default("assets/images/placeholder.jpg"|theme),
+					resize: data.image.resize,
+					attributes: data.image.attributes,
+					imgAttributes: data.image.imgAttributes
+				} %}
+			</{{ data.url ? "a" : "div" }}>
+		</div>
+	</div>
+	<div class="{{ contentClasses }}">
+		{% if data.title %}
+			<div>
+				<{{ data.url ? "a" : "div" }} {{ data.url ? "href=\"#{data.url|e}\""|raw }} class="{{ titleClasses }}">{{ data.title }}</{{ data.url ? "a" : "div" }}>
+				{% if data.position %}
+					<div class="{{ positionClasses }}">{{ data.position }}</div>
+				{% endif %}
+			</div>
+		{% endif %}
+		{% if data.excerpt %}
+			<div class="{{ excerptClasses }}">{{ data.excerpt|content|raw }}</div>
+		{% endif %}
+	</div>
+</div>

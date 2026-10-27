@@ -1,0 +1,19 @@
+uuid: builder_blocks_magazine_seller_list
+handle: Builder\Blocks\MagazineSellerList
+type: mixin
+name: Magazine seller list
+fields:
+    magazine_seller_list_manage:
+        tab: Content
+        type: hint
+        mode: tip
+        comment: "[Manage magazine sellers](/bckpnl/tailor/entries/magazine-seller)"
+    block_name:
+        label: Name
+        tab: Block properties
+        type: text
+        span: auto
+        default: Magazine seller list
+    advanced_content:
+        type: mixin
+        source: Builder\Mixins\BlockAdvanced

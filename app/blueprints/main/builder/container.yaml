@@ -109,6 +109,22 @@ fields:
                     _cta_social_links:
                         type: mixin
                         source: Builder\Blocks\CtaSocialLinks
+            magazine_carousel:
+                name: Magazine carousel
+                icon: ph ph-newspaper
+                useTabs: true
+                fields:
+                    _magazine_carousel:
+                        type: mixin
+                        source: Builder\Blocks\MagazineCarousel
+            magazine_seller_list:
+                name: Magazine seller list
+                icon: ph ph-users
+                useTabs: true
+                fields:
+                    _magazine_seller_list:
+                        type: mixin
+                        source: Builder\Blocks\MagazineSellerList
     advanced_content:
         type: mixin
         source: Builder\Mixins\ContainerAdvanced

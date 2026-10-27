@@ -1,0 +1,30 @@
+[collection editions]
+handle = "Magazine\Edition"
+sortColumn = "released_at"
+sortDirection = "desc"
+==
+<div data-block="{{ (_self|split('/')|last|split('.')|first) }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value|e}\" "|raw }}{% endfor %} class="{{ data.cssClasses }}">
+	{% partial "blocks/carousel/carousel" body data = {
+		cssClasses: "",
+		cssClassesWrapper: "",
+		navigation: true,
+		pagination: true,
+		attributes: {}
+	} %}
+		{% for item in editions %}
+			<div class="swiper-slide h-auto">
+				{% partial "blocks/magazine-card/magazine-card" data = {
+					cssClasses: "h-full",
+					id: item.id,
+					title: item.title,
+					date: item.released_at ? carbon(item.released_at).translatedFormat("F Y")|capitalize : "",
+					image: {
+						src: item.cover ?: "assets/images/placeholder.jpg"|theme,
+						imgAttributes: { alt: item.cover.description ?: item.title }
+					},
+					attributes: {}
+				} %}
+			</div>
+		{% endfor %}
+	{% endpartial %}
+</div>

@@ -136,6 +136,24 @@
 		} %}
 	{% endif %}
 
+	{% if name == 'magazine_carousel' and isEnabled %}
+		{% partial "blocks/magazine-carousel/magazine-carousel" data = {
+			cssClasses: blockClasses,
+			attributes: {
+				"id":block.html_anchor
+			}
+		} %}
+	{% endif %}
+
+	{% if name == 'magazine_seller_list' and isEnabled %}
+		{% partial "blocks/magazine-seller-list/magazine-seller-list" data = {
+			cssClasses: blockClasses,
+			attributes: {
+				"id":block.html_anchor
+			}
+		} %}
+	{% endif %}
+
 	{% if name == 'cta_social_links' and isEnabled %}
 		{% partial "blocks/cta-social-links/cta-social-links" data = {
 			cssClasses: blockClasses,
