@@ -1,12 +1,4 @@
 <div data-block="{{ (_self|split('/')|last|split('.')|first) }}" {% for key, value in data.attributes %}{{ value ? "#{key}=\"#{value|e}\" "|raw }}{% endfor %} class="{{ data.cssClasses }} relative group flex flex-col bg-primary-lightest">
-	<a href="javascript:(0)"
-	   aria-label="{{ data.title }}"
-	   class="absolute inset-0 z-10"
-	   data-request="onShowPopup"
-	   data-request-data='{ "dataType":"magazineEdition", "id":"{{ data.id }}" }'
-	   data-request-success='showPopup()'
-	></a>
-
 	<div class="relative">
 		<div class="aspect-[3/4] overflow-hidden">
 			{% partial "blocks/image/image" data = {
@@ -41,6 +33,14 @@
 			</div>
 		{% endif %}
 
-		<div class="mt-3 self-end text-sm text-secondary group-hover:text-secondary-dark">{{ __("View contents") }} →</div>
+		<button
+			type="button"
+			class="mt-3 self-end cursor-pointer text-sm text-secondary group-hover:text-secondary-dark after:absolute after:inset-0 after:z-10"
+			data-request="onShowPopup"
+			data-request-data='{ "dataType":"magazineEdition", "id":"{{ data.id }}" }'
+			data-request-success="showPopup()"
+		>
+			{{ __("View contents") }}<span class="sr-only"> {{ data.title }}</span> →
+		</button>
 	</div>
 </div>
