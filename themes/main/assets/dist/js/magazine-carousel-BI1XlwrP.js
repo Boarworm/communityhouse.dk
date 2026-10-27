@@ -1,0 +1,2 @@
+import{S as i,N as r}from"./swiper-rLX2DyVL.js";import{P as t}from"./pagination-BVHK5JH2.js";function o(e){new i(e.querySelector(".swiper"),{modules:[r,t],slidesPerView:1.2,spaceBetween:32,speed:500,navigation:{nextEl:e.querySelector(".swiper-button-next"),prevEl:e.querySelector(".swiper-button-prev")},pagination:{el:e.querySelector(".swiper-pagination"),bulletActiveClass:"swiper-pagination-bullet-active !bg-primary",clickable:!0},breakpoints:{640:{slidesPerView:2},1024:{slidesPerView:3}}})}export{o as default};
+//# sourceMappingURL=magazine-carousel-BI1XlwrP.js.map

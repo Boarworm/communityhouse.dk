@@ -1,0 +1,2 @@
+import{S as r,N as i}from"./swiper-rLX2DyVL.js";import{P as t}from"./pagination-BVHK5JH2.js";function n(e){new r(e,{modules:[t,i],slidesPerView:1,spaceBetween:20,speed:500,pagination:{el:e.querySelector(".swiper-pagination"),bulletClass:"swiper-pagination-bullet !bg-transparent !border-2 !border-neutral !w-4 !h-4 !rounded-full !opacity-100",clickable:!0},navigation:{nextEl:e.querySelector(".swiper-button-next"),prevEl:e.querySelector(".swiper-button-prev")}})}export{n as default};
+//# sourceMappingURL=carousel-DERiDbf4.js.map

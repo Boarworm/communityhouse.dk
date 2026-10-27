@@ -14,6 +14,20 @@
       "css/fancybox-CS0i6PXw.css"
     ]
   },
+  "_pagination-BVHK5JH2.js": {
+    "file": "js/pagination-BVHK5JH2.js",
+    "name": "pagination",
+    "imports": [
+      "_swiper-rLX2DyVL.js"
+    ],
+    "css": [
+      "css/pagination-DbhFIee8.css"
+    ]
+  },
+  "_pagination-DbhFIee8.css": {
+    "file": "css/pagination-DbhFIee8.css",
+    "src": "_pagination-DbhFIee8.css"
+  },
   "_swiper-C2J0D0kV.css": {
     "file": "css/swiper-C2J0D0kV.css",
     "src": "_swiper-C2J0D0kV.css"
@@ -34,15 +48,17 @@
     "src": "assets/src/icons/social-youtube-colored.svg"
   },
   "assets/src/js/app.js": {
-    "file": "js/app-DgUdxthI.js",
+    "file": "js/app-D1jFiW6k.js",
     "name": "app",
     "src": "assets/src/js/app.js",
     "isEntry": true,
     "dynamicImports": [
       "partials/layout/header/header.js",
       "partials/layout/menu-mobile/menu-mobile.js",
-      "partials/blocks/carousel/carousel-advantages.js",
+      "partials/blocks/carousel/carousel.js",
+      "partials/blocks/magazine-carousel/magazine-carousel.js",
       "partials/blocks/gallery-grid/gallery-grid.js",
+      "partials/blocks/popup/popup.js",
       "assets/src/js/common/fancybox-image.js",
       "partials/blocks/youtube-embed/youtube-embed.js",
       "partials/blocks/language-picker/language-picker.js",
@@ -53,7 +69,7 @@
       "partials/blocks/tabs/tabs.js"
     ],
     "css": [
-      "css/app-9ocXWf1T.css"
+      "css/app-CHFzMfjc.css"
     ]
   },
   "assets/src/js/common/fancybox-image.js": {
@@ -65,16 +81,14 @@
       "_fancybox-l-KORKrc.js"
     ]
   },
-  "partials/blocks/carousel/carousel-advantages.js": {
-    "file": "js/carousel-advantages-Dn_d_HuJ.js",
-    "name": "carousel-advantages",
-    "src": "partials/blocks/carousel/carousel-advantages.js",
+  "partials/blocks/carousel/carousel.js": {
+    "file": "js/carousel-DERiDbf4.js",
+    "name": "carousel",
+    "src": "partials/blocks/carousel/carousel.js",
     "isDynamicEntry": true,
     "imports": [
-      "_swiper-rLX2DyVL.js"
-    ],
-    "css": [
-      "css/carousel-advantages-DbhFIee8.css"
+      "_swiper-rLX2DyVL.js",
+      "_pagination-BVHK5JH2.js"
     ]
   },
   "partials/blocks/gallery-grid/gallery-grid.js": {
@@ -98,6 +112,16 @@
       "css/language-picker-CxbikHej.css"
     ]
   },
+  "partials/blocks/magazine-carousel/magazine-carousel.js": {
+    "file": "js/magazine-carousel-BI1XlwrP.js",
+    "name": "magazine-carousel",
+    "src": "partials/blocks/magazine-carousel/magazine-carousel.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_swiper-rLX2DyVL.js",
+      "_pagination-BVHK5JH2.js"
+    ]
+  },
   "partials/blocks/openstreet-map/openstreet-map.js": {
     "file": "js/openstreet-map-C19besy3.js",
     "name": "openstreet-map",
@@ -108,6 +132,15 @@
     ],
     "css": [
       "css/openstreet-map-Dyj9FDc_.css"
+    ]
+  },
+  "partials/blocks/popup/popup.js": {
+    "file": "js/popup-CZM6o4vm.js",
+    "name": "popup",
+    "src": "partials/blocks/popup/popup.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_fancybox-l-KORKrc.js"
     ]
   },
   "partials/blocks/slider/slider.js": {
