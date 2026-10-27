@@ -2,23 +2,27 @@
     <div class="swiper-wrapper h-full {{ data.cssClassesWrapper }}">
         {{ body|raw }}
     </div>
-    {% if data.navigation %}
-        <div class="flex justify-center absolute gap-2.5 bottom-5 left-0 right-0 z-10 sm:left-auto sm:right-7">
-            <div class="swiper-button-prev p-5 bg-secondary-dark hover:bg-secondary h-15 w-15 rounded-full cursor-pointer transition group/button">
-                {% partial "blocks/icon-svg/icon-svg" data = {
-                    cssClasses: "w-full h-full fill-white transition group-hover/button:fill-primary-dark",
-                    name: "arrow-left"
-                } %}
-            </div>
-            <div class="swiper-button-next p-5 bg-secondary-dark hover:bg-secondary h-15 w-15 rounded-full cursor-pointer transition group/button">
-                {% partial "blocks/icon-svg/icon-svg" data = {
-                    cssClasses: "w-full h-full fill-white transition group-hover/button:fill-primary-dark",
-                    name: "arrow-right"
-                } %}
-            </div>
+    {% if data.navigation or data.pagination %}
+        <div class="flex items-center justify-center gap-20 mt-8 has-[.swiper-button-lock]:hidden has-[.swiper-pagination-lock]:hidden">
+            {% if data.navigation %}
+                <div class="swiper-button-prev p-3.5 border border-primary hover:bg-primary h-11 w-11 rounded-full cursor-pointer transition group/button [&.swiper-button-lock]:hidden">
+                    {% partial "blocks/icon-svg/icon-svg" data = {
+                        cssClasses: "w-full h-full fill-primary transition group-hover/button:fill-white",
+                        name: "chevron-left"
+                    } %}
+                </div>
+            {% endif %}
+            {% if data.pagination %}
+                <div class="swiper-pagination !static !w-auto"></div>
+            {% endif %}
+            {% if data.navigation %}
+                <div class="swiper-button-next p-3.5 border border-primary hover:bg-primary h-11 w-11 rounded-full cursor-pointer transition group/button [&.swiper-button-lock]:hidden">
+                    {% partial "blocks/icon-svg/icon-svg" data = {
+                        cssClasses: "w-full h-full fill-primary transition group-hover/button:fill-white",
+                        name: "chevron-right"
+                    } %}
+                </div>
+            {% endif %}
         </div>
-    {% endif %}
-    {% if data.pagination %}
-        <div class="swiper-pagination !relative !mt-8"></div>
     {% endif %}
 </div>
