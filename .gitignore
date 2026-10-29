@@ -76,3 +76,6 @@ docker-compose.yml
 
 # Local working/scratch files
 /_project
+
+# Server files
+.ftpquota
