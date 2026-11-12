@@ -48,7 +48,7 @@
     "src": "assets/src/icons/social-youtube-colored.svg"
   },
   "assets/src/js/app.js": {
-    "file": "js/app-Fs1npTRf.js",
+    "file": "js/app-BrpvbOes.js",
     "name": "app",
     "src": "assets/src/js/app.js",
     "isEntry": true,
@@ -59,7 +59,6 @@
       "partials/blocks/magazine-carousel/magazine-carousel.js",
       "partials/blocks/gallery-grid/gallery-grid.js",
       "partials/blocks/popup/popup.js",
-      "assets/src/js/common/fancybox-image.js",
       "partials/blocks/youtube-embed/youtube-embed.js",
       "partials/blocks/language-picker/language-picker.js",
       "partials/blocks/openstreet-map/openstreet-map.js",
@@ -69,16 +68,7 @@
       "partials/blocks/tabs/tabs.js"
     ],
     "css": [
-      "css/app-qp_eRYto.css"
-    ]
-  },
-  "assets/src/js/common/fancybox-image.js": {
-    "file": "js/fancybox-image-i7DP6VoA.js",
-    "name": "fancybox-image",
-    "src": "assets/src/js/common/fancybox-image.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_fancybox-l-KORKrc.js"
+      "css/app-8JcjLuNF.css"
     ]
   },
   "partials/blocks/carousel/carousel.js": {
@@ -92,7 +82,7 @@
     ]
   },
   "partials/blocks/gallery-grid/gallery-grid.js": {
-    "file": "js/gallery-grid-i7DP6VoA.js",
+    "file": "js/gallery-grid-BEdhPR8O.js",
     "name": "gallery-grid",
     "src": "partials/blocks/gallery-grid/gallery-grid.js",
     "isDynamicEntry": true,
@@ -135,7 +125,7 @@
     ]
   },
   "partials/blocks/popup/popup.js": {
-    "file": "js/popup-CZM6o4vm.js",
+    "file": "js/popup-DARfT0po.js",
     "name": "popup",
     "src": "partials/blocks/popup/popup.js",
     "isDynamicEntry": true,
