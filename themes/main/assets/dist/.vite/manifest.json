@@ -48,7 +48,7 @@
     "src": "assets/src/icons/social-youtube-colored.svg"
   },
   "assets/src/js/app.js": {
-    "file": "js/app-BrpvbOes.js",
+    "file": "js/app-ZMNhrMe8.js",
     "name": "app",
     "src": "assets/src/js/app.js",
     "isEntry": true,
@@ -68,7 +68,7 @@
       "partials/blocks/tabs/tabs.js"
     ],
     "css": [
-      "css/app-8JcjLuNF.css"
+      "css/app-CWm8VacR.css"
     ]
   },
   "partials/blocks/carousel/carousel.js": {
